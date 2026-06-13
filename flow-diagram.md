@@ -37,8 +37,8 @@
                  └───────┬─────┘ └────┬─────┘  └─────┬──────┘ └────┬────┘ └──┬──────┘
                          |            |              |             |         |
                     ┌────v────┐  ┌────v──────────┐  ┌─v────────┐ ┌──v──────┐ └──v──────┐
-                    │back_to: │  │back_to:       │  │back_to:  │ │back_to: │  │back_to: │
-                    │  null   │  │escalate-human │  │nurture-  │ │escalate │  │  null   │
+                    │next step: │  │next step:       │  │next step:  │ │next step: │  │next step: │
+                    │  null   │  │human handoff │  │nurture-  │ │escalate │  │  null   │
                     │         │  │ (if no resp   │  │sequence  │ │-human   │  │         │
                     │  DONE   │  │  in 60 min)   │  │          │ │ (assign │  │  DONE   │
                     └─────────┘  └────┬─────────┘  │          │ │  rep)   │  └─────────┘
@@ -109,7 +109,7 @@ Gate: Are ALL required fields present?
 - Same prospect viewed 2+ times
 - Time between views: 1–14 days
 - Increasing engagement signal (longer session time each visit)
-- Time-to-triage: 0–10 min (escalate-human)
+- Time-to-triage: 0–10 min (human handoff)
 - Confidence: 95%
 
 #### Path 5: COMPETITOR RESEARCH
@@ -129,25 +129,25 @@ Each path routes to:
 ### 5. **MESSAGE SENT & ROUTING DECISION**
 
 Each message includes:
-- **back_to field:** Where this prospect goes if next action is needed
+- **next step:** Where this prospect goes if next action is needed
   - `null` = complete (no follow-up)
-  - `escalate-human` = human takes over after timeout
-  - `nurture-sequence` = automated 3-day sequence
-  - `escalate-human` = assign to account rep (repeat visitor)
+  - `human handoff` = human takes over after timeout
+  - `nurture sequence` = automated 3-day sequence
+  - `human handoff` = assign to account rep (repeat visitor)
 
 ### 6. **TIMING GATES (SLA Enforcement)**
 
 | Path | Send By | Action If No Response |
 |------|---------|------------------------|
 | Hot | 10 min | null (booking confirmed) |
-| Abandoned | 10 min | Escalate-human at 60 min |
+| Abandoned | 10 min | Human handoff at 60 min |
 | Lukewarm | 30 min | Nurture sequence (auto) |
-| Repeat | 10 min | Escalate-human (assign rep) |
+| Repeat | 10 min | Human handoff (assign rep) |
 | Competitor | 10 min | null (polite close only) |
 
 ### 7. **OUTCOME RECORDED**
 
-Log: `{prospect, path, confidence, message_sent, back_to, timestamp, cta_response_if_any}`
+Log: `{prospect, path, confidence, message_sent, next step, timestamp, cta_response_if_any}`
 
 ---
 
@@ -159,37 +159,37 @@ IF event.prospect.name IS NULL → RULE 0 VIOLATION → ERROR
 IF event.demo.completion == "full" AND event.booked_call == true
   → PATH 1 (HOT)
   → ACTION: Booking Confirmation
-  → back_to: null
+  → next step: null
 
 IF event.demo.completion == "partial" AND event.session_seconds < 600
   → PATH 2 (ABANDONED)
   → ACTION: Clarification
-  → back_to: escalate-human (60-min timeout)
+  → next step: human handoff (60-min timeout)
 
 IF event.demo.completion == "full" AND event.booked_call == false AND event.cta_click == "tell_me_more"
   → PATH 3 (LUKEWARM)
   → ACTION: Nurture trigger
-  → back_to: nurture-sequence
+  → next step: nurture sequence
 
 IF event.visit_history.count >= 2 AND event.visit_history.time_range_days >= 1
   AND event.visit_history.latest_engagement > event.visit_history.first_engagement
   → PATH 4 (REPEAT)
   → ACTION: Escalate to account rep
-  → back_to: escalate-human (immediate assign)
+  → next step: human handoff (immediate assign)
 
 IF event.prospect.email.domain IN [competitor_domains]
   OR event.demo.pages_viewed INCLUDES [source_code, api_docs]
   OR event.demo.outcome_signal == "research_only"
   → PATH 5 (COMPETITOR)
   → ACTION: Polite close
-  → back_to: null
+  → next step: null
 
 FOR ALL PATHS:
   IF message_sent == true
-    → LOG: {path, confidence, timestamp, back_to, language}
-  IF back_to == escalate-human AND 60_minutes_elapsed AND no_response
+    → LOG: {path, confidence, timestamp, next step, language}
+  IF next step == human handoff AND 60_minutes_elapsed AND no_response
     → TRIGGER: Human handoff
-  IF back_to == nurture-sequence
+  IF next step == nurture sequence
     → TRIGGER: Day 1, Day 2, Day 3 emails over 3 days
 ```
 
@@ -236,7 +236,7 @@ IF event.language == "bilingual"
 
 - **0–10 min:** Paths 1, 2, 4, 5 (hot/abandoned/repeat/competitor)
 - **0–30 min:** Path 3 (lukewarm, nurture sequence trigger)
-- **60 min timeout:** Path 2 escalate-human gate (if no response)
+- **60 min timeout:** Path 2 human handoff gate (if no response)
 - **3 days:** Path 3 nurture sequence (Day 1, Day 2, Day 3)
 
 Missing these windows costs the entire business case (leads go cold).
@@ -295,6 +295,6 @@ The Demo Desk logs these metrics for every event:
 3. **Response rate** (prospect replied or clicked?)
 4. **Booking rate** (did this lead convert?)
 5. **Language routing accuracy** (correct template sent?)
-6. **Escalate-human handoff quality** (did human rep get full context?)
+6. **Human handoff quality** (did human rep get full context?)
 
 These drive future iteration and tuning.

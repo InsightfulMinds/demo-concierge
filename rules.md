@@ -25,7 +25,7 @@ This is the moat. It prevents the system from becoming another spray-and-pray fo
 **Action:**
 1. Extract call booking link from request
 2. Send **Booking Confirmation** message (90 seconds, vertical-specific, bilingual if needed)
-3. Back_to: null (call is booked; job complete)
+3. Next step: null (call is booked; job complete)
 4. Confidence: High
 
 **Message template (Sales-led segment):**
@@ -55,7 +55,7 @@ Any questions before our call? Reply here or jump on.
 **Action:**
 1. Send **Clarification** message within 10 minutes (what broke? what confused you?)
 2. Offer: "Let me show you the 2-minute shortcut version" (live short call)
-3. Back_to: escalate-human (if no response in 1h, human follows up)
+3. Next step: human handoff (if no response in 1h, human follows up)
 4. Confidence: Medium
 
 **Message template (Product-led segment):**
@@ -90,7 +90,7 @@ Link: [SHORT_CALL_LINK]
    - Day 1: "Here's what you saw in the demo" (recap + FAQ)
    - Day 2: Segment-specific case study (Sales-led, Product-led, Founder-led, or Enterprise)
    - Day 3: "Schedule a team walkthrough" (group call invite)
-2. Back_to: nurture-sequence (system owns this; human reviews if unsubscribe)
+2. Next step: nurture sequence (system owns this; human reviews if unsubscribe)
 3. Confidence: Medium
 
 **Nurture trigger (Sales-led segment):**
@@ -115,7 +115,7 @@ Language: [en|es]
 **Action:**
 1. Send **Escalation** message: "You've looked at this twice. Let me connect you with our team lead directly."
 2. Offer: 1:1 call with specialist (not just demo desk)
-3. Back_to: escalate-human (assign to account rep, this is a real opportunity)
+3. Next step: human handoff (assign to account rep, this is a real opportunity)
 4. Confidence: High
 
 **Message template (Enterprise segment):**
@@ -146,7 +146,7 @@ Let's talk directly with our team lead who specializes in your segment.
 **Action:**
 1. Send **Polite Close** message (no chase, no nurture)
 2. Acknowledge: "We know you're evaluating multiple tools. Best of luck."
-3. Back_to: null (do not follow up; competitor intelligence is expected, no harm)
+3. Next step: null (do not follow up; competitor intelligence is expected, no harm)
 4. Confidence: High
 
 **Message template (all segments, same):**

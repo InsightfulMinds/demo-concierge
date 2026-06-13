@@ -10,6 +10,6 @@ The problem is not the demo. The problem is the moment after. Intent signals are
 
 ## The Solution
 
-Demo Desk is an intent-driven follow-up operator that owns the critical minutes after a prospect shows interest. It evaluates the signal, classifies intent, and routes the next useful action: confirm, recover, nurture, escalate, or gracefully close. The system enforces Rule 0: no complete event data, no outreach. This discipline prevents low-quality follow-up and signals that lead quality matters more than volume. The back_to field routes every outcome to its next handler: null, escalate-human, or nurture-sequence. Outcomes are logged with confidence scores, so teams know which signals are reliable and which need human judgment.
+Demo Desk is an intent-driven follow-up operator that owns the critical minutes after a prospect shows interest. It evaluates the signal, classifies intent, and routes the next useful action: confirm, recover, nurture, escalate, or gracefully close. The system enforces Rule 0: no complete event data, no outreach. This discipline prevents low-quality follow-up and signals that lead quality matters more than volume. The next step routes every outcome to its next handler: null, human handoff, or nurture sequence. Outcomes are logged with confidence scores, so teams know which signals are reliable and which need human judgment.
 
 Demo Desk is not a replacement for the sales team. It is a force multiplier that turns fresh intent into a crisp routing decision, giving humans the right conversations instead of another pile of guesses.

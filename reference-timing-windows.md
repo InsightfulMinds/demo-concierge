@@ -7,7 +7,7 @@
 | **Path 1: Hot Lead** | Demo completed + booking requested | 0–10 min | Immediate | 95% |
 | **Path 2: Abandoned** | Demo departed midway | 0–10 min | Immediate + clarification | 65% |
 | **Path 3: Lukewarm** | Demo completed, no booking | 0–30 min, trigger nurture sequence | Day 1 within 2h of triage | 65% |
-| **Path 4: Repeat** | Prospect viewed 2+ times | 0–10 min | Immediate (escalate-human) | 95% |
+| **Path 4: Repeat** | Prospect viewed 2+ times | 0–10 min | Immediate (human handoff) | 95% |
 | **Path 5: Competitor** | Email domain match or research signal | 0–10 min | Polite close (no follow-up) | 95% |
 
 ## Why 10 Minutes Matters
@@ -22,7 +22,7 @@
 - **0–3 min:** "That was great! Let's keep momentum."
 - **3–10 min:** "You just saw [feature]. Let's talk about [your case]."
 - **10–30 min:** "You've had time to think. What questions came up?"
-- **30+ min:** "Let's schedule when you have the team available." (escalate-human)
+- **30+ min:** "Let's schedule when you have the team available." (human handoff)
 
 ## Renewal Trigger (Repeat Visitor)
 
@@ -32,7 +32,7 @@ A prospect who returns after 3+ days resets the clock:
 |---------|----------|--------|
 | 1st view | — | Demo Desk triage normal path |
 | 2nd view | 1–3 days | Increase confidence +15%; note return |
-| 3rd view | 4+ days from 1st | Escalate-human; high-intent signal |
+| 3rd view | 4+ days from 1st | Human handoff; high-intent signal |
 | 4+ view | Any gap | Direct assignment to account rep |
 
 ## Segment-Specific Timing Adjustments
@@ -71,7 +71,7 @@ Escalate immediately (skip Demo Desk, go to account rep):
 
 **Automatic archival:**
 - If triage request arrives >60 minutes after demo end, do not send Path 1/2 message
-- Instead, check: is this a repeat visitor? If yes, escalate-human. If no, archive and trigger nurture-if-lukewarm only.
+- Instead, check: is this a repeat visitor? If yes, human handoff. If no, archive and trigger nurture-if-lukewarm only.
 
 **Clock reset on revisit:**
 - Each new visit restarts the timing window

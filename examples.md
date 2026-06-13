@@ -27,7 +27,7 @@ Time-to-triage: 3 minutes (demo end to signal arrival)
    - Booking already made ✓
    - Time-to-message: < 10 min ✓
 3. **Message template:** Booking Confirmation (Growth persona, English)
-4. **Back_to field:** null (booking is confirmed; no handoff needed)
+4. **Next step:** null (booking is confirmed; no handoff needed)
 5. **Confidence:** High (95%)
 
 **Action Taken:**
@@ -76,7 +76,7 @@ Time-to-triage: 8 minutes (demo end to signal arrival)
    - No completion signal ✓
    - No explicit objection, just exit ✓
 3. **Message template:** Clarification + Short Offer (RevOps persona, Spanish)
-4. **Back_to field:** escalate-human (if no response in 60 min, hand off to a human)
+4. **Next step:** human handoff (if no response in 60 min, hand off to a human)
 5. **Confidence:** Medium (65%)
 
 **Action Taken:**
@@ -101,7 +101,7 @@ Link: [SHORT_CALL_LINK]
 
 **Outcome:** Clarification offered. If Diego responds, the pathway branches:
 - Responds with a question → send a short clip or a brief call
-- No response in 1h → escalate-human triggers (a human sends the follow-up)
+- No response in 1h → human handoff triggers (a human sends the follow-up)
 - Books a call → graduates to Path 1 (booking confirmed)
 
 ---
@@ -130,7 +130,7 @@ Notes: "Wants to align with the platform team before committing"
    - No immediate booking ✓
    - Showed interest (clicked "Tell me more") ✓
 3. **Message template:** Nurture sequence trigger (technical / DevTools tone, 3-day cadence)
-4. **Back_to field:** nurture-sequence (system-owned; a human reviews on unsubscribe)
+4. **Next step:** nurture sequence (system-owned; a human reviews on unsubscribe)
 5. **Confidence:** Medium (65%)
 
 **Action Taken:**
@@ -180,7 +180,7 @@ Time-to-triage: 6 minutes (from Visit 3 completion)
    - Increasing engagement (5 min → 9.5 min → 12 min) ✓
    - 3–4 days between views (sweet spot: not forgotten, not impatient) ✓
 3. **Message template:** Escalation to Account Executive (founder-eval tone)
-4. **Back_to field:** escalate-human (assign to an AE)
+4. **Next step:** human handoff (assign to an AE)
 5. **Confidence:** High (95%)
 
 **Action Taken:**

@@ -111,7 +111,7 @@ As the Demo Desk scales, measure:
 - **Correlation between path classification confidence and actual booking rate** (refine confidence scoring)
 - **Language preference accuracy** (does a Spanish-speaking buyer actually prefer ES template over EN?)
 - **Segment-specific tone effectiveness** (which message variant drives higher response rate per segment?)
-- **Escalate-human handoff quality** (do human reps close at same rate across all path 4 referrals?)
+- **Human handoff handoff quality** (do human reps close at same rate across all path 4 referrals?)
 
 These experiments will strengthen the methodology and add new citations to future versions.
 

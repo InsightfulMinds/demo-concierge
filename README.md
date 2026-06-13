@@ -74,12 +74,12 @@ Missing: prospect name, business context, source, timestamp, or outcome signal â
 
 ### 5 Decision Paths
 
-| Path | Signal | Action | Back-to |
+| Path | Signal | Action | Next step |
 |------|--------|--------|---------|
 | **1: Hot** | Completed + booked | Send booking confirmation | null |
-| **2: Abandoned** | Exited midway | Send clarification + offer short call | escalate-human (if no response in 1h) |
-| **3: High engagement** | Completed, form submit, clicked deeper, no booking | Trigger short nurture sequence | nurture-sequence (system-owned) |
-| **4: Repeat** | Multiple visits in a short period | Escalate to account rep | escalate-human (high intent) |
+| **2: Abandoned** | Exited midway | Send clarification + offer short call | human handoff (if no response in 1h) |
+| **3: High engagement** | Completed, form submit, clicked deeper, no booking | Trigger short nurture sequence | nurture sequence (system-owned) |
+| **4: Repeat** | Multiple visits in a short period | Escalate to account rep | human handoff (high intent) |
 | **5: Competitor** | Competitor domain or "research only" | Polite close, no follow-up | null |
 
 ---
@@ -126,7 +126,7 @@ All test cases have expected outcomes. Proof log shows actual results.
 1. Copy `identity.md` into a new conversation
 2. Paste the demo event (JSON format recommended)
 3. Say: "Triage this demo event"
-4. Demo Desk outputs: path classification + message + back_to routing
+4. Demo Desk outputs: path classification + message + next step routing
 
 **With a DIY automation platform:**
 1. Webhook receives demo event from the demo experience
