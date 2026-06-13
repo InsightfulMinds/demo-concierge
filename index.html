@@ -53,6 +53,7 @@
     .nav-inner{display:flex;align-items:center;gap:20px;min-height:68px}
     .brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:1.12rem;color:var(--forest);letter-spacing:0}
     .brand svg{display:block;filter:drop-shadow(0 2px 4px rgba(40,67,58,.12))}
+    .brand-logo-mark{display:block;width:32px;height:32px;border-radius:10px;object-fit:contain;filter:drop-shadow(0 2px 4px rgba(40,67,58,.12))}
     .nav-spacer{flex:1}
     .nav-link{color:var(--muted);font-weight:600;font-size:.93rem;padding:7px 2px;border-bottom:2px solid transparent;transition:.18s}
     .nav-link.active,.nav-link:hover{color:var(--forest);border-color:var(--clay)}
@@ -186,8 +187,8 @@
     .video-points li::before{content:"";width:7px;height:7px;margin-top:9px;border-radius:50%;background:var(--clay);flex:0 0 auto}
     .video-shell{position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:var(--r-sm);border:1px solid var(--line-2);background:linear-gradient(135deg,var(--forest-2),var(--forest));box-shadow:var(--shadow-sm)}
     .video-shell iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-    .video-preview{position:absolute;inset:0;display:grid;place-items:center;padding:28px;text-align:center;color:var(--cream-hi);background:radial-gradient(circle at 75% 18%,rgba(191,227,206,.24),transparent 26%),linear-gradient(135deg,var(--forest-2),var(--forest))}
-    .video-preview::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(251,247,238,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(251,247,238,.08) 1px,transparent 1px);background-size:36px 36px;opacity:.32}
+    .video-preview{position:absolute;inset:0;display:grid;place-items:center;padding:28px;text-align:center;color:var(--cream-hi);background:linear-gradient(rgba(30,51,44,.42),rgba(30,51,44,.68)),url("assets/video_poster_v2.png");background-size:cover;background-position:center}
+    .video-preview::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(251,247,238,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(251,247,238,.08) 1px,transparent 1px);background-size:36px 36px;opacity:.22}
     .video-preview-inner{position:relative;z-index:1;max-width:540px}
     .play-button{display:inline-grid;place-items:center;width:74px;height:74px;margin-bottom:20px;border:1px solid rgba(251,247,238,.34);border-radius:999px;background:var(--mint);color:var(--forest);box-shadow:0 16px 36px rgba(0,0,0,.22);font-size:1.9rem;cursor:pointer;transition:transform .16s,background .16s}
     .play-button:hover{transform:translateY(-2px);background:var(--cream-hi)}
@@ -254,15 +255,7 @@
   <nav class="nav">
     <div class="wrap nav-inner">
       <a class="brand" href="index.html">
-        <svg viewBox="0 0 40 40" width="32" height="32" aria-hidden="true">
-          <rect width="40" height="40" rx="11" fill="#BFE3CE"/>
-          <rect x="14" y="10.5" width="12" height="8.5" rx="1.4" fill="#FBF7EE" stroke="#28433A" stroke-width="2"/>
-          <line x1="20" y1="19" x2="20" y2="21.6" stroke="#28433A" stroke-width="2"/>
-          <rect x="7.5" y="21.6" width="25" height="3.2" rx="1.6" fill="#28433A"/>
-          <path d="M11 24.8l-1.2 7M29 24.8l1.2 7" stroke="#28433A" stroke-width="2.4" stroke-linecap="round"/>
-          <path d="M30.6 21.6v-3.2l2.6-1.8" fill="none" stroke="#CC8264" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="33.4" cy="16.2" r="1.7" fill="#CC8264"/>
-        </svg>
+        <img class="brand-logo-mark" src="assets/demo_desk_icon.png" alt="">
         Demo Desk
       </a>
       <span class="nav-spacer"></span>
@@ -492,7 +485,7 @@
   <footer>
     <div class="wrap">
       <span class="fbrand">
-        <svg viewBox="0 0 40 40" width="26" height="26" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#BFE3CE"/><rect x="14" y="10.5" width="12" height="8.5" rx="1.4" fill="#FBF7EE" stroke="#28433A" stroke-width="2"/><rect x="7.5" y="21.6" width="25" height="3.2" rx="1.6" fill="#28433A"/><path d="M11 24.8l-1.2 7M29 24.8l1.2 7" stroke="#28433A" stroke-width="2.4" stroke-linecap="round"/><circle cx="33.4" cy="16.2" r="1.7" fill="#CC8264"/></svg>
+        <img class="brand-logo-mark" src="assets/demo_desk_icon.png" alt="">
         Demo Desk
       </span>
       <p>Intent-response operator for demo-led teams</p>

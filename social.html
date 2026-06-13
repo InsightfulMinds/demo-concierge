@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
   Demo Desk — Social Proof page (illustrative mockup).
-  Self-contained: no external assets, fonts, or scripts. All imagery is generated inline SVG.
+  Self-contained except approved local brand assets.
   Engagement figures and customer names are representative sample content for demonstration,
   not live metrics. Brand: Demo Desk.
 -->
@@ -47,6 +47,7 @@
   .hero h1,.brand{font-family:"Fraunces",Georgia,serif}
   a{color:inherit;text-decoration:none}
   img{display:block;max-width:100%}
+  .media-img{display:block;width:100%;height:100%;object-fit:cover}
   .wrap{max-width:980px;margin:0 auto;padding:0 16px}
 
   /* ---------- top site nav ---------- */
@@ -67,7 +68,7 @@
   .hero h1{font-size:1.7rem;font-weight:800;letter-spacing:0}
   .hero p{opacity:.9;margin-top:6px;max-width:640px}
   .hero-card{border:1px solid rgba(251,247,238,.18);border-radius:12px;overflow:hidden;background:#FBF7EE;box-shadow:0 16px 40px rgba(0,0,0,.16)}
-  .hero-card img{display:block;width:100%;height:auto}
+  .hero-card img{display:block;width:100%;height:auto;padding:26px;background:#FBF7EE}
 
   /* ---------- platform tabs ---------- */
   .tabs{position:sticky;top:60px;z-index:40;background:var(--bg);padding:14px 0 6px}
@@ -220,6 +221,7 @@
   .asset-card.mini{position:relative;width:100%;height:100%;padding:0;display:grid;place-items:center;text-align:center}
   .asset-card.mini .asset-title{font-family:var(--sans);font-size:.78rem;line-height:1.05}
   .mimg .asset-card{position:relative;min-height:100%}
+  .mimg .media-img{min-height:100%;object-fit:cover}
 
   @media(max-width:720px){
     .ig-head{flex-direction:column;text-align:center;gap:16px}
@@ -254,7 +256,7 @@
     <p>Illustrative social assets for an intent-response operator: intent signal in, routing decision out, useful follow-up within minutes.</p>
   </div>
   <div class="hero-card" aria-hidden="true">
-    <img src="assets/hero-diagram.svg" alt="">
+    <img src="assets/demo_desk_logo.png" alt="">
   </div>
 </div></div>
 
@@ -384,19 +386,12 @@
 </footer>
 
 <script>
-/* ---------- inline SVG asset generators (no external images) ---------- */
+/* ---------- asset generators + approved local media ---------- */
 function uri(svg){return "url(\"data:image/svg+xml;utf8,"+encodeURIComponent(svg)+"\")";}
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 
 // brand logomark avatar
-function avatar(){return uri(
-  '<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#28433A"/><stop offset="1" stop-color="#6FA98C"/></linearGradient></defs>'+
-  '<rect width="240" height="240" fill="url(#g)"/>'+
-  '<rect x="62" y="138" width="116" height="15" rx="7" fill="#FBF7EE"/>'+
-  '<path d="M80 153l-9 40M160 153l9 40" stroke="#FBF7EE" stroke-width="12" stroke-linecap="round"/>'+
-  '<rect x="92" y="88" width="56" height="40" rx="6" fill="none" stroke="#FBF7EE" stroke-width="7"/>'+
-  '<path d="M170 138v-22l16-11" fill="none" stroke="#CC8264" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>'+
-  '<circle cx="188" cy="100" r="9" fill="#CC8264"/></svg>');}
+function avatar(){return 'url("assets/demo_desk_icon.png")';}
 
 function person(seed){var c=['#0ea5e9','#6366f1','#f97316','#10b981','#ec4899','#14b8a6','#8b5cf6','#ef4444'][seed%8];
   return uri('<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120"><rect width="120" height="120" fill="'+c+'"/>'+
@@ -447,6 +442,11 @@ function assetHTML(o, shape){
   '</div>';
 }
 
+function mediaHTML(o, shape){
+  if(o.src) return '<img class="media-img" src="'+esc(o.src)+'" alt="">';
+  return assetHTML(o, shape);
+}
+
 function banner(){return uri('<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="200"><defs><linearGradient id="b" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1E332C"/><stop offset="1" stop-color="#28433A"/></linearGradient></defs>'+
   '<rect width="1280" height="200" fill="url(#b)"/>'+
   '<g opacity=".55">'+[0,1,2,3,4,5,6,7].map(function(i){return '<circle cx="'+(120+i*150)+'" cy="100" r="'+(8+i*3)+'" fill="none" stroke="#6FA98C" stroke-width="2"/>';}).join('')+'</g>'+
@@ -455,10 +455,10 @@ function banner(){return uri('<svg xmlns="http://www.w3.org/2000/svg" width="128
 
 /* ---------- DATA ---------- */
 var IG_GRID=[
-  {pal:'dark',kind:'stat',title:'Intent shown',label:'now what?',cap:'Most teams optimize for getting a prospect into the demo. Demo Desk owns the minutes right after interest is shown.',likes:'3,204',cmts:[['opslead_maya','this is the missing handoff'],['growthmark','routing beats blasting'],['demodesk','signal first, action second']],time:'2 DAYS AGO'},
-  {pal:'green',kind:'card',title:'Booked call',label:'Confirm',cap:'If the prospect books, Demo Desk confirms the meeting and stops. No extra nurture. No duplicate chase.',likes:'1,540',cmts:[['revops_eli','love the restraint'],['founderdesk','clean handoff'],['demodesk','the useful action is enough']],time:'4 DAYS AGO'},
-  {pal:'blue',kind:'card',title:'Abandoned demo',label:'Recover',cap:'An abandoned demo is not always a lost lead. It may be confusion. Demo Desk asks one useful clarification question.',likes:'2,891',cmts:[['pm_sara','this is so much better than a drip'],['salesops_drew','one useful question wins'],['demodesk','confused is not cold']],time:'5 DAYS AGO'},
-  {pal:'amber',kind:'card',title:'Repeat visit',label:'Escalate',cap:'Multiple visits in a short window are a high-intent signal. Demo Desk routes that to a human with context.',likes:'1,102',cmts:[['ae_jordan','this is where reps should spend time'],['demodesk','exactly: context before contact']],time:'1 WEEK AGO'},
+  {src:'assets/panel_1_speed.png',pal:'dark',kind:'stat',title:'Intent shown',label:'now what?',cap:'Most teams optimize for getting a prospect into the demo. Demo Desk owns the minutes right after interest is shown.',likes:'3,204',cmts:[['opslead_maya','this is the missing handoff'],['growthmark','routing beats blasting'],['demodesk','signal first, action second']],time:'2 DAYS AGO'},
+  {src:'assets/panel_2_recovery.png',pal:'green',kind:'card',title:'Booked call',label:'Confirm',cap:'If the prospect books, Demo Desk confirms the meeting and stops. No extra nurture. No duplicate chase.',likes:'1,540',cmts:[['revops_eli','love the restraint'],['founderdesk','clean handoff'],['demodesk','the useful action is enough']],time:'4 DAYS AGO'},
+  {src:'assets/panel_3_outreach.png',pal:'blue',kind:'card',title:'Abandoned demo',label:'Recover',cap:'An abandoned demo is not always a lost lead. It may be confusion. Demo Desk asks one useful clarification question.',likes:'2,891',cmts:[['pm_sara','this is so much better than a drip'],['salesops_drew','one useful question wins'],['demodesk','confused is not cold']],time:'5 DAYS AGO'},
+  {src:'assets/panel_4_sequence.png',pal:'amber',kind:'card',title:'Repeat visit',label:'Escalate',cap:'Multiple visits in a short window are a high-intent signal. Demo Desk routes that to a human with context.',likes:'1,102',cmts:[['ae_jordan','this is where reps should spend time'],['demodesk','exactly: context before contact']],time:'1 WEEK AGO'},
   {pal:'teal',kind:'card',title:'Form submit',label:'Classify',cap:'A form submission is not automatically hot. Demo Desk reads the surrounding behavior before picking a follow-up path.',likes:'1,876',cmts:[['demandgen_lina','thank you for saying this'],['demodesk','not all forms mean the same thing']],time:'1 WEEK AGO'},
   {pal:'slate',kind:'stat',title:'0',label:'guesswork',cap:'No complete event data means no outreach. Demo Desk refuses to invent intent.',likes:'2,233',cmts:[['crm_admin','this would save our database'],['demodesk','clean inputs, clean actions']],time:'2 WEEKS AGO'},
   {pal:'violet',kind:'card',title:'Research-only',label:'Close',cap:'Competitor or research-only signals get a graceful close. No nurture. No retargeting pile-on.',likes:'987',cmts:[['legalops','underrated'],['demodesk','respect is part of the system']],time:'2 WEEKS AGO'},
@@ -470,10 +470,10 @@ var IG_GRID=[
 ];
 
 var YT_VIDS=[
-  {pal:'dark',title:'Demo Desk Walkthrough: Intent Signal to Follow-Up Action',dur:'6:42',views:'48K views',ago:'2 weeks ago'},
-  {pal:'blue',title:'What Happens After Someone Abandons Your Demo?',dur:'4:18',views:'23K views',ago:'3 weeks ago'},
-  {pal:'green',title:'How to Route Repeat Visitors Without Guessing',dur:'8:09',views:'11K views',ago:'1 month ago'},
-  {pal:'slate',title:'Rule 0: No Event Data, No Outreach',dur:'5:33',views:'8.9K views',ago:'1 month ago'},
+  {src:'assets/panel_1_speed.png',pal:'dark',title:'Demo Desk Walkthrough: Intent Signal to Follow-Up Action',dur:'6:42',views:'48K views',ago:'2 weeks ago'},
+  {src:'assets/panel_2_recovery.png',pal:'blue',title:'What Happens After Someone Abandons Your Demo?',dur:'4:18',views:'23K views',ago:'3 weeks ago'},
+  {src:'assets/panel_3_outreach.png',pal:'green',title:'How to Route Repeat Visitors Without Guessing',dur:'8:09',views:'11K views',ago:'1 month ago'},
+  {src:'assets/panel_4_sequence.png',pal:'slate',title:'Rule 0: No Event Data, No Outreach',dur:'5:33',views:'8.9K views',ago:'1 month ago'},
   {pal:'pink',title:'Five Follow-Up Routes for Product Demo Teams',dur:'7:12',views:'14K views',ago:'1 month ago'},
   {pal:'amber',title:'Booked Call Confirmation vs. Nurture: Choosing Correctly',dur:'6:50',views:'19K views',ago:'2 months ago'},
   {pal:'violet',title:'Competitor Signal? Graceful Close, No Chase',dur:'5:27',views:'7.2K views',ago:'2 months ago'},
@@ -491,23 +491,23 @@ var YT_SHORTS=[
 var LI_POSTS=[
   {who:'Demo Desk',sub:'4,127 followers',time:'1d',logo:true,
    text:'Most companies obsess over getting prospects into a demo.\n\nDemo Desk owns what happens immediately after interest is shown. Demo completed, abandoned, repeat visit, booked call, form submit, high engagement, research-only signal: each one gets classified and routed into the next useful action.',
-   tag:'#RevOps #ProductDemos #LeadResponse',img:{pal:'dark',kind:'card',title:'Own the minutes after interest',label:'Demo Desk'},likes:'1,284',cmts:'96',reps:'141'},
+   tag:'#RevOps #ProductDemos #LeadResponse',img:{src:'assets/panel_1_speed.png',pal:'dark',kind:'card',title:'Own the minutes after interest',label:'Demo Desk'},likes:'1,284',cmts:'96',reps:'141'},
   {who:'Demo Desk',sub:'4,127 followers',time:'4d',logo:true,
    text:'A booked call does not need five more emails.\n\nIt needs a clean confirmation, the right context attached, and a handoff that tells the next owner exactly what happened. Demo Desk is built around that kind of restraint.',
-   tag:'#SalesOps #RevOps',img:{pal:'green',kind:'card',title:'Booked call → confirmation',label:'Route 1'},likes:'742',cmts:'58',reps:'63'},
+   tag:'#SalesOps #RevOps',img:{src:'assets/panel_2_recovery.png',pal:'green',kind:'card',title:'Booked call → confirmation',label:'Route 1'},likes:'742',cmts:'58',reps:'63'},
   {who:'Demo Desk',sub:'4,127 followers',time:'1w',logo:true,
    text:'An abandoned demo is a signal, not a verdict.\n\nSometimes the prospect is confused. Sometimes the timing is wrong. Sometimes they need a human. Demo Desk reads the event before choosing whether to recover, nurture, escalate, or close.',
-   tag:'#DemandGen #IntentData',img:{pal:'blue',kind:'card',title:'Abandoned demo → recover',label:'Route 2'},likes:'431',cmts:'37',reps:'88'},
+   tag:'#DemandGen #IntentData',img:{src:'assets/panel_3_outreach.png',pal:'blue',kind:'card',title:'Abandoned demo → recover',label:'Route 2'},likes:'431',cmts:'37',reps:'88'},
   {who:'Demo Desk',sub:'4,127 followers',time:'2w',logo:true,
    text:'Rule 0 is the moat: no complete event data, no outreach.\n\nDemo Desk is not a spray-and-pray system. If it cannot read the signal, it does not invent one.',
-   tag:'#LeadResponse #SystemsDesign',img:{pal:'amber',kind:'card',title:'No data → no outreach',label:'Rule 0'},likes:'968',cmts:'74',reps:'120'}
+   tag:'#LeadResponse #SystemsDesign',img:{src:'assets/panel_4_sequence.png',pal:'amber',kind:'card',title:'No data → no outreach',label:'Rule 0'},likes:'968',cmts:'74',reps:'120'}
 ];
 
 var TT=[
-  {pal:'blue',title:'POV: the demo ended. now what?',v:'1.2M'},
-  {pal:'green',title:'booked call → confirm and stop',v:'842K'},
-  {pal:'pink',title:'abandoned demo is not always cold',v:'410K'},
-  {pal:'amber',title:'repeat visit = high intent signal',v:'1.6M'},
+  {src:'assets/panel_1_speed.png',pal:'blue',title:'POV: the demo ended. now what?',v:'1.2M'},
+  {src:'assets/panel_2_recovery.png',pal:'green',title:'booked call → confirm and stop',v:'842K'},
+  {src:'assets/panel_3_outreach.png',pal:'pink',title:'abandoned demo is not always cold',v:'410K'},
+  {src:'assets/panel_4_sequence.png',pal:'amber',title:'repeat visit = high intent signal',v:'1.6M'},
   {pal:'violet',title:'research-only? graceful close.',v:'305K'},
   {pal:'dark',title:'no data means no outreach',v:'221K'},
   {pal:'teal',title:'form submit needs context',v:'533K'},
@@ -527,7 +527,7 @@ document.getElementById('igHl').innerHTML=HL.map(function(h){
 
 // IG grid
 document.getElementById('igGrid').innerHTML=IG_GRID.map(function(p,i){
-  return '<div class="gtile" data-i="'+i+'">'+assetHTML(p,'square')+
+  return '<div class="gtile" data-i="'+i+'">'+mediaHTML(p,'square')+
     (i<3?'<svg class="multi" width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M16 2H4a2 2 0 00-2 2v12h2V4h12zM20 6H8a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V8a2 2 0 00-2-2z"/></svg>':'')+
     '<div class="ov"><span><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/></svg> '+p.likes+'</span>'+
     '<span><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M21 11.5a8.5 8.5 0 01-12.6 7.4L3 21l2.1-5.4A8.5 8.5 0 1121 11.5z"/></svg> '+p.cmts.length+'</span></div></div>';
@@ -535,7 +535,7 @@ document.getElementById('igGrid').innerHTML=IG_GRID.map(function(p,i){
 
 // YT
 document.getElementById('ytGrid').innerHTML=YT_VIDS.map(function(v){
-  return '<div class="vid"><div class="vthumb">'+assetHTML({pal:v.pal,title:v.title,label:'Video'},'wide')+'<span class="dur">'+v.dur+'</span></div>'+
+  return '<div class="vid"><div class="vthumb">'+mediaHTML(v,'wide')+'<span class="dur">'+v.dur+'</span></div>'+
     '<h3>'+esc(v.title)+'</h3><div class="m">'+v.views+' · '+v.ago+'</div></div>';
 }).join('');
 document.getElementById('ytShorts').innerHTML=YT_SHORTS.map(function(s){
@@ -548,14 +548,14 @@ document.getElementById('liFeed').innerHTML=LI_POSTS.map(function(p){
     '<div><div class="pn">'+esc(p.who)+' <svg class="verified" viewBox="0 0 24 24" fill="#0a66c2"><path d="M12 2l2.4 1.8 3-.2 1 2.8L21 8l-.9 2.9L21 13.8l-2.6 1.5-1 2.8-3-.2L12 19.8l-2.4-1.8-3 .2-1-2.8L3 13.8 3.9 11 3 8l2.6-1.5 1-2.8 3 .2z"/><path d="M10.4 14.2l-2-2 1.2-1.2.8.8 3-3 1.2 1.2z" fill="#fff"/></svg></div>'+
     '<div class="pm">'+p.sub+'</div><div class="pm">'+p.time+' · 🌐</div></div></div>'+
     '<div class="pt">'+esc(p.text)+'\n<span class="tag">'+esc(p.tag)+'</span></div>'+
-    '<div class="pimg">'+assetHTML({pal:p.img.pal,title:p.img.title,label:p.img.label},'wide')+'</div>'+
+    '<div class="pimg">'+mediaHTML(p.img,'wide')+'</div>'+
     '<div class="react"><span class="emo"><i style="background:#0a66c2;color:#fff">👍</i><i style="background:#df704d;color:#fff">❤</i><i style="background:#f5bb5c;color:#fff">💡</i></span>&nbsp;'+p.likes+' · '+p.cmts+' comments · '+p.reps+' reposts</div>'+
     '<div class="bar"><b>👍 Like</b><b>💬 Comment</b><b>🔁 Repost</b><b>➤ Send</b></div></div>';
 }).join('');
 
 // TT
 document.getElementById('ttGrid').innerHTML=TT.map(function(t){
-  return '<div class="tt-tile">'+assetHTML({pal:t.pal,title:t.title,label:'TikTok'},'vertical')+'<div class="cap">'+esc(t.title)+'</div><span class="v">▶ '+t.v+'</span></div>';
+  return '<div class="tt-tile">'+mediaHTML(t,'vertical')+'<div class="cap">'+esc(t.title)+'</div><span class="v">▶ '+t.v+'</span></div>';
 }).join('');
 
 /* ---------- TAB SWITCHING ---------- */
@@ -572,7 +572,7 @@ var modal=document.getElementById('modal');
 document.getElementById('igGrid').addEventListener('click',function(e){
   var t=e.target.closest('.gtile');if(!t)return;var p=IG_GRID[+t.dataset.i];
   document.getElementById('mImg').style.backgroundImage='none';
-  document.getElementById('mImg').innerHTML=assetHTML(p,'square');
+  document.getElementById('mImg').innerHTML=mediaHTML(p,'square');
   document.getElementById('mLikes').textContent=p.likes+' likes';
   document.getElementById('mTime').textContent=p.time;
   document.getElementById('mCom').innerHTML='<div class="c"><b>demodesk</b>'+esc(p.cap)+'</div>'+
