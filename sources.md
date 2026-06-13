@@ -25,7 +25,7 @@ The Demo Desk integrates proven frameworks from sales, behavioral economics, and
 - **Rule connection:** Path classification is "inner game" discipline: stop trying to force an outcome (generic pitch), read the actual state (demo signals), respond with clarity.
 
 ### 5. **Dale Carnegie — How to Win Friends and Influence People**
-- **Applied:** Personalization by vertical, respect for prospect context, Spanish-native messaging (not English-centric)
+- **Applied:** Personalization by segment, respect for prospect context, Spanish-native messaging (not English-centric)
 - **Citation:** Carnegie, D. (1936). How to Win Friends and Influence People. Simon and Schuster.
 - **Rule connection:** Path 1-5 messaging uses Carnegie's principle: "People like to hear about themselves." A Sales-led buyer gets Sales-led language, not generic "business owner" pablum.
 
@@ -35,7 +35,7 @@ The Demo Desk integrates proven frameworks from sales, behavioral economics, and
 
 ### **Sales Follow-Up Timing Research**
 - **Finding:** 0–10 min follow-up on warm leads = 90% higher response rate than follow-ups after 30 min
-- **Source:** HubSpot Sales Research (2023); Outreach "The State of Sales" reports (2022–2024)
+- **Source:** public sales follow-up benchmark studies
 - **Applied in:** Timing windows in rules.md; SLA enforcement in reference-timing-windows.md
 
 ### **TCPA Compliance & SMS Best Practices**
@@ -50,7 +50,7 @@ The Demo Desk integrates proven frameworks from sales, behavioral economics, and
 
 ### **Lead Qualification & Signal Reading**
 - **Finding:** Demo completion behavior (time spent, pages visited, CTA clicked) is 3x more predictive of conversion than demographic data
-- **Source:** SiriusDecisions Lead Scoring research; Marketo "The State of Demand Generation" reports
+- **Source:** public lead-scoring and demand-generation benchmark studies
 - **Applied in:** Path classification logic (completion time, CTA clicks, repeat visit patterns determine path)
 
 ---
@@ -95,7 +95,7 @@ The Demo Desk differs from generic follow-up systems on three axes:
 Every rule in the Demo Desk traces back to one or more sources above. You can verify:
 
 1. **Path logic** against Voss, Whitmore, Cialdini frameworks
-2. **Timing windows** against HubSpot/Outreach research
+2. **Timing windows** against public sales follow-up benchmark research
 3. **Bilingual routing** against CAA/Duolingo language preference data
 4. **Rule 0 discipline** against Popper/Kahneman uncertainty principles
 5. **Message tone** against Carnegie/Voss interpersonal research

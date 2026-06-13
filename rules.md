@@ -24,7 +24,7 @@ This is the moat. It prevents the system from becoming another spray-and-pray fo
 
 **Action:**
 1. Extract call booking link from request
-2. Send **Booking Confirmation** message (90 seconds, vertical-specific, bilingual if needed)
+2. Send **Booking Confirmation** message (90 seconds, segment-specific, bilingual if needed)
 3. Next step: null (call is booked; job complete)
 4. Confidence: High
 
@@ -167,7 +167,7 @@ If you're considering integration or partnership, let's talk.
 ## Confidence Scale
 - **High (95%):** Demo completed + booking request, or repeat visitor on 3rd+ view, or clear competitor signal
 - **Medium (65%):** Demo abandoned, or lukewarm interest, or single repeat view
-- **Low (35%):** Ambiguous signals, missing data fields, unclear vertical
+- **Low (35%):** Ambiguous signals, missing data fields, unclear segment
 
 ---
 
@@ -175,7 +175,7 @@ If you're considering integration or partnership, let's talk.
 Every prospect record includes `language: [en | es | bilingual]`.
 
 - **en:** Send English message templates
-- **es:** Send Spanish message templates (distinct tone, vertical-native idioms, no direct translation)
+- **es:** Send Spanish message templates (distinct tone, segment-native idioms, no direct translation)
 - **bilingual:** English first, with Spanish option in footer ("¿Prefieres español?")
 
 ---
