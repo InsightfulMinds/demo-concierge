@@ -33,7 +33,7 @@ Demo Desk Team
 
 ### Why It Fails
 
-- ❌ **No personalization:** Same message to plumber, electrician, dentist — different pain points completely ignored
+- ❌ **No personalization:** Same message to Sales-led, Product-led, Founder-led — different pain points completely ignored
 - ❌ **No signal detection:** Marcus Chen booked a call; Lisa Rodriguez abandoned in confusion. Same message to both.
 - ❌ **Spray metric:** Email is sent to 100 people; 2% open it; no one replies
 - ❌ **No urgency:** Message arrives 1h after demo (lead is already cooling)
@@ -48,17 +48,17 @@ Demo Desk Team
 ## The Demo Desk's Approach (Contrast)
 
 ```
-Prospect: Marcus Chen (Plumbing, Booked Call)
+Prospect: Marcus Chen (Northwind Analytics, Sales-led, Booked Call)
 → Path 1: Booking Confirmation (2 min)
-→ Message: "Your call is on the calendar. We'll talk about your crew's workflow."
+→ Message: "Your call is on the calendar. We'll talk about your demo workflows."
 
-Prospect: Lisa Rodriguez (Electrical, Abandoned)
+Prospect: Lisa Rodriguez (Lumen Logistics, Sales-led, Abandoned)
 → Path 2: Clarification (8 min)
 → Message: "You stepped out early. What didn't make sense?" (Spanish)
 
-Prospect: Alex Johnson (@n8n.com, Competitor)
+Prospect: Alex Johnson (@rival-saas.com, Competitor)
 → Path 5: Polite Close (4 min)
-→ Message: "Thanks for checking us out. If you build on our tech, let's talk."
+→ Message: "Thanks for checking us out. If you integrate our API, let's talk."
 
 Prospect: [Unknown data]
 → Rule 0: Violation
@@ -80,7 +80,7 @@ A system triple-texts a prospect on the same day without waiting for responses:
 "Hi Marcus, thanks for trying the demo! Schedule your call here: [LINK]"
 
 1:15 PM — Text 2:
-"Marcus, didn't hear from you. Check out our plumbing case studies: [LINK]"
+"Marcus, didn't hear from you. Check out our SaaS case studies: [LINK]"
 
 2:30 PM — Text 3:
 "FINAL REMINDER: Limited spots available for calls this week. Book now: [LINK]"
@@ -89,7 +89,7 @@ A system triple-texts a prospect on the same day without waiting for responses:
 ### Why It Fails
 
 - ❌ **Harassment:** 3 texts in 3 hours feels pushy, not helpful
-- ❌ **No signal reading:** Prospect might be in the field (plumber). Texts disappear.
+- ❌ **No signal reading:** Prospect might be busy. Texts disappear.
 - ❌ **Spam complaints:** Multiple texts same day triggers "stop texts" request
 - ❌ **No respect for timezone:** 1:15 PM text doesn't account for prospect's actual schedule
 - ❌ **Consent violation:** SMS without prior opt-in is TCPA violation
@@ -124,22 +124,22 @@ If booked but cold lead: Nurture sequence 1x/day for 3 days (not 3x/hour).
 A system sees a prospect abandoned the demo midway and immediately sends a sales pitch:
 
 ```
-Prospect: Lisa Rodriguez (Electrical, Abandoned after 4 min)
+Prospect: Lisa Rodriguez (Lumen Logistics, Sales-led, Abandoned after 4 min)
 
 Auto-email (sent 5 min after abandonment):
 
-Subject: Transform Your Electrical Business With Demo Desk
+Subject: Transform Your Demo Process With Demo Desk
 
 Hi Lisa,
 
-You just checked out Demo Desk. This is the #1 tool trusted by 500+ electrical contractors.
+You just checked out Demo Desk. This is the #1 tool trusted by 500+ SaaS teams.
 
-Demo Desk automates customer service so your team focuses on the job. Here's what you're missing:
+Demo Desk automates intent-response after product demos so your team focuses on growth. Here's what you're missing:
 
-- 24/7 customer response (even while you're on site)
-- Instant quote requests handled
+- Route prospects to the right next action in real-time
+- Recover abandons before they go cold
 - No coding required
-- $99/month
+- Intent-based intelligence
 
 Schedule your premium consultation today: [SALES_LINK]
 
@@ -148,8 +148,8 @@ Schedule your premium consultation today: [SALES_LINK]
 
 ### Why It Fails
 
-- ❌ **No diagnosis:** Lisa exited because the interface was confusing, not because she doesn't want AI
-- ❌ **Wrong message:** Pitching pricing to someone who hasn't finished the demo yet
+- ❌ **No diagnosis:** Lisa exited because the interface was confusing, not because she doesn't want intent-response automation
+- ❌ **Wrong message:** Pitching SKUs to someone who hasn't finished the demo yet
 - ❌ **Defensive positioning:** "Here's what you're missing" sounds like blame, not help
 - ❌ **Assumes complexity tolerance:** Lisa clearly found the demo complex; sales pitch is more overwhelming
 - ❌ **Ignores language:** Lisa is Spanish-speaking; message is English with English-first assumptions
@@ -163,18 +163,18 @@ Schedule your premium consultation today: [SALES_LINK]
 ## The Demo Desk's Approach (Contrast)
 
 ```
-Prospect: Lisa Rodriguez (Electrical, Abandoned after 4 min)
+Prospect: Lisa Rodriguez (Lumen Logistics, Sales-led, Abandoned after 4 min)
 
 Immediate action (5 min after abandonment):
 
-TO: lisa@roderickelectric.com (Spanish email)
+TO: lisa@lumen-logistics.com (Spanish email)
 SUBJECT: Una Pregunta Rápida Sobre Tu Demo
 
 "Hola Lisa,
 
 Vi que saliste del demo. Nada raro — esto puede parecer complicado al principio.
 
-¿Fue la interfaz que te confundió, o no quedó claro cómo funciona en tu negocio?
+¿Fue la interfaz que te confundió, o no quedó claro cómo funciona para tu equipo?
 
 Si no está claro, te puedo mostrar la versión de 5 minutos en una llamada. Sin vendida."
 
@@ -196,13 +196,13 @@ All three anti-examples show a **lack of discipline.** The Demo Desk wins becaus
 
 1. **Reads the signal** (booked? abandoned? competitor?) before sending anything
 2. **Respects the timing window** (10 min for hot, 3 days for lukewarm, never spam)
-3. **Personalizes by vertical** (plumber ≠ dentist; tone is different)
+3. **Personalizes by segment** (Sales-led ≠ PLG; tone is different)
 4. **Includes language routing** (Spanish-first for Spanish speakers, not translated)
 5. **Has Rule 0 refusal** (no bad data = no outreach; discipline is the moat)
 6. **Escalates with clarity** (back_to field prevents silent loops)
 
-### Judge Signal
-Judges see entries that say "we follow up" and entries that say "we follow up WITH DISCIPLINE." The Demo Desk is the latter.
+### Market Signal
+Prospects see entries that say "we follow up" and entries that say "we follow up WITH DISCIPLINE." The Demo Desk is the latter.
 
 Spray-and-pray looks easy until you see the cost:
 - High unsubscribe rates
@@ -218,7 +218,7 @@ The Demo Desk's approach:
 - Compliant messaging
 - Every outcome is recorded
 
-**Why judges care:** Competition operators are "will this actually work?" checks. Spray-and-pray is theoretically easy but practically fails. Discipline-driven follow-up is harder to execute but produces results.
+**Why it matters:** Intent-response operators are "will this actually work?" checks. Spray-and-pray is theoretically easy but practically fails. Discipline-driven follow-up is harder to execute but produces results.
 
 ---
 

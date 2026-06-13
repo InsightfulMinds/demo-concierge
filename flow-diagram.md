@@ -77,7 +77,7 @@
 ## Step-by-Step Walkthrough
 
 ### 1. **DEMO EVENT ARRIVES**
-Event payload: `{prospect_name, email, vertical, demo_completion_timestamp, outcome_signal, language}`
+Event payload: `{prospect_name, email, segment, demo_completion_timestamp, outcome_signal, language}`
 
 ### 2. **RULE 0 CHECK**
 Gate: Are ALL required fields present?
@@ -113,7 +113,7 @@ Gate: Are ALL required fields present?
 - Confidence: 95%
 
 #### Path 5: COMPETITOR RESEARCH
-- Email domain match (@n8n.com, @make.com, etc.)
+- Email domain match (@rival-saas.com, @competitor.io, etc.)
 - OR research-only behavior (visited source code, API docs)
 - OR no personalization signal
 - Time-to-triage: 0–10 min (polite close, no follow-up)
@@ -122,9 +122,9 @@ Gate: Are ALL required fields present?
 ### 4. **MESSAGE SELECTION & TEMPLATE MATCH**
 
 Each path routes to:
-1. **Template:** By vertical (plumber, electrician, HVAC, dentist)
+1. **Template:** By segment (Sales-led, Product-led, Founder-led, Enterprise)
 2. **Language:** By language field (EN, ES, bilingual)
-3. **Tone:** By vertical norms (direct for trades, management-focused for dental)
+3. **Tone:** By segment norms (see Segment-Specific Tone Adjustments)
 
 ### 5. **MESSAGE SENT & ROUTING DECISION**
 
@@ -243,25 +243,29 @@ Missing these windows costs the entire business case (leads go cold).
 
 ---
 
-## Vertical-Specific Tone Adjustments
+## Segment-Specific Tone Adjustments
 
-**Plumbing:** Direct, efficiency-focused
-- "Saves time for your crew"
-- "Answers the same questions every day"
+**Sales-led:** Speed and relevance
+- "Quick turnaround on next steps"
+- "Answers objections immediately"
+- Emphasize: responsiveness, deal momentum
 
-**Electrical:** Reliability-focused
-- "Runs in the background"
-- "Your team stays focused on the work"
+**Product-led (PLG):** Technical, self-serve, stack fit
+- "Integrates with your existing tools"
+- "Your team discovers value in minutes"
+- Emphasize: technical depth, no hand-holding required
 
-**HVAC:** System-focused
-- "No disruption to your schedule"
-- "Handles background customer questions"
+**Founder-led:** Direct, outcome-focused
+- "Moves your business forward"
+- "One clear next action"
+- Emphasize: efficiency, short feedback loops
 
-**Dental:** Practice-management focused
-- "Instant answers to patient questions"
-- "Handles scheduling inquiries"
+**Enterprise:** Cross-team routing, context-rich handoff
+- "Connects the right stakeholders"
+- "Full context for your evaluation"
+- Emphasize: thoroughness, compliance-aware, multi-team enablement
 
-All verticals: Short, one clear CTA, no jargon.
+All segments: Short, one clear CTA, no jargon.
 
 ---
 

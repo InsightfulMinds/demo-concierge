@@ -34,7 +34,7 @@ Demo Desk is an intent-driven follow-up operator that owns the critical minutes 
    - High engagement (completed, clicked deeper, form submission, no booking) → Path 3 (start nurture)
    - Repeat visitor or multiple visits → Path 4 (escalate human)
    - Competitor research (domain match) → Path 5 (polite close)
-5. **Send message** matching path, vertical, and language
+5. **Send message** matching path, segment, and language
 6. **Record outcome** in CRM with confidence score
 
 ### Examples
@@ -50,7 +50,7 @@ demo-concierge/
 ├── rules.md                         # 5 decision paths + Rule 0 (the moat)
 ├── examples.md                      # 4 worked examples + anti-patterns
 ├── reference-timing-windows.md      # SLA by path, TCPA notes
-├── reference-message-templates.md   # Templates by vertical (EN+ES)
+├── reference-message-templates.md   # Templates by segment (EN+ES)
 ├── README.md                        # This file
 ├── PROOF_LOG.md                     # 10 simulated events + decisions
 ├── ANTI_EXAMPLES.md                 # 3 ways naive follow-up fails
@@ -89,7 +89,7 @@ Missing: prospect name, business context, source, timestamp, or outcome signal �
 Every prospect record includes `language: [en | es | bilingual]`.
 
 - **English:** Use EN templates
-- **Spanish:** Use ES templates (not a translation — native tone, vertical-native idioms)
+- **Spanish:** Use ES templates (not a translation — native tone, segment-native idioms)
 - **Bilingual:** English first, with "Prefieres español?" footer option
 
 All examples + templates provided in both languages.
@@ -112,9 +112,9 @@ See `PROOF_LOG.md` for:
 
 1. **Test case 1:** Prospect abandons after 3 minutes — do we send Path 2 correctly?
 2. **Test case 2:** Repeat visitor (3 views in 7 days) — does Path 4 escalate to human?
-3. **Test case 3:** Competitor research signal (n8n.com email) — does Path 5 send polite close, NOT sales pitch?
+3. **Test case 3:** Competitor research signal (competitor domain, e.g. @rival-saas.com) — does Path 5 send polite close, NOT sales pitch?
 4. **Test case 4:** No demo event data — does Rule 0 catch it and return error?
-5. **Test case 5:** Bilingual prospect (Spanish speaker, plumbing) — does ES template send instead of EN?
+5. **Test case 5:** Bilingual prospect (Spanish speaker, Sales-led — e.g. Mercado Cloud) — does ES template send instead of EN?
 
 All test cases have expected outcomes. Proof log shows actual results.
 
@@ -128,7 +128,7 @@ All test cases have expected outcomes. Proof log shows actual results.
 3. Say: "Triage this demo event"
 4. Demo Desk outputs: path classification + message + back_to routing
 
-**With automation (n8n, Make, Zapier):**
+**With a DIY automation platform:**
 1. Webhook receives demo event from the demo experience
 2. Call Claude API with `identity.md` + `rules.md` + event data
 3. Return message to send + routing decision
@@ -143,7 +143,7 @@ All test cases have expected outcomes. Proof log shows actual results.
 See Path 4 (Repeat Visitor). If they viewed 2+ times, escalate to human on the latest view. The system gets smarter with engagement history.
 
 ### "Can we use this for other demo experiences?"
-Yes. The rules (path classification, Rule 0 discipline, bilingual routing) are vertical-agnostic. Update `reference-message-templates.md` for your verticals/domains, keep the logic.
+Yes. The rules (path classification, Rule 0 discipline, bilingual routing) are segment-agnostic. Update `reference-message-templates.md` for your segments, keep the logic.
 
 ### "What about SMS follow-up?"
 Email is always compliant (CAN-SPAM). SMS requires prior express written consent. Never SMS Path 5 or non-opted-in prospects. See `reference-timing-windows.md` for TCPA notes.
@@ -174,14 +174,14 @@ If deployed, measure:
 ### Why Path 0 (Rule 0)?
 Discipline is the moat. AI systems that say yes to everything are replaceable. The Demo Desk that says "no incomplete data" is defensible and respects prospect signal quality.
 
-### Why vertical-specific templates?
-"We save you time" means different things to a plumber (crew efficiency) vs. dentist (patient satisfaction). Generic templates feel low-effort. Specific ones signal respect for the business model.
+### Why segment-specific templates?
+"We save you time" means different things to a Sales-led buyer (speed to pipeline) vs. a Product-led buyer (fit with their stack). Generic templates feel low-effort. Specific ones signal respect for the buyer's go-to-market.
 
 ### Why minutes?
 The strongest moment is immediately after interest is shown. Demo Desk's job is to act while the prospect still remembers what they saw, what they wanted, and where they got stuck.
 
 ### Why bilingual?
-Teams running product demo experiences target small business owners in the US. ~30–40% of shop owners in high-growth regions (TX, CA, AZ, CO) prefer Spanish business communication. Offering Spanish-native follow-up signals respect and closes more deals.
+SaaS companies targeting LatAm and US-Hispanic markets know a meaningful share of their buyers prefer Spanish-language business communication. Offering Spanish-native follow-up signals respect and closes more deals.
 
 ---
 

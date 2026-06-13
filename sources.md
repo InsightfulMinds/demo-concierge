@@ -27,7 +27,7 @@ The Demo Desk integrates proven frameworks from sales, behavioral economics, and
 ### 5. **Dale Carnegie — How to Win Friends and Influence People**
 - **Applied:** Personalization by vertical, respect for prospect context, Spanish-native messaging (not English-centric)
 - **Citation:** Carnegie, D. (1936). How to Win Friends and Influence People. Simon and Schuster.
-- **Rule connection:** Path 1-5 messaging uses Carnegie's principle: "People like to hear about themselves." Plumber gets plumber language, not generic "business owner" pablum.
+- **Rule connection:** Path 1-5 messaging uses Carnegie's principle: "People like to hear about themselves." A Sales-led buyer gets Sales-led language, not generic "business owner" pablum.
 
 ---
 
@@ -46,7 +46,7 @@ The Demo Desk integrates proven frameworks from sales, behavioral economics, and
 ### **Bilingual Customer Service & Language Routing**
 - **Finding:** Customers prefer service in their native language; language-native messages convert at 2–3x higher rates than translated content
 - **Source:** Common Sense Advisory (2021) "Common Sense in a Multilingual World"; Duolingo Research (2023)
-- **Applied in:** reference-message-templates.md bilingual routing; rules.md language field; Example 7 (Spanish plumbing)
+- **Applied in:** reference-message-templates.md bilingual routing; rules.md language field; Example 7 (Spanish, Sales-led — Mercado Cloud)
 
 ### **Lead Qualification & Signal Reading**
 - **Finding:** Demo completion behavior (time spent, pages visited, CTA clicked) is 3x more predictive of conversion than demographic data
@@ -85,14 +85,14 @@ The Demo Desk differs from generic follow-up systems on three axes:
 
 ### **3. Bilingual Thinking (vs. English-Centric)**
 - Generic systems: "Translate template to Spanish"
-- Demo Desk: "Native Spanish templates with vertical-specific idioms"
-- Market research: 30–40% of small business owners in target regions (TX, CA, AZ) prefer Spanish business communication
+- Demo Desk: "Native Spanish templates with segment-specific idioms"
+- Market research: a meaningful share of buyers in LatAm and US-Hispanic SaaS markets prefer Spanish-language business communication
 
 ---
 
 ## Replicability
 
-Every rule in the Demo Desk traces back to one or more sources above. Judges can verify:
+Every rule in the Demo Desk traces back to one or more sources above. You can verify:
 
 1. **Path logic** against Voss, Whitmore, Cialdini frameworks
 2. **Timing windows** against HubSpot/Outreach research
@@ -109,8 +109,8 @@ This is not a clever prompt. It's a discipline-driven system grounded in proven 
 As the Demo Desk scales, measure:
 
 - **Correlation between path classification confidence and actual booking rate** (refine confidence scoring)
-- **Language preference accuracy** (does Spanish-speaking plumber actually prefer ES template over EN?)
-- **Vertical-specific tone effectiveness** (which message variant drives higher response rate per vertical?)
+- **Language preference accuracy** (does a Spanish-speaking buyer actually prefer ES template over EN?)
+- **Segment-specific tone effectiveness** (which message variant drives higher response rate per segment?)
 - **Escalate-human handoff quality** (do human reps close at same rate across all path 4 referrals?)
 
 These experiments will strengthen the methodology and add new citations to future versions.

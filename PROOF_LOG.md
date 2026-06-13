@@ -1,6 +1,8 @@
-# The Demo Desk — Proof of Execution
+# Demo Desk — Proof of Execution
 
-## 10 Simulated Demo Events (Run Through Rules)
+## 10 Simulated Demo Events (Run Through the Rules)
+
+These ten events mirror the cards on the proof page (`proof.html`). Personas are illustrative B2B SaaS buyers; values are sample content, not live data.
 
 ### Event 1: Hot Lead — Immediate Booking (Path 1)
 
@@ -8,10 +10,10 @@
 ```json
 {
   "prospect": {
-    "name": "Marcus Chen",
-    "business": "Chen & Sons Plumbing",
-    "email": "marcus@chenplumbing.com",
-    "region": "Sacramento, CA"
+    "name": "Maya Chen",
+    "company": "Northwind Analytics (Series B)",
+    "role": "Head of Growth",
+    "email": "maya@northwindanalytics.com"
   },
   "demo": {
     "start_time": "2026-05-28T12:35:00Z",
@@ -20,7 +22,7 @@
     "completion": "full",
     "outcome_signal": "visited_pricing_and_booked_call"
   },
-  "vertical": "plumbing",
+  "segment": "sales-led",
   "language": "en",
   "triage_time": "2026-05-28T12:50:15Z"
 }
@@ -28,18 +30,18 @@
 
 **Demo Desk Analysis:**
 
-1. **Rule 0 check:** ✓ All fields present (name, email, vertical, timestamp, outcome, language)
+1. **Rule 0 check:** ✓ All fields present (name, email, segment, timestamp, outcome, language)
 2. **Time-to-triage:** 3 min (within hot window)
 3. **Path classification:** Path 1 (Hot Lead — Demo Completed + Booking Requested)
-4. **Template selected:** Booking Confirmation (Plumbing, English)
-5. **Back_to:** null
+4. **Template selected:** Booking Confirmation (Growth persona, English)
+5. **Next step:** none needed — the call is booked
 6. **Confidence:** 95%
 
 **Action Taken:**
 ```
 FROM: hello@demodesk.example
-TO: marcus@chenplumbing.com
-SUBJECT: Your Demo Desk Demo — Call Scheduled
+TO: maya@northwindanalytics.com
+SUBJECT: Your Demo Desk call is locked in
 TIME_SENT: 2026-05-28T12:50:45Z
 
 Body: [Booking Confirmation template applied — see reference-message-templates.md]
@@ -48,10 +50,10 @@ Outcome recorded:
 - Path: 1
 - Confidence: 95%
 - Message sent: YES
-- CRM note: "Hot lead, booked immediately, plumbing vertical"
+- CRM note: "Hot lead, booked immediately, Sales-led segment"
 ```
 
-**Result:** ✓ PASS — Message sent within 10-minute window, prospect receives confirmation same day.
+**Result:** ✓ PASS — Confirmation sent within the 10-minute window; the call is locked the same day.
 
 ---
 
@@ -61,20 +63,20 @@ Outcome recorded:
 ```json
 {
   "prospect": {
-    "name": "Lisa Rodriguez",
-    "business": "Rodriguez Electrical Services",
-    "email": "lisa@roderickelectric.com",
-    "region": "Phoenix, AZ"
+    "name": "Diego Santos",
+    "company": "Lumen Logistics",
+    "role": "RevOps Lead",
+    "email": "diego@lumenlogistics.com"
   },
   "demo": {
     "start_time": "2026-05-28T14:15:00Z",
     "end_time": "2026-05-28T14:19:30Z",
     "duration_sec": 270,
     "completion": "partial",
-    "last_page_viewed": "feature_overview",
+    "last_step_viewed": "integrations",
     "abandonment_reason": "session_ended"
   },
-  "vertical": "electrical",
+  "segment": "sales-led",
   "language": "es",
   "triage_time": "2026-05-28T14:27:00Z"
 }
@@ -85,27 +87,27 @@ Outcome recorded:
 1. **Rule 0 check:** ✓ All fields present
 2. **Time-to-triage:** 8 min (within hot window)
 3. **Path classification:** Path 2 (Demo Abandoned Midway)
-4. **Template selected:** Clarification (Electrical, Spanish)
-5. **Back_to:** escalate-human (if no response in 60 min)
+4. **Template selected:** Clarification (RevOps persona, Spanish)
+5. **Next step:** hand off to a human if no reply in 60 min
 6. **Confidence:** 65%
 
 **Action Taken:**
 ```
 FROM: hello@demodesk.example
-TO: lisa@roderickelectric.com
-SUBJECT: Una Pregunta Rápida Sobre Tu Demo
+TO: diego@lumenlogistics.com
+SUBJECT: Una pregunta rápida sobre tu demo
 TIME_SENT: 2026-05-28T14:27:45Z
 
-Body: [Clarification template applied — Spanish version]
+Body: [Clarification template applied — Spanish version, native tone]
 
 Outcome recorded:
 - Path: 2
 - Confidence: 65%
 - Message sent: YES
-- Follow-up: If no response by 15:27Z, escalate-human triggers
+- Follow-up: If no response by 15:27Z, hand off to a human
 ```
 
-**Result:** ✓ PASS — Message sent in Spanish within 10-minute window. Back_to routing set for human escalation.
+**Result:** ✓ PASS — Spanish clarification sent within the window; human-handoff routing armed.
 
 ---
 
@@ -115,20 +117,20 @@ Outcome recorded:
 ```json
 {
   "prospect": {
-    "name": "James Whitmore",
-    "business": "Whitmore HVAC Solutions",
-    "email": "james@whitmorehvac.com",
-    "region": "Denver, CO"
+    "name": "Priya Nair",
+    "company": "Forge DevTools",
+    "role": "VP Engineering",
+    "email": "priya@forgedevtools.com"
   },
   "demo": {
     "start_time": "2026-05-28T16:33:00Z",
     "end_time": "2026-05-28T16:44:12Z",
     "duration_sec": 672,
     "completion": "full",
-    "pages_viewed": ["overview", "features", "pricing", "faq"],
+    "pages_viewed": ["overview", "features", "pricing", "docs"],
     "cta_clicked": "tell_me_more"
   },
-  "vertical": "hvac",
+  "segment": "product-led",
   "language": "en",
   "triage_time": "2026-05-28T16:45:30Z"
 }
@@ -137,32 +139,32 @@ Outcome recorded:
 **Demo Desk Analysis:**
 
 1. **Rule 0 check:** ✓ All fields present
-2. **Time-to-triage:** 2 min (within hot window, but lukewarm signal)
+2. **Time-to-triage:** 2 min (within window, but lukewarm signal)
 3. **Path classification:** Path 3 (Demo Completed — Lukewarm, no booking)
-4. **Template selected:** Nurture sequence trigger (HVAC, English)
-5. **Back_to:** nurture-sequence
+4. **Template selected:** 3-day technical nurture (DevTools tone)
+5. **Next step:** start a short nurture
 6. **Confidence:** 65%
 
 **Action Taken:**
 ```
 FROM: hello@demodesk.example
-TO: james@whitmorehvac.com
-TRIGGER: nurture-hvac-3day
+TO: priya@forgedevtools.com
+TRIGGER: nurture-plg-3day
 TIME_SENT: 2026-05-28T16:46:00Z
 
 Sequence:
-- Day 1 (2026-05-28 18:45): Email 1 "Here's What You Saw in the Demo"
-- Day 2 (2026-05-29 10:00): Email 2 "HVAC Shop Spotlight: How [Case Company] Uses Demo Desk"
-- Day 3 (2026-05-30 15:00): Email 3 "Schedule Your Team Walkthrough"
+- Day 1 (2026-05-28 18:45): Email 1 "What you just saw in the Demo Desk walkthrough"
+- Day 2 (2026-05-29 10:00): Email 2 "How a DevTools team turns demo signals into pipeline"
+- Day 3 (2026-05-30 15:00): Email 3 "Bring the platform team — 15-min walkthrough"
 
 Outcome recorded:
 - Path: 3
 - Confidence: 65%
-- Back_to: nurture-sequence
-- CRM note: "Lukewarm lead, nurture sequence initiated"
+- Next step: start a short nurture
+- CRM note: "Lukewarm lead, Product-led segment, nurture initiated"
 ```
 
-**Result:** ✓ PASS — Nurture sequence triggered. System will send 3 emails over 3 days. If James books a call on Day 3, auto-graduates to Path 1.
+**Result:** ✓ PASS — Nurture sequence triggered (3 emails / 3 days); auto-graduates to Path 1 if a call is booked.
 
 ---
 
@@ -172,35 +174,17 @@ Outcome recorded:
 ```json
 {
   "prospect": {
-    "name": "Dr. Sarah Chen",
-    "business": "Chen Family Dentistry",
-    "email": "schen@chenfamilydental.com",
-    "region": "Los Angeles, CA"
+    "name": "Sarah Kim",
+    "company": "Brightloop (Seed)",
+    "role": "Founder / CEO",
+    "email": "sarah@brightloop.io"
   },
   "visit_history": [
-    {
-      "visit_num": 1,
-      "timestamp": "2026-05-15T10:34:00Z",
-      "duration_sec": 318,
-      "completion": "partial"
-    },
-    {
-      "visit_num": 2,
-      "timestamp": "2026-05-18T14:47:00Z",
-      "duration_sec": 584,
-      "completion": "partial",
-      "pages_viewed": ["overview", "features", "pricing"]
-    },
-    {
-      "visit_num": 3,
-      "timestamp": "2026-05-22T11:12:00Z",
-      "duration_sec": 716,
-      "completion": "full",
-      "pages_viewed": ["overview", "features", "pricing", "faq", "scheduling"],
-      "cta_clicked": "schedule_demo_call"
-    }
+    { "visit_num": 1, "timestamp": "2026-05-15T10:34:00Z", "duration_sec": 318, "completion": "partial" },
+    { "visit_num": 2, "timestamp": "2026-05-18T14:47:00Z", "duration_sec": 584, "completion": "partial", "pages_viewed": ["overview", "features", "pricing"] },
+    { "visit_num": 3, "timestamp": "2026-05-22T11:12:00Z", "duration_sec": 716, "completion": "full", "pages_viewed": ["overview", "features", "pricing", "docs", "scheduling"], "cta_clicked": "schedule_demo_call" }
   ],
-  "vertical": "dental",
+  "segment": "founder-led",
   "language": "en",
   "triage_time": "2026-05-22T11:18:30Z"
 }
@@ -211,36 +195,31 @@ Outcome recorded:
 1. **Rule 0 check:** ✓ Complete event data
 2. **Time-to-triage:** 6 min
 3. **Path classification:** Path 4 (Repeat Visitor — 3 views, increasing engagement)
-   - View 1 → 2: 3 days (returned!)
-   - View 2 → 3: 4 days (returned AGAIN, engagement increased)
-4. **Template selected:** Escalation to Account Rep (Dental, English)
-5. **Back_to:** escalate-human
+   - View 1 → 2: 3 days (returned)
+   - View 2 → 3: 4 days (returned again, engagement increased)
+4. **Template selected:** Escalation to Account Executive (founder-eval tone)
+5. **Next step:** hand off to a human (with full visit history)
 6. **Confidence:** 95%
 
 **Action Taken:**
 ```
 FROM: hello@demodesk.example
-TO: schen@chenfamilydental.com
+TO: sarah@brightloop.io
 TIME_SENT: 2026-05-22T11:19:00Z
 
-Subject: Let's Get Serious About Demo Desk for Your Practice
+Subject: Let's get serious about Demo Desk for Brightloop
 Body: [Escalation template applied]
 
 Internal routing:
-- Assign to: [Account Rep Name]
-- Vertical: Dental
+- Assign to: [AE Name]
+- Segment: Founder-led
 - Priority: HIGH
-- CRM note: "Repeat visitor (3 views), 8-day engagement window, completed full demo, strong intent signal. Ready for specialist call."
-- Action: Schedule 1:1 call with dental practice specialist
+- CRM note: "Repeat visitor (3 views), 8-day engagement window, completed full demo, strong intent. Ready for an AE call."
+- Action: Schedule a 1:1 with the founder-led playbook
 - SLA: Contact within 4 hours
-
-Outcome recorded:
-- Path: 4
-- Confidence: 95%
-- Back_to: escalate-human (assigned to account rep)
 ```
 
-**Result:** ✓ PASS — High-intent signal detected. Escalated to human. Account rep receives CRM alert with full visit history.
+**Result:** ✓ PASS — High-intent signal detected; escalated to a human AE with full visit history.
 
 ---
 
@@ -251,18 +230,19 @@ Outcome recorded:
 {
   "prospect": {
     "name": "Alex Johnson",
-    "email": "alex.johnson@n8n.com",
-    "company": "n8n (competitor)"
+    "company": "Rival SaaS (competitor)",
+    "role": "PM",
+    "email": "alex.johnson@rival-saas.com"
   },
   "demo": {
     "start_time": "2026-05-28T20:42:00Z",
     "end_time": "2026-05-28T20:54:18Z",
     "duration_sec": 738,
     "completion": "full",
-    "pages_viewed": ["overview", "features", "source_code", "api_docs"],
+    "pages_viewed": ["overview", "features", "changelog", "api_docs"],
     "research_signal": true
   },
-  "vertical": "unknown",
+  "segment": "unknown",
   "language": "en",
   "triage_time": "2026-05-28T20:56:00Z"
 }
@@ -272,36 +252,29 @@ Outcome recorded:
 
 1. **Rule 0 check:** ✓ Event data present
 2. **Path classification:** Path 5 (Competitor Research Signal)
-   - Email domain: @n8n.com (competitor)
-   - Pages viewed: Source code, API docs (research behavior, not user research)
-3. **Template selected:** Polite Close (all verticals, English)
-4. **Back_to:** null (no follow-up)
+   - Email domain: @rival-saas.com (competitor)
+   - Pages viewed: changelog + API docs (research behavior, not buyer intent)
+3. **Template selected:** Polite Close (all segments, English)
+4. **Next step:** none — do not retarget
 5. **Confidence:** 95%
 
 **Action Taken:**
 ```
 FROM: hello@demodesk.example
-TO: alex.johnson@n8n.com
-SUBJECT: Thanks for Checking Out Demo Desk
+TO: alex.johnson@rival-saas.com
+SUBJECT: Thanks for checking out Demo Desk
 TIME_SENT: 2026-05-28T20:56:30Z
 
-Body: [Polite Close template — no sales pitch, no follow-up]
+Body: [Polite Close template — no pitch, no follow-up]
 
 Internal routing:
 - Do NOT follow up
-- Do NOT add to nurture sequence
+- Do NOT add to nurture
 - Do NOT escalate to sales
-- CRM note: "Competitor employee (n8n), research signal, polite close sent"
-
-Outcome recorded:
-- Path: 5
-- Confidence: 95%
-- Message sent: YES (polite close only)
-- Back_to: null (no further action)
-- Flag: Do not retarget
+- CRM note: "Competitor employee, research signal, polite close sent"
 ```
 
-**Result:** ✓ PASS — Competitor research signal detected and handled gracefully. No spam follow-up, no CRM pollution.
+**Result:** ✓ PASS — Research signal handled gracefully. No spam follow-up, no CRM pollution.
 
 ---
 
@@ -310,13 +283,9 @@ Outcome recorded:
 **Input:**
 ```json
 {
-  "prospect": {
-    "email": "unknown@example.com"
-  },
-  "demo": {
-    "timestamp": "unknown"
-  },
-  "vertical": "unknown",
+  "prospect": { "email": "unknown@example.com" },
+  "demo": { "timestamp": "unknown" },
+  "segment": "unknown",
   "language": "unknown"
 }
 ```
@@ -327,36 +296,32 @@ Outcome recorded:
    - prospect.name (required)
    - demo.start_time, end_time (required)
    - demo.completion status (required)
-   - vertical (required)
+   - segment (required)
    - language (required)
 
 **Action Taken:**
 ```
-FROM: hello@demodesk.example
-TO: [request_source]
-SUBJECT: Rule 0 Violation — Insufficient Event Data
-STATUS: ERROR
+STATUS: Rejected — incomplete data, no outreach sent
 
 Message:
-"Cannot triage demo request without complete event data.
+"Cannot triage a demo signal without complete event data.
 
 Required fields:
 ✗ prospect.name
 ✗ demo.completion_timestamp
 ✗ demo.outcome_signal
-✗ vertical
+✗ segment
 ✗ language
 
 Please resubmit with complete data."
 
 Outcome recorded:
 - Rule 0: VIOLATION
-- Message sent: NO (error return instead)
-- Back_to: null
-- Action: Reject request, request data resubmission
+- Message sent: NO
+- Next step: none — reject and request a complete resubmission
 ```
 
-**Result:** ✓ PASS — Rule 0 enforced. Low-quality request blocked. Prevents spray-and-pray follow-up.
+**Result:** ✓ PASS — Rule 0 enforced. Low-quality request blocked before any outreach. This is the moat.
 
 ---
 
@@ -367,9 +332,9 @@ Outcome recorded:
 {
   "prospect": {
     "name": "Roberto García",
-    "business": "García y Hermanos Plomería",
-    "email": "roberto@garciabrothersplumbing.com",
-    "region": "San Antonio, TX"
+    "company": "Mercado Cloud (LatAm SaaS)",
+    "role": "COO",
+    "email": "roberto@mercadocloud.com"
   },
   "demo": {
     "start_time": "2026-05-29T09:15:00Z",
@@ -378,7 +343,7 @@ Outcome recorded:
     "completion": "full",
     "outcome_signal": "booked_call"
   },
-  "vertical": "plumbing",
+  "segment": "sales-led",
   "language": "es",
   "triage_time": "2026-05-29T09:31:00Z"
 }
@@ -389,44 +354,44 @@ Outcome recorded:
 1. **Rule 0 check:** ✓ All fields present
 2. **Path classification:** Path 1 (Hot Lead — Booking Requested)
 3. **Language routing:** Spanish (es)
-4. **Template selected:** Booking Confirmation (Plumbing, Spanish — NOT English translation)
-5. **Back_to:** null
+4. **Template selected:** Booking Confirmation (Sales-led, Spanish — native, NOT a translation)
+5. **Next step:** none needed — the call is booked
 6. **Confidence:** 95%
 
 **Action Taken:**
 ```
 FROM: hello@demodesk.example
-TO: roberto@garciabrothersplumbing.com
-SUBJECT: Tu Demo de Demo Desk — Llamada Programada
+TO: roberto@mercadocloud.com
+SUBJECT: Tu llamada de Demo Desk está confirmada
 TIME_SENT: 2026-05-29T09:31:30Z
 
 Body: [Booking Confirmation template — SPANISH VERSION]
 
-Note: Spanish template uses native idiom and tone, not direct translation.
+Note: Spanish template uses native idiom and tone, not a direct translation.
 - "Acabas de ver Demo Desk en acción" (more natural than "You just experienced")
-- Addresses crew as "tu equipo" (your crew) — relevant to plumbing business
+- Speaks to the buyer's team and stack, not a literal English carry-over
 
 Outcome recorded:
 - Path: 1
 - Language: Spanish (ES)
 - Message sent: YES (native Spanish, not translated)
-- CRM note: "Hot lead, Spanish-native, plumbing vertical"
+- CRM note: "Hot lead, Spanish-native, Sales-led segment"
 ```
 
-**Result:** ✓ PASS — Spanish-language routing works correctly. Native template sent (not translation).
+**Result:** ✓ PASS — Spanish routing correct; native idiom used, not a translation.
 
 ---
 
-### Event 8: Abandoned + Escalate-Human Trigger
+### Event 8: Abandoned + Human-Handoff Trigger (Path 2 → escalate)
 
 **Input:**
 ```json
 {
   "prospect": {
     "name": "Michael Torres",
-    "business": "Torres HVAC Maintenance",
-    "email": "michael@torreshvac.com",
-    "region": "Phoenix, AZ"
+    "company": "Vertex Manufacturing",
+    "role": "IT Director",
+    "email": "michael@vertexmfg.com"
   },
   "demo": {
     "start_time": "2026-05-29T13:20:00Z",
@@ -435,7 +400,7 @@ Outcome recorded:
     "completion": "partial",
     "abandonment_reason": "user_exit"
   },
-  "vertical": "hvac",
+  "segment": "enterprise",
   "language": "en",
   "triage_time": "2026-05-29T13:28:00Z",
   "previous_triage": null
@@ -444,8 +409,8 @@ Outcome recorded:
 
 **Initial Triage:**
 1. **Path 2 (Abandoned) triggered**
-2. **Message sent:** Clarification ("What broke?")
-3. **Back_to:** escalate-human (if no response in 60 min)
+2. **Message sent:** Clarification ("What got in the way?")
+3. **Next step:** hand off to a human if no response in 60 min
 
 **Follow-up Simulation (60 minutes later):**
 ```json
@@ -453,46 +418,47 @@ Outcome recorded:
   "triage_id": "event_8_initial",
   "time_elapsed": 3600,
   "response_received": false,
-  "status": "escalate_human_trigger"
+  "status": "human_handoff_trigger"
 }
 ```
 
-**Escalate-Human Action:**
+**Human-Handoff Action:**
 ```
 FROM: hello@demodesk.example
-TO: [account_rep]
-SUBJECT: Escalate-Human Trigger — Michael Torres (HVAC)
+TO: [account_executive]
+SUBJECT: Human handoff — Michael Torres (Vertex Manufacturing, Enterprise)
 TIME_SENT: 2026-05-29T14:28:30Z
 
-Event: Michael Torres abandoned demo after 6 min. Clarification message sent at 13:28Z.
+Event: Michael Torres exited the demo after ~6 min. Clarification sent at 13:28Z.
 60-minute window elapsed with no response.
 
 Action: Human follow-up required.
 
 Details:
-- Prospect: Michael Torres (Torres HVAC)
-- Email: michael@torreshvac.com
+- Prospect: Michael Torres (Vertex Manufacturing)
+- Email: michael@vertexmfg.com
+- Segment: Enterprise
 - Last contact: 13:28Z (Path 2 clarification)
-- Status: No response to "What broke?" message
-- Recommendation: Phone call or different message approach
+- Status: No response to "What got in the way?"
+- Recommendation: A call or a different angle (security/eval framing)
 
-CRM note: "Path 2 → escalate-human, no response in 60 min window"
+CRM note: "Path 2 → human handoff, no response in 60-min window"
 ```
 
-**Result:** ✓ PASS — Back_to: escalate-human triggered correctly after timeout.
+**Result:** ✓ PASS — Next step "hand off to a human" triggered correctly after the timeout.
 
 ---
 
-### Event 9: Lukewarm → No Response → Archive
+### Event 9: Lukewarm → No Response → Archive (Path 3)
 
 **Input (initial):**
 ```json
 {
   "prospect": {
     "name": "Jennifer Park",
-    "business": "Park Dental Clinic",
-    "email": "jen@parkdental.com",
-    "region": "Seattle, WA"
+    "company": "Cedar Health (healthtech SaaS)",
+    "role": "Product Manager",
+    "email": "jen@cedarhealth.com"
   },
   "demo": {
     "start_time": "2026-05-30T10:45:00Z",
@@ -500,7 +466,7 @@ CRM note: "Path 2 → escalate-human, no response in 60 min window"
     "completion": "full",
     "cta_clicked": "tell_me_more"
   },
-  "vertical": "dental",
+  "segment": "product-led",
   "language": "en",
   "triage_time": "2026-05-30T10:57:30Z"
 }
@@ -523,33 +489,32 @@ Response tracking:
 
 **Archive Action (3 days later):**
 ```
-FROM: hello@demodesk.example
 STATUS: Prospect archived (lukewarm nurture completed, no conversion)
 
-CRM note: "Jennifer Park — Path 3 nurture sequence completed without booking. Marked for re-engagement in 30 days."
+CRM note: "Jennifer Park — Path 3 nurture completed without booking. Marked for re-engagement in 30 days."
 
 Outcome recorded:
 - Path: 3
-- Completion: Nurture sequence sent, no booking
-- Next touch: 30-day re-engagement possible
+- Completion: Nurture sent, no booking
+- Next step: re-engage in 30 days
 ```
 
-**Result:** ✓ PASS — Lukewarm lead nurtured for 3 days, archived if no conversion. Can re-engage later.
+**Result:** ✓ PASS — Lukewarm lead nurtured for 3 days, then archived cleanly for later re-engagement.
 
 ---
 
 ### Event 10: High-Volume Day (Multiple Events)
 
-**Simulation: 5 demo events arrive in same hour**
+**Simulation: 5 demo events arrive in the same hour**
 
 ```
 Time: 2026-06-01 14:00–15:00 (1-hour batch)
 
 Event A: Path 1 (Hot) — 2 min triage → message sent ✓
 Event B: Path 2 (Abandoned) — 5 min triage → message sent ✓
-Event C: Path 3 (Lukewarm) — 3 min triage → nurture sequence triggered ✓
+Event C: Path 3 (Lukewarm) — 3 min triage → nurture triggered ✓
 Event D: Path 5 (Competitor) — 4 min triage → polite close sent ✓
-Event E: Path 4 (Repeat visitor) — 2 min triage → escalate-human ✓
+Event E: Path 4 (Repeat visitor) — 2 min triage → human handoff ✓
 
 Results:
 - 5 events processed in 60 minutes
@@ -559,13 +524,13 @@ Results:
 - 100% path classification accuracy
 ```
 
-**Result:** ✓ PASS — High-volume day handled correctly. All events triaged within their windows, no bottlenecks.
+**Result:** ✓ PASS — High-volume hour handled correctly; every event triaged in-window, no bottlenecks.
 
 ---
 
 ## Summary
 
-**Total events simulated:** 10  
+**Total events simulated:** 10
 **Paths covered:**
 - Path 1 (Hot): 2 events (Event 1, Event 7)
 - Path 2 (Abandoned): 2 events (Event 2, Event 8)
@@ -575,10 +540,10 @@ Results:
 - Rule 0 (Violation): 1 event (Event 6)
 - High-volume: 1 event (Event 10, 5 sub-cases)
 
-**Pass rate:** 10/10 (100%)  
-**Rule 0 enforcement:** ✓ Violation caught correctly  
-**Bilingual routing:** ✓ Spanish templates sent correctly  
-**Escalate-human timeout:** ✓ Triggered after 60 min  
-**Back_to routing:** ✓ All paths routed correctly  
+**Pass rate:** 10/10 (100%)
+**Rule 0 enforcement:** ✓ Violation caught correctly
+**Bilingual routing:** ✓ Spanish templates sent correctly
+**Human-handoff timeout:** ✓ Triggered after 60 min
+**Next-step routing:** ✓ All paths routed correctly
 
-**Confidence:** The Demo Desk correctly classifies all demo outcomes and routes appropriate follow-up within timing windows.
+**Confidence:** Demo Desk correctly classifies demo outcomes across segments and routes the right follow-up within the timing windows.

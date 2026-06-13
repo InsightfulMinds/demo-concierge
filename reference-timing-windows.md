@@ -35,19 +35,19 @@ A prospect who returns after 3+ days resets the clock:
 | 3rd view | 4+ days from 1st | Escalate-human; high-intent signal |
 | 4+ view | Any gap | Direct assignment to account rep |
 
-## Vertical-Specific Timing Adjustments
+## Segment-Specific Timing Adjustments
 
-**Plumbing/Electrical:**
-- High urgency: Send immediately (business owners are reactive decision-makers)
-- Soft close on Path 3: "Your crew runs on schedule; we fit your day."
+**Sales-led:**
+- High urgency: Send immediately (deals require rapid response and sales engagement)
+- Soft close on Path 3: "Sales team moves fast; let's schedule while momentum is high."
 
-**HVAC:**
+**Product-led (PLG):**
 - Moderate urgency: 5–10 min window acceptable
-- Soft close: "Runs in background; doesn't interrupt your calls."
+- Soft close: "Self-serve exploration at your pace; support is one click away."
 
-**Dental:**
+**Enterprise:**
 - Moderate urgency: 10–15 min window acceptable
-- Soft close: "Practice management simplified; instant answers to patient questions."
+- Soft close: "Security and procurement aligned; let's connect you with our implementation team."
 
 ## Escalation-to-Human Triggers
 
@@ -55,8 +55,8 @@ Escalate immediately (skip Demo Desk, go to account rep):
 
 1. **Repeat visitor (3+ views)**
 2. **Express booking request with questions** (wants to talk, not just schedule)
-3. **Vertical-specific question** (asks about plumbing-specific workflow, HIPAA for dental, etc.)
-4. **Team engagement** (prospect mentions bringing operations manager, checking with crew, etc.)
+3. **Segment-specific question** (asks about the buyer's workflow, stack, SOC 2 / security review for Enterprise, etc.)
+4. **Team engagement** (prospect mentions bringing decision-makers, legal/compliance review, stakeholder alignment, etc.)
 
 ## Unsubscribe & Blacklist Rules
 

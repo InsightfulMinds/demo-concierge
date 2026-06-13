@@ -1,197 +1,199 @@
-# Reference: Message Templates by Vertical & Path
+# Reference: Message Templates by Segment & Path
+
+Segments are B2B SaaS buyer types: **Sales-led**, **Product-led (PLG)**, **Founder-led**, and **Enterprise**. Each template is a skeleton — fill the bracketed fields before sending. Copy is illustrative.
 
 ## Path 1: Booking Confirmation
 
-### PLUMBING (English)
+### SALES-LED (English)
 ```
-Subject: Your Demo Desk Demo — Call Scheduled
+Subject: Your Demo Desk call is locked in
 
 Hi [NAME],
 
-You just experienced Demo Desk firsthand. Your call with [SPECIALIST_NAME] is on the calendar.
+You just walked through Demo Desk firsthand. Your call with [SPECIALIST_NAME] is on the calendar.
 
-We'll walk through how it handles the questions your customers ask — and what your crew actually does.
+We'll get into how it handles the minutes right after a prospect shows interest — and where it plugs into your team's follow-up motion.
 
 See you on [DATE] at [TIME].
 
-—Demo Desk, Demo Desk
+— Demo Desk
 ```
 
-### ELECTRICAL (English)
+### PRODUCT-LED / PLG (English)
 ```
-Subject: Your Demo Desk Demo — Next Steps
+Subject: Your Demo Desk demo — next steps
 
 Hi [NAME],
 
-Great work getting through the full demo. Your call is scheduled.
+Nice work getting through the full walkthrough. Your call is scheduled.
 
-We'll dig into how this fits into your crew's actual workflow — not theory, just practice.
+We'll dig into how this fits a self-serve motion — routing the right signal to the right next action without adding headcount.
 
 [DATE] at [TIME] — looking forward to it.
 
-—Demo Desk, Demo Desk
+— Demo Desk
 ```
 
-### HVAC (English)
+### FOUNDER-LED (English)
 ```
-Subject: Your Demo Scheduled
+Subject: Your demo is scheduled
 
 Hi [NAME],
 
-Your Demo Desk demo call is booked. [DATE] at [TIME].
+Your Demo Desk call is booked. [DATE] at [TIME].
 
-We'll show you exactly how this runs in the background without interrupting your day.
+We'll show you exactly how it runs in the background so no warm prospect goes quiet while the team is heads-down.
 
 See you then.
 
-—Demo Desk, Demo Desk
+— Demo Desk
 ```
 
-### DENTAL (English)
+### ENTERPRISE (English)
 ```
-Subject: Your Demo Desk Demo — Call Confirmed
+Subject: Your Demo Desk demo — call confirmed
 
-Hi Dr. [NAME],
+Hi [NAME],
 
 Your Demo Desk demo is scheduled for [DATE] at [TIME].
 
-We'll walk through how this handles appointment questions and patient inquiries — instantly.
+We'll walk through how it routes inbound demo signals across teams and hands off to the right owner with full context.
 
-Looking forward to showing you how it works for your practice.
+Looking forward to showing you how it works for [COMPANY].
 
-—Demo Desk, Demo Desk
+— Demo Desk
 ```
 
 ---
 
 ## Path 1: Booking Confirmation — SPANISH
 
-### PLOMERÍA
+### SALES-LED (ESPAÑOL)
 ```
-Asunto: Tu Demo de Demo Desk — Llamada Programada
+Asunto: Tu llamada de Demo Desk está confirmada
 
 Hola [NAME],
 
 Acabas de ver Demo Desk en acción. Tu llamada con [SPECIALIST_NAME] está en el calendario.
 
-Vamos a hablar sobre cómo maneja las preguntas que reciben tus clientes — y qué hace tu equipo en realidad.
+Vamos a ver cómo maneja los minutos justo después de que un prospecto muestra interés — y dónde encaja en el flujo de seguimiento de tu equipo.
 
 Nos vemos el [FECHA] a las [HORA].
 
-—Demo Desk, Demo Desk
+— Demo Desk
 ```
 
-### ELECTRICIDAD
+### PRODUCT-LED / PLG (ESPAÑOL)
 ```
-Asunto: Tu Demo de Demo Desk — Próximos Pasos
+Asunto: Tu demo de Demo Desk — próximos pasos
 
 Hola [NAME],
 
-Bien hecho completar la demo. Tu llamada está programada.
+Bien hecho completar el recorrido. Tu llamada está programada.
 
-Vamos a ver exactamente cómo funciona en el trabajo real de tu equipo — sin teoría, pura práctica.
+Vamos a ver cómo funciona en un modelo self-serve — enrutando la señal correcta a la siguiente acción correcta sin sumar personal.
 
 [FECHA] a las [HORA] — nos vemos.
 
-—Demo Desk, Demo Desk
+— Demo Desk
 ```
 
-### HVAC (ESPAÑOL)
+### FOUNDER-LED (ESPAÑOL)
 ```
-Asunto: Tu Demo Programada
+Asunto: Tu demo está programada
 
 Hola [NAME],
 
-Tu llamada de demo de Demo Desk está programada para [FECHA] a las [HORA].
+Tu llamada de Demo Desk está programada para [FECHA] a las [HORA].
 
-Te mostraremos cómo funciona en el fondo sin interrumpir tu día de trabajo.
+Te mostraremos cómo funciona en segundo plano para que ningún prospecto interesado quede sin respuesta mientras el equipo está enfocado.
 
 Nos vemos.
 
-—Demo Desk, Demo Desk
+— Demo Desk
 ```
 
-### ODONTOLOGÍA
+### ENTERPRISE (ESPAÑOL)
 ```
-Asunto: Tu Demo de Demo Desk — Llamada Confirmada
+Asunto: Tu demo de Demo Desk — llamada confirmada
 
-Hola Dra./Dr. [NAME],
+Hola [NAME],
 
 Tu demo de Demo Desk está programada para [FECHA] a las [HORA].
 
-Vamos a ver cómo maneja las preguntas de citas e inquietudes de pacientes — al instante.
+Vamos a ver cómo enruta las señales de demo entre equipos y las entrega al responsable correcto con todo el contexto.
 
-Esperamos mostrarte cómo funciona para tu consultorio.
+Esperamos mostrarte cómo funciona para [COMPANY].
 
-—Demo Desk, Demo Desk
+— Demo Desk
 ```
 
 ---
 
 ## Path 2: Abandoned — Clarification
 
-### PLUMBING (English)
+### SALES-LED (English)
 ```
-Subject: One Quick Question About Your Demo
+Subject: One quick question about your demo
 
 Hi [NAME],
 
-I noticed you stepped out of the demo early. No judgment — this can feel overwhelming on first contact.
+I noticed you stepped out of the demo early. No worries — there's a lot to take in on the first pass.
 
-Quick question: Was it the interface that threw you, or unclear how it applies to your crew?
+Quick question: was it the interface that threw you, or wasn't it clear how it fits your stack?
 
-If it's the latter, I can show you the 5-minute version in a quick call. No sales pitch.
+If it's the latter, I can show you the 5-minute version on a quick call. No pitch.
 
-[LINK: 30-min Calendar]
+[LINK: Calendar]
 
-—Demo Desk, Demo Desk
+— Demo Desk
 ```
 
-### ELECTRICAL (English)
+### PRODUCT-LED / PLG (English)
 ```
-Subject: What Happened in Your Demo?
+Subject: What happened in your demo?
 
 Hi [NAME],
 
-You stepped out of the demo after a few minutes. Want to know why?
+You stepped out of the demo after a few minutes. Mind if I ask why?
 
-Was it too technical, or didn't see how it fits your guys' workflow?
+Too much at once, or you couldn't see where it fits your workflow?
 
-Either way, I can show you the short version (5 min, practical). Let's jump on a quick call.
+Either way, I can show you the short version (5 min, hands-on). Want to jump on a quick call?
 
-[LINK: 30-min Calendar]
+[LINK: Calendar]
 
-—Demo Desk, Demo Desk
+— Demo Desk
 ```
 
-### HVAC (English)
+### FOUNDER-LED (English)
 ```
-Subject: Let's Finish the Demo
+Subject: Let's finish the walkthrough
 
 Hi [NAME],
 
-You exited the demo early. What happened?
+You exited the demo early. What got in the way?
 
-If something didn't make sense, let's do a 5-minute walkthrough focused on your business.
+If something didn't land, let's do a 5-minute walkthrough focused on where you'd actually use it.
 
-[LINK: 30-min Calendar]
+[LINK: Calendar]
 
-—Demo Desk, Demo Desk
+— Demo Desk
 ```
 
-### DENTAL (English)
+### ENTERPRISE (English)
 ```
-Subject: Question About Your Demo Experience
+Subject: A question about your demo
 
-Hi Dr. [NAME],
+Hi [NAME],
 
-I saw you stepped out of the demo. No problem — just wanted to check in.
+I saw you stepped out of the demo. No problem — just checking in.
 
-Anything we can clarify? Sometimes a quick 1:1 call clears things up faster than text.
+Anything we can clarify? Sometimes a quick 1:1 clears things up faster than email.
 
-[LINK: 30-min Calendar]
+[LINK: Calendar]
 
-—Demo Desk, Demo Desk
+— Demo Desk
 ```
 
 ---
@@ -200,81 +202,81 @@ Anything we can clarify? Sometimes a quick 1:1 call clears things up faster than
 
 ### NURTURE EMAIL 1: Recap + FAQ
 
-**Subject:** "Here's What You Saw in the Demo Desk Demo"
+**Subject:** "What you just saw in the Demo Desk walkthrough"
 
 ```
 Hi [NAME],
 
-You just walked through the Demo Desk demo. Here's a quick recap of what you experienced:
+You just walked through Demo Desk. Quick recap of what you saw:
 
-✓ The Interface — how your team logs in and sends a request
-✓ The Workflow — how Demo Desk answers in real-time
-✓ The Results — time saved per day for your business
+✓ The signal — how a demo event (completed, abandoned, repeat visit) reaches Demo Desk
+✓ The routing — how it picks the next useful action in real time
+✓ The result — warm prospects get a relevant follow-up within minutes, not days
 
 Common questions we hear:
 
-Q: How long does it actually take to set up?
-A: Onboarding is 2 hours. Then it's live.
+Q: How long does setup actually take?
+A: Onboarding is about 2 hours. Then it's live.
 
-Q: What if it makes a mistake?
-A: You review and approve every response before it goes out. You're in control.
+Q: What if it gets a call wrong?
+A: You set the rules and can keep a human in the loop on any path. You stay in control.
 
-Q: Does it work for [your vertical]?
-A: Yes — we've deployed this in [# cases] [vertical] businesses. [Case study link].
+Q: Does it fit [your segment]?
+A: Yes — see how teams like yours run it. [Case study link].
 
-Questions? Reply here or [LINK: 30-min Call].
+Questions? Reply here or [LINK: Call].
 
-—Demo Desk, Demo Desk
+— Demo Desk
 ```
 
-### NURTURE EMAIL 2: Vertical Case Study
+### NURTURE EMAIL 2: Segment Case Study
 
-**Subject (Plumbing):** "How Rodriguez Plumbing Saved 15 Hours/Week"
+**Subject (Sales-led):** "How a Series B growth team books more demos without more reps"
 
-**Subject (Electrical):** "How Jensen Electric Cut Response Time by 80%"
+**Subject (Product-led):** "How a DevTools team turned demo signals into pipeline"
 
-**Subject (HVAC):** "How Precision HVAC Handles 40+ Calls/Day"
+**Subject (Founder-led):** "How a seed-stage founder stopped losing warm demos"
 
-**Subject (Dental):** "How Midtown Dental Cut Patient Questions in Half"
+**Subject (Enterprise):** "How a platform team routes demo signals across regions"
 
 ```
 Hi [NAME],
 
-You saw the demo. Here's a real example from [Case Company Name], a [vertical] like yours.
+You saw the demo. Here's a real-world pattern from a [segment] team like yours.
 
-[CASE COMPANY] was answering 30–50 questions per week manually.
-One person, one hour per day, just answering the same questions over and over.
+[CASE COMPANY] was watching warm prospects go quiet after the demo —
+no one owned the minutes right after interest was shown.
 
-With Demo Desk, those 50 questions are answered in seconds.
-The person now focuses on scheduling and high-value conversations.
+With Demo Desk, every signal gets classified and routed to the next useful action:
+confirm, recover, nurture, escalate, or close.
 
-Result: 8–10 hours saved per week. Same accuracy. Higher customer satisfaction.
+Result: faster, more relevant follow-up — and fewer warm leads lost to silence.
 
-[CASE STUDY PDF LINK]
+[CASE STUDY LINK]
 
-Want to see this for your crew? [LINK: 30-min Call]
+Want to see this for your team? [LINK: Call]
 
-—Demo Desk, Demo Desk
+— Demo Desk
 ```
 
 ### NURTURE EMAIL 3: Team Walkthrough
 
-**Subject:** "Schedule a Team Walkthrough (15 min)"
+**Subject:** "Bring the team — 15-min walkthrough"
 
 ```
 Hi [NAME],
 
-The last step: seeing this with your team.
+Last step: seeing this with the people who'll live in it.
 
-Demo Desk isn't just for you to understand — it's for your crew to believe.
+Demo Desk isn't just for you to get — it's for your reps and ops team to trust.
 
-A 15-minute walkthrough with [SPECIALIST_NAME] + your team clears up questions in real-time.
+A 15-minute walkthrough with [SPECIALIST_NAME] and your team clears up questions in real time.
 
-[LINK: Team Call Calendar]
+[LINK: Team call calendar]
 
-If that doesn't work, reply and we'll find a time.
+If that time doesn't work, reply and we'll find one.
 
-—Demo Desk, Demo Desk
+— Demo Desk
 ```
 
 ---
@@ -283,70 +285,70 @@ If that doesn't work, reply and we'll find a time.
 
 ### ENGLISH
 ```
-Subject: Let's Get Serious About Demo Desk for Your [Vertical]
+Subject: Want to take a closer look at Demo Desk?
 
 Hi [NAME],
 
-You've looked at the demo [#] times across [# days]. That tells me you're genuinely interested — you just want to make sure it's the right fit before you commit.
+You've stopped by the demo [#] times across [# days] — always nice to see. Sounds like you're weighing whether it's the right fit before bringing the team in, which makes total sense.
 
-Let's talk directly with our team lead who works with [verticals like yours].
+If it'd help, I can introduce you to the AE who works with [segment] teams like yours.
 
-[LINK: Specialist Call Calendar]
+[LINK: Specialist call calendar]
 
-No pressure — just a conversation about whether this makes sense for your business.
+No pressure — just a conversation about whether this makes sense for [COMPANY].
 
-—Demo Desk, Demo Desk
+— Demo Desk
 ```
 
 ### SPANISH
 ```
-Asunto: Hablemos en Serio sobre Demo Desk para tu [Vertical]
+Asunto: ¿Le echamos un vistazo más de cerca a Demo Desk?
 
 Hola [NAME],
 
-Has visto la demo [#] veces en [# días]. Eso me dice que estás genuinamente interesado — solo quieres estar seguro de que es lo correcto antes de comprometerte.
+Has pasado por la demo [#] veces en [# días] — siempre da gusto verte. Parece que estás viendo si encaja antes de involucrar al equipo, lo cual tiene todo el sentido.
 
-Hablemos directamente con nuestro líder de equipo que trabaja con [vertical] como la tuya.
+Si te sirve, te presento al AE que trabaja con equipos [segment] como el tuyo.
 
-[LINK: Calendario de Llamadas del Especialista]
+[LINK: Calendario del especialista]
 
-Sin presión — solo una conversación sobre si tiene sentido para tu negocio.
+Sin presión — solo una conversación sobre si tiene sentido para [COMPANY].
 
-—Demo Desk, Demo Desk
+— Demo Desk
 ```
 
 ---
 
 ## Path 5: Competitor Research — Polite Close
 
-### ENGLISH (All Verticals — Same)
+### ENGLISH (all segments — same)
 ```
-Subject: Thanks for Checking Out Demo Desk
+Subject: Thanks for checking out Demo Desk
 
 Hi [NAME],
 
-Thanks for taking the time to explore the demo. We're flattered you're evaluating tools alongside the ecosystem.
+Thanks for taking the time to explore the demo. We're flattered you're evaluating the space.
 
-If you're building on our tech down the road or considering partnership, let's talk.
+If you're ever building on our side or thinking about a partnership, let's talk.
 
-Best of luck with your evaluations.
+Best of luck with your evaluation.
 
-—Demo Desk, Demo Desk
+— Demo Desk
 ```
 
-### SPANISH (All Verticals — Same)
+### SPANISH (all segments — same)
 ```
-Asunto: Gracias por Revisar Demo Desk
+Asunto: Gracias por revisar Demo Desk
 
 Hola [NAME],
 
-Gracias por tomarte el tiempo de explorar la demo. Nos halaga que estés evaluando herramientas.
+Gracias por tomarte el tiempo de explorar la demo. Nos halaga que estés evaluando el espacio.
 
 Si en algún momento quieres construir sobre nuestro sistema o considerar una asociación, hablemos.
 
-Buena suerte con tus evaluaciones.
+Buena suerte con tu evaluación.
 
-—Demo Desk, Demo Desk
+— Demo Desk
 ```
 
 ---
@@ -355,30 +357,29 @@ Buena suerte con tus evaluaciones.
 
 Every template above is a skeleton. Before sending, fill:
 
-1. **[NAME]:** Use prospect's first name only
-2. **[DATE] / [TIME]:** Use prospect's confirmed calendar time (in their timezone)
-3. **[SPECIALIST_NAME]:** Use account rep's actual name
-4. **[Vertical]:** Use actual vertical (Plumbing, Electrical, HVAC, Dental)
-5. **[Case Company]:** Use anonymized case study company name
-6. **[#]:** Count actual visits/time gaps
+1. **[NAME]:** Prospect's first name
+2. **[COMPANY]:** Prospect's company
+3. **[DATE] / [TIME]:** Confirmed calendar time (in their timezone)
+4. **[SPECIALIST_NAME]:** The AE or specialist's actual name
+5. **[segment]:** Sales-led, Product-led (PLG), Founder-led, or Enterprise
+6. **[CASE COMPANY]:** Anonymized reference customer
+7. **[#]:** Actual visit count / time gaps
 
 **Do not:**
-- Use full title (e.g., "Mr. Rodriguez" — use "Rodriguez")
-- Say "Demo Desk team" — say "I" or use specialist name
+- Use a full honorific — first name is warmer
+- Sign as a faceless "team" when a specialist is named — use "I" or the specialist's name
 - Assume they remember the demo — remind them what they saw
-- Use jargon ("LLM," "API," "webhook") — stay practical
-- Misspell vertical name (HVAC is OK; don't say "Heating/Cooling")
+- Lead with internal jargon ("LLM," "webhook," "endpoint") — keep it about their outcome
+- Promise metrics you can't attribute — keep claims illustrative until you have the customer's numbers
 
 ---
 
 ## A/B Testing Signals (Optional Observability)
 
 When sending messages, track:
-- Open rate (click-through on call links)
-- Response rate (email reply)
-- No-show rate (scheduled call but didn't attend)
+- Open / click-through rate on call links
+- Reply rate
+- No-show rate (booked but didn't attend)
 
-Vertical with highest conversion: scale templates in that vertical.
-Path with highest reply rate: invest in that path's templates.
-
-This is optional for Week 7 submission but noted for future iteration.
+Segment with the highest conversion: scale templates there.
+Path with the highest reply rate: invest in that path's copy.

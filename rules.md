@@ -5,7 +5,7 @@
 
 If the incoming request lacks:
 - Demo completion timestamp
-- Prospect name + business type
+- Prospect name + company segment
 - Demo outcome signal (completed, abandoned, time spent)
 
 → Return error: "Insufficient event data. Cannot triage without demo context."
@@ -28,19 +28,19 @@ This is the moat. It prevents the system from becoming another spray-and-pray fo
 3. Back_to: null (call is booked; job complete)
 4. Confidence: High
 
-**Message template (plumber):**
+**Message template (Sales-led segment):**
 ```
 Subject: Your Demo Desk Demo — Call Scheduled
 
 Hi [Name],
 
-You just experienced Demo Desk firsthand. Let's talk about how it works for your shop.
+You just experienced Demo Desk firsthand. Let's talk about how it works for your team.
 
 [CALL_LINK] is your personal calendar link.
 
 Any questions before our call? Reply here or jump on.
 
-—Demo Desk, Demo Desk
+—Demo Desk Team
 ```
 
 ---
@@ -58,7 +58,7 @@ Any questions before our call? Reply here or jump on.
 3. Back_to: escalate-human (if no response in 1h, human follows up)
 4. Confidence: Medium
 
-**Message template (electrician):**
+**Message template (Product-led segment):**
 ```
 Subject: One Quick Question About Your Demo
 
@@ -66,13 +66,13 @@ Hi [Name],
 
 I noticed you stepped out of the demo. No judgment — this stuff can feel dense on first contact.
 
-Quick question: Was it the interface, or unclear how it applies to your crew?
+Quick question: Was it the UI, or unclear how it fits your workflow?
 
-If it's unclear, I can show you the 5-minute version in a quick call. No sales pitch.
+If it's unclear, I can show you the 5-minute version in a quick call. No sales pitch — just clarification.
 
 Link: [SHORT_CALL_LINK]
 
-—Demo Desk, Demo Desk
+—Demo Desk Team
 ```
 
 ---
@@ -88,16 +88,16 @@ Link: [SHORT_CALL_LINK]
 **Action:**
 1. Send **Nurture Sequence** trigger (3-email, 3-day cadence)
    - Day 1: "Here's what you saw in the demo" (recap + FAQ)
-   - Day 2: Vertical-specific case study (plumber, electrician, HVAC, dentist)
+   - Day 2: Segment-specific case study (Sales-led, Product-led, Founder-led, or Enterprise)
    - Day 3: "Schedule a team walkthrough" (group call invite)
 2. Back_to: nurture-sequence (system owns this; human reviews if unsubscribe)
 3. Confidence: Medium
 
-**Nurture trigger (HVAC):**
+**Nurture trigger (Sales-led segment):**
 ```
 Prospect: [Name], [Company]
-Vertical: HVAC contractor
-Message sequence: nurture-hvac-3day
+Segment: Sales-led SaaS
+Message sequence: nurture-sales-led-3day
 Start: [timestamp]
 Contact: [email]
 Language: [en|es]
@@ -118,19 +118,19 @@ Language: [en|es]
 3. Back_to: escalate-human (assign to account rep, this is a real opportunity)
 4. Confidence: High
 
-**Message template (dentist):**
+**Message template (Enterprise segment):**
 ```
-Subject: Let's Get Serious About Demo Desk for Your Practice
+Subject: Let's Get Serious About Demo Desk for Your Team
 
 Hi [Name],
 
 You've looked at the demo twice now. That tells me you're serious, just want to make sure it's the right fit before committing.
 
-Let's talk directly with our team lead who runs demos for your vertical.
+Let's talk directly with our team lead who specializes in your segment.
 
 [SPECIALIST_CALL_LINK]
 
-—Demo Desk, Demo Desk
+—Demo Desk Team
 ```
 
 ---
@@ -138,7 +138,7 @@ Let's talk directly with our team lead who runs demos for your vertical.
 ## Path 5: Competitor Research Signal
 
 **Trigger signals:**
-- Prospect works for competitor (ChatGPT, n8n, Make, HubSpot, Zapier employees OR consultants who broker their tools)
+- Prospect works for competitor (employees of a competing tool, or consultants who broker their tools)
 - Email domain is @competitor.com OR LinkedIn shows "at [Competitor]"
 - Timing suggests "research competitive intelligence, not genuine interest"
 - No personalization in request ("just checking out the demo")
@@ -149,7 +149,7 @@ Let's talk directly with our team lead who runs demos for your vertical.
 3. Back_to: null (do not follow up; competitor intelligence is expected, no harm)
 4. Confidence: High
 
-**Message template (all verticals, same):**
+**Message template (all segments, same):**
 ```
 Subject: Thanks for Checking Out Demo Desk
 
@@ -157,9 +157,9 @@ Hi [Name],
 
 Thanks for exploring the demo. We're flattered you're evaluating our tool alongside others.
 
-If you're building on our tech later, let's talk licensing or integration.
+If you're considering integration or partnership, let's talk.
 
-—Demo Desk, Demo Desk
+—Demo Desk Team
 ```
 
 ---
@@ -181,9 +181,10 @@ Every prospect record includes `language: [en | es | bilingual]`.
 ---
 
 ## Message Tone Guidelines
-- **Plumber/Electrician:** Direct, practical ("How it saves you time"), no jargon
-- **HVAC:** Reliability-focused ("Runs in the background, doesn't break your workflow")
-- **Dentist:** Practice-management focused ("Handles scheduling questions instantly")
+- **Sales-led:** Speed + relevance ("How it shortens your sales cycle"), no jargon
+- **Product-led (PLG):** Technical, self-serve ("Integrates with your stack, self-service setup")
+- **Founder-led:** Direct, outcome-focused ("Closes deals faster, less distraction")
+- **Enterprise:** Cross-team routing, context-rich ("Seamless handoff to your team")
 
 All: Short. Direct. One clear CTA. No fluff.
 
