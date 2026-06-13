@@ -120,7 +120,7 @@
 
   /* ---------- YouTube ---------- */
   .yt{background:#0f0f0f;color:#fff;border-radius:14px;overflow:hidden;margin:16px 0 30px}
-  .yt-banner{height:160px;background-size:cover;background-position:center}
+  .yt-banner{height:160px;background-image:linear-gradient(90deg,rgba(15,15,15,.1),rgba(15,15,15,.55)),url("assets/video_poster_v2.png");background-size:cover;background-position:center 42%}
   .yt-head{display:flex;gap:22px;align-items:center;padding:22px}
   .yt-ava{width:96px;height:96px;border-radius:50%;background-size:cover;background-position:center;flex:0 0 auto;overflow:hidden}
   .yt-h h2{font-size:1.5rem;font-weight:700;display:flex;align-items:center;gap:7px}
@@ -145,7 +145,7 @@
 
   /* ---------- LinkedIn ---------- */
   .li-head{border-radius:14px;overflow:hidden;margin:16px 0 18px;background:#fff;border:1px solid var(--line)}
-  .li-cover{height:130px;background-size:cover;background-position:center}
+  .li-cover{height:130px;background-image:linear-gradient(90deg,rgba(40,67,58,.08),rgba(40,67,58,.36)),url("assets/video_poster_v2.png");background-size:cover;background-position:center 42%}
   .li-body{padding:0 24px 22px;position:relative}
   .li-logo{width:104px;height:104px;border-radius:50%;border:3px solid #fff;background:#fff;margin-top:-52px;background-size:cover;background-position:center;overflow:hidden}
   .li-body h2{font-size:1.45rem;font-weight:700;margin-top:10px;display:flex;align-items:center;gap:7px}
@@ -447,12 +447,6 @@ function mediaHTML(o, shape){
   return assetHTML(o, shape);
 }
 
-function banner(){return uri('<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="200"><defs><linearGradient id="b" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1E332C"/><stop offset="1" stop-color="#28433A"/></linearGradient></defs>'+
-  '<rect width="1280" height="200" fill="url(#b)"/>'+
-  '<g opacity=".55">'+[0,1,2,3,4,5,6,7].map(function(i){return '<circle cx="'+(120+i*150)+'" cy="100" r="'+(8+i*3)+'" fill="none" stroke="#6FA98C" stroke-width="2"/>';}).join('')+'</g>'+
-  '<text x="64" y="92" font-family="Arial" font-size="42" font-weight="800" fill="#FBF7EE">Demo Desk</text>'+
-  '<text x="64" y="132" font-family="Arial" font-size="24" fill="#CC8264">Intent signal &#8594; Demo Desk &#8594; Action</text></svg>');}
-
 /* ---------- DATA ---------- */
 var IG_GRID=[
   {src:'assets/panel_1_speed.png',pal:'dark',kind:'stat',title:'Intent shown',label:'now what?',cap:'Most teams optimize for getting a prospect into the demo. Demo Desk owns the minutes right after interest is shown.',likes:'3,204',cmts:[['opslead_maya','this is the missing handoff'],['growthmark','routing beats blasting'],['demodesk','signal first, action second']],time:'2 DAYS AGO'},
@@ -517,9 +511,6 @@ var TT=[
 /* ---------- RENDER ---------- */
 document.getElementById('igAva').style.backgroundImage=avatar('#4f6f62');
 ['ytAva','liLogo','ttAva','mA'].forEach(function(id){document.getElementById(id).style.backgroundImage=avatar('#4f6f62');});
-document.getElementById('ytBanner').style.backgroundImage=banner();
-document.getElementById('liCover').style.backgroundImage=banner();
-
 // IG highlights
 var HL=[['Signals','blue'],['Routes','green'],['Rule 0','slate'],['Handoffs','amber'],['Nurture','pink'],['Close','violet']];
 document.getElementById('igHl').innerHTML=HL.map(function(h){
