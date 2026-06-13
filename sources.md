@@ -10,9 +10,9 @@ The Demo Desk integrates proven frameworks from sales, behavioral economics, and
 - **Rule connection:** Path 2 clarification messages use Voss's labeling technique ("I see this is confusing. What part?") to surface the actual objection, not defend against assumptions.
 
 ### 2. **Robert Cialdini — Influence: The Psychology of Persuasion**
-- **Applied:** Social proof in case studies (Path 3 Day 2 email), commitment through vertical-specific relevance, scarcity in timely follow-up (10-minute window)
+- **Applied:** Social proof in case studies (Path 3 Day 2 email), commitment through segment-specific relevance, scarcity in timely follow-up (10-minute window)
 - **Citation:** Cialdini, R. B. (2006). Influence: The Psychology of Persuasion. Harper Business.
-- **Rule connection:** Paths 1 and 4 emphasize speed and relevance (Cialdini's commitment principle: "You decided to watch the demo, so let's continue the momentum"). Path 3 case studies are social proof (your vertical is already using this).
+- **Rule connection:** Paths 1 and 4 emphasize speed and relevance (Cialdini's commitment principle: "You decided to watch the demo, so let's continue the momentum"). Path 3 case studies are social proof (teams in your segment are already using this).
 
 ### 3. **John Whitmore — Coaching for Performance (GROW Model)**
 - **Applied:** Goal/Reality/Options/Will structure in decision paths (not narrative-heavy, clarity through structure)
