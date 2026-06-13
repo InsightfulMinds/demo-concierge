@@ -1,4 +1,4 @@
-# The Demo Concierge — Decision Rules
+# The Demo Desk — Decision Rules
 
 ## Rule 0 (Mandatory Gate)
 **No demo event in the request = no outreach.**
@@ -30,17 +30,17 @@ This is the moat. It prevents the system from becoming another spray-and-pray fo
 
 **Message template (plumber):**
 ```
-Subject: Your AI Agents Demo — Call Scheduled
+Subject: Your Demo Desk Demo — Call Scheduled
 
 Hi [Name],
 
-You just experienced AI Agents firsthand. Let's talk about how it works for your shop.
+You just experienced Demo Desk firsthand. Let's talk about how it works for your shop.
 
 [CALL_LINK] is your personal calendar link.
 
 Any questions before our call? Reply here or jump on.
 
-—Demo Concierge, AI Agents
+—Demo Desk, Demo Desk
 ```
 
 ---
@@ -72,7 +72,7 @@ If it's unclear, I can show you the 5-minute version in a quick call. No sales p
 
 Link: [SHORT_CALL_LINK]
 
-—Demo Concierge, AI Agents
+—Demo Desk, Demo Desk
 ```
 
 ---
@@ -114,13 +114,13 @@ Language: [en|es]
 
 **Action:**
 1. Send **Escalation** message: "You've looked at this twice. Let me connect you with our team lead directly."
-2. Offer: 1:1 call with specialist (not just concierge)
+2. Offer: 1:1 call with specialist (not just demo desk)
 3. Back_to: escalate-human (assign to account rep, this is a real opportunity)
 4. Confidence: High
 
 **Message template (dentist):**
 ```
-Subject: Let's Get Serious About AI Agents for Your Practice
+Subject: Let's Get Serious About Demo Desk for Your Practice
 
 Hi [Name],
 
@@ -130,7 +130,7 @@ Let's talk directly with our team lead who runs demos for your vertical.
 
 [SPECIALIST_CALL_LINK]
 
-—Demo Concierge, AI Agents
+—Demo Desk, Demo Desk
 ```
 
 ---
@@ -151,7 +151,7 @@ Let's talk directly with our team lead who runs demos for your vertical.
 
 **Message template (all verticals, same):**
 ```
-Subject: Thanks for Checking Out AI Agents
+Subject: Thanks for Checking Out Demo Desk
 
 Hi [Name],
 
@@ -159,7 +159,7 @@ Thanks for exploring the demo. We're flattered you're evaluating our tool alongs
 
 If you're building on our tech later, let's talk licensing or integration.
 
-—Demo Concierge, AI Agents
+—Demo Desk, Demo Desk
 ```
 
 ---
@@ -190,7 +190,7 @@ All: Short. Direct. One clear CTA. No fluff.
 ---
 
 ## Timeline Enforcement
-- **0–10 min:** Concierge sends message (hot lead only)
+- **0–10 min:** Demo Desk sends message (hot lead only)
 - **10–60 min:** Nurture sequence triggered (lukewarm)
 - **60+ min:** Escalate to human or archive (lead is cold)
 

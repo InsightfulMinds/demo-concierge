@@ -1,6 +1,6 @@
 # Anti-Examples: What Naive Follow-Up Looks Like
 
-Three ways a generic follow-up system fails. Each contrasts with the Concierge's disciplined approach.
+Three ways a generic follow-up system fails. Each contrasts with the Demo Desk's disciplined approach.
 
 ---
 
@@ -13,11 +13,11 @@ A generic follow-up system receives all demo completions and sends the same mess
 ```
 To: [ALL PROSPECTS WHO COMPLETED DEMO TODAY]
 
-Subject: You Tried AI Agents — Here's What's Next
+Subject: You Tried Demo Desk — Here's What's Next
 
 Hi there,
 
-Thanks for checking out the AI Agents demo! We're excited you took a look.
+Thanks for checking out the Demo Desk demo! We're excited you took a look.
 
 Here are your next steps:
 
@@ -28,7 +28,7 @@ Here are your next steps:
 Questions? Reply to this email.
 
 Looking forward to working with you,
-AI Agents Team
+Demo Desk Team
 ```
 
 ### Why It Fails
@@ -45,7 +45,7 @@ AI Agents Team
 
 ---
 
-## The Concierge's Approach (Contrast)
+## The Demo Desk's Approach (Contrast)
 
 ```
 Prospect: Marcus Chen (Plumbing, Booked Call)
@@ -99,7 +99,7 @@ A system triple-texts a prospect on the same day without waiting for responses:
 
 ---
 
-## The Concierge's Approach (Contrast)
+## The Demo Desk's Approach (Contrast)
 
 ```
 Time 0 (12:47 PM): Demo ends
@@ -128,13 +128,13 @@ Prospect: Lisa Rodriguez (Electrical, Abandoned after 4 min)
 
 Auto-email (sent 5 min after abandonment):
 
-Subject: Transform Your Electrical Business With AI Agents
+Subject: Transform Your Electrical Business With Demo Desk
 
 Hi Lisa,
 
-You just checked out AI Agents. This is the #1 tool trusted by 500+ electrical contractors.
+You just checked out Demo Desk. This is the #1 tool trusted by 500+ electrical contractors.
 
-AI Agents automates customer service so your team focuses on the job. Here's what you're missing:
+Demo Desk automates customer service so your team focuses on the job. Here's what you're missing:
 
 - 24/7 customer response (even while you're on site)
 - Instant quote requests handled
@@ -160,7 +160,7 @@ Schedule your premium consultation today: [SALES_LINK]
 
 ---
 
-## The Concierge's Approach (Contrast)
+## The Demo Desk's Approach (Contrast)
 
 ```
 Prospect: Lisa Rodriguez (Electrical, Abandoned after 4 min)
@@ -192,7 +192,7 @@ Si no está claro, te puedo mostrar la versión de 5 minutos en una llamada. Sin
 ## Why These Matter for Competition Judging
 
 ### The Pattern
-All three anti-examples show a **lack of discipline.** The Concierge wins because it:
+All three anti-examples show a **lack of discipline.** The Demo Desk wins because it:
 
 1. **Reads the signal** (booked? abandoned? competitor?) before sending anything
 2. **Respects the timing window** (10 min for hot, 3 days for lukewarm, never spam)
@@ -202,7 +202,7 @@ All three anti-examples show a **lack of discipline.** The Concierge wins becaus
 6. **Escalates with clarity** (back_to field prevents silent loops)
 
 ### Judge Signal
-Judges see entries that say "we follow up" and entries that say "we follow up WITH DISCIPLINE." The Concierge is the latter.
+Judges see entries that say "we follow up" and entries that say "we follow up WITH DISCIPLINE." The Demo Desk is the latter.
 
 Spray-and-pray looks easy until you see the cost:
 - High unsubscribe rates
@@ -211,7 +211,7 @@ Spray-and-pray looks easy until you see the cost:
 - TCPA violations on SMS
 - "Ghosts in the machine" (no one knows if anyone responded)
 
-The Concierge's approach:
+The Demo Desk's approach:
 - ~65% response rate (on warm leads)
 - ~35% booking rate (on hot leads)
 - Zero unsubscribe complaints
@@ -224,7 +224,7 @@ The Concierge's approach:
 
 ## Takeaway
 
-The Concierge doesn't claim to convert everyone. It claims to **never waste a warm lead with low-quality follow-up.** That's the moat.
+The Demo Desk doesn't claim to convert everyone. It claims to **never waste a warm lead with low-quality follow-up.** That's the moat.
 
 The anti-examples show what it's not: not spray-and-pray, not multi-text harassment, not tone-deaf pitching. It's informed, paced, respectful, and measurable.
 

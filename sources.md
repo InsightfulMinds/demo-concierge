@@ -1,8 +1,8 @@
-# Sources — The Demo Concierge Methodology
+# Sources — The Demo Desk Methodology
 
 ## Core Influences & Citations
 
-The Demo Concierge integrates proven frameworks from sales, behavioral economics, and customer service operations research:
+The Demo Desk integrates proven frameworks from sales, behavioral economics, and customer service operations research:
 
 ### 1. **Chris Voss — Never Split the Difference**
 - **Applied:** Tactical empathy in clarification messages (Path 2: "What broke?" not "Here's what we offer")
@@ -65,34 +65,34 @@ The PROOF_LOG.md 10-event test suite follows Popperian falsifiability principles
 - Confidence scores are calibrated against empirical signal strength (booked call = 95%, abandoned = 65%)
 - Rule 0 enforcement is tested against bad data (system rejects incomplete events)
 
-**Academic grounding:** Popper, K. (1959). The Logic of Scientific Discovery. Karl Popper's falsifiability standard is applied to operator testing: a system that can't be proven wrong is un-testable. The Concierge can be proven wrong (send wrong path, miss timing window, send wrong language). That's the point.
+**Academic grounding:** Popper, K. (1959). The Logic of Scientific Discovery. Karl Popper's falsifiability standard is applied to operator testing: a system that can't be proven wrong is un-testable. The Demo Desk can be proven wrong (send wrong path, miss timing window, send wrong language). That's the point.
 
 ---
 
 ## Competitive Positioning
 
-The Demo Concierge differs from generic follow-up systems on three axes:
+The Demo Desk differs from generic follow-up systems on three axes:
 
 ### **1. Signal Discipline (vs. Spray-and-Pray)**
 - Generic systems: "Everyone who completed a demo gets the same pitch"
-- Concierge: "Each outcome gets its own path; Rule 0 blocks low-quality events"
-- Academic support: Kahneman, D. & Tversky, A. (1974). "Judgment Under Uncertainty: Heuristics and Biases" — humans guess wrong when they don't have complete information. The Concierge refuses to guess.
+- Demo Desk: "Each outcome gets its own path; Rule 0 blocks low-quality events"
+- Academic support: Kahneman, D. & Tversky, A. (1974). "Judgment Under Uncertainty: Heuristics and Biases" — humans guess wrong when they don't have complete information. The Demo Desk refuses to guess.
 
 ### **2. Timing Precision (vs. Fire-and-Forget)**
 - Generic systems: "Email sent 1–2 hours after demo"
-- Concierge: "10-minute window for hot leads, 60-minute timeout for escalation"
+- Demo Desk: "10-minute window for hot leads, 60-minute timeout for escalation"
 - Academic support: Sales Pipeline analytics showing 0–10 min = peak receptiveness
 
 ### **3. Bilingual Thinking (vs. English-Centric)**
 - Generic systems: "Translate template to Spanish"
-- Concierge: "Native Spanish templates with vertical-specific idioms"
+- Demo Desk: "Native Spanish templates with vertical-specific idioms"
 - Market research: 30–40% of small business owners in target regions (TX, CA, AZ) prefer Spanish business communication
 
 ---
 
 ## Replicability
 
-Every rule in the Concierge traces back to one or more sources above. Judges can verify:
+Every rule in the Demo Desk traces back to one or more sources above. Judges can verify:
 
 1. **Path logic** against Voss, Whitmore, Cialdini frameworks
 2. **Timing windows** against HubSpot/Outreach research
@@ -106,7 +106,7 @@ This is not a clever prompt. It's a discipline-driven system grounded in proven 
 
 ## Future Iteration
 
-As the Concierge scales, measure:
+As the Demo Desk scales, measure:
 
 - **Correlation between path classification confidence and actual booking rate** (refine confidence scoring)
 - **Language preference accuracy** (does Spanish-speaking plumber actually prefer ES template over EN?)

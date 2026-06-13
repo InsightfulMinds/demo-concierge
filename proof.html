@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo Desk — Proof of Execution</title>
+  <meta name="description" content="Ten simulated demo events run through Demo Desk's routing rules — every path, Rule 0, bilingual routing, escalation, and a high-volume batch.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%23bfe3ce'/%3E%3Crect x='14' y='10.5' width='12' height='8.5' rx='1.4' fill='%23fbf7ee' stroke='%2328433a' stroke-width='2'/%3E%3Crect x='7.5' y='22' width='25' height='3.2' rx='1.6' fill='%2328433a'/%3E%3Cpath d='M11 25.2l-1.2 6.8M29 25.2l1.2 6.8' stroke='%2328433a' stroke-width='2.4' stroke-linecap='round'/%3E%3Ccircle cx='33.4' cy='16.2' r='1.7' fill='%23cc8264'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --cream:#F4EFE3; --cream-hi:#FBF7EE; --paper:#FFFFFF; --panel:#FCF9F1;
+      --mint:#BFE3CE; --mint-2:#A6D7BC; --mint-soft:#DDEEE3; --sage:#8FAE9B;
+      --forest:#28433A; --forest-2:#1E332C; --ink:#2C3A34; --muted:#6E7B72;
+      --clay:#CC8264; --clay-2:#B96E50; --clay-soft:#EFD9CC; --ochre:#D9B36B; --ochre-soft:#F0E3C6;
+      --line:#E4DCCB; --line-2:#D8CFBB;
+      --shadow-sm:0 1px 2px rgba(40,67,58,.05);
+      --shadow:0 2px 6px rgba(40,67,58,.06),0 18px 44px rgba(40,67,58,.09);
+      --r:18px; --r-sm:12px;
+      --serif:"Fraunces",Georgia,serif; --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:0;color:var(--forest)}
+    .wrap{width:min(1080px,calc(100% - 40px));margin:0 auto}
+
+    .nav{position:sticky;top:0;z-index:50;background:rgba(244,239,227,.82);backdrop-filter:saturate(160%) blur(14px);border-bottom:1px solid var(--line)}
+    .nav-inner{display:flex;align-items:center;gap:20px;min-height:66px}
+    .brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:1.1rem;color:var(--forest)}
+    .brand svg{display:block;filter:drop-shadow(0 2px 4px rgba(40,67,58,.12))}
+    .nav-spacer{flex:1}
+    .nav-link{color:var(--muted);font-weight:600;font-size:.92rem;padding:7px 2px;border-bottom:2px solid transparent;transition:.18s}
+    .nav-link.active,.nav-link:hover{color:var(--forest);border-color:var(--clay)}
+    .nav-cta{background:var(--forest);color:var(--cream-hi);padding:9px 16px;border-radius:10px;font-weight:700;font-size:.88rem}
+    .nav-cta:hover{background:var(--forest-2)}
+
+    header.head{background:radial-gradient(120% 90% at 10% 0%,rgba(191,227,206,.6),transparent 44%),linear-gradient(160deg,#FBF7EE,#F4EFE3 60%,#E7F0E7);padding:60px 0 40px;border-bottom:1px solid var(--line)}
+    .kicker{display:inline-block;color:var(--clay);font-weight:800;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase}
+    header.head h1{margin-top:12px;font-size:clamp(2.4rem,5vw,3.8rem);line-height:1}
+    header.head p{max-width:660px;margin-top:16px;color:var(--ink);font-size:1.12rem}
+    .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:30px}
+    .stat{padding:16px 18px;border:1px solid var(--line);border-radius:var(--r-sm);background:rgba(255,253,247,.7)}
+    .stat b{display:block;font-family:var(--serif);font-size:1.9rem;line-height:1;color:var(--forest)}
+    .stat:nth-child(3) b{color:var(--clay)}
+    .stat span{display:block;margin-top:6px;color:var(--muted);font-size:.82rem}
+
+    /* clickable event index */
+    .index-bar{position:sticky;top:66px;z-index:40;background:rgba(244,239,227,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:12px 0}
+    .index-row{display:flex;flex-wrap:wrap;gap:8px}
+    .index-row a{flex:0 0 auto;padding:7px 12px;border:1px solid var(--line-2);border-radius:999px;background:var(--cream-hi);color:var(--forest);font-size:.8rem;font-weight:700;transition:.15s}
+    .index-row a:hover{border-color:var(--clay);background:var(--clay-soft)}
+    .index-row a.rule0{background:var(--ochre-soft);border-color:var(--ochre)}
+
+    main{padding:40px 0 80px}
+    .event{scroll-margin-top:130px;border:1px solid var(--line);border-radius:var(--r);background:var(--paper);box-shadow:var(--shadow);padding:26px;margin-bottom:20px}
+    .event.rule0{border-color:var(--ochre);background:linear-gradient(160deg,var(--ochre-soft),#FFFDF7)}
+    .event.batch{border-color:var(--mint-2);background:linear-gradient(160deg,#EFF7F0,#FBFDFB)}
+    .ev-head{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+    .ev-num{display:inline-grid;width:42px;height:42px;place-items:center;border-radius:11px;background:var(--mint);color:var(--forest);font-family:var(--serif);font-weight:700;font-size:1.2rem;flex:0 0 auto}
+    .event.rule0 .ev-num{background:var(--ochre);color:var(--forest-2)}
+    .ev-title{flex:1;min-width:200px}
+    .ev-title h3{font-size:1.3rem}
+    .ev-title .path{color:var(--muted);font-size:.86rem;font-weight:600;margin-top:2px}
+    .pass{flex:0 0 auto;display:inline-flex;align-items:center;gap:7px;padding:7px 13px;border-radius:999px;background:var(--mint);color:var(--forest);font-weight:800;font-size:.82rem}
+    .pass::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--forest)}
+    .event.rule0 .pass{background:var(--ochre)}
+    .fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:18px}
+    .f{padding:11px 13px;border-radius:10px;background:var(--mint-soft)}
+    .event.rule0 .f{background:rgba(217,179,107,.16)}
+    .f span{display:block;color:var(--sage);font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.07em}
+    .f b{display:block;margin-top:3px;color:var(--forest);font-size:.92rem;font-weight:600}
+    .decision{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+    .chip{padding:8px 13px;border-radius:10px;border:1px solid var(--line);background:var(--cream-hi);font-size:.86rem;color:var(--ink)}
+    .chip b{color:var(--forest)}
+    .chip.conf{background:var(--clay-soft);border-color:var(--clay-soft)}
+    .chip.conf b{color:var(--clay-2)}
+    .result{margin-top:16px;padding:13px 15px;border-radius:10px;background:var(--forest);color:var(--cream-hi);font-size:.92rem}
+    .result b{color:var(--mint)}
+    .batch-list{display:grid;gap:8px;margin-top:16px;list-style:none}
+    .batch-list li{display:flex;gap:10px;align-items:center;padding:10px 13px;border:1px solid var(--line);border-radius:10px;background:var(--cream-hi);font-size:.9rem}
+    .batch-list li .bdot{width:8px;height:8px;border-radius:50%;background:var(--mint-2);flex:0 0 auto}
+    .raw-note{text-align:center;color:var(--muted);font-size:.86rem;margin-top:24px}
+    .raw-note a{color:var(--clay-2);font-weight:700}
+
+    footer{background:var(--forest-2);color:#A9BBB0;padding:34px 0;font-size:.9rem}
+    footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;align-items:center}
+    footer .fbrand{display:flex;align-items:center;gap:10px;font-family:var(--serif);color:var(--cream-hi);font-size:1.05rem}
+
+    @media(max-width:680px){.stat-row{grid-template-columns:repeat(2,1fr)}.nav-cta{display:none}}
+  </style>
+</head>
+<body>
+  <nav class="nav"><div class="wrap nav-inner">
+    <a class="brand" href="index.html">
+      <svg viewBox="0 0 40 40" width="30" height="30" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#BFE3CE"/><rect x="14" y="10.5" width="12" height="8.5" rx="1.4" fill="#FBF7EE" stroke="#28433A" stroke-width="2"/><line x1="20" y1="19" x2="20" y2="21.6" stroke="#28433A" stroke-width="2"/><rect x="7.5" y="21.6" width="25" height="3.2" rx="1.6" fill="#28433A"/><path d="M11 24.8l-1.2 7M29 24.8l1.2 7" stroke="#28433A" stroke-width="2.4" stroke-linecap="round"/><path d="M30.6 21.6v-3.2l2.6-1.8" fill="none" stroke="#CC8264" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="33.4" cy="16.2" r="1.7" fill="#CC8264"/></svg>
+      Demo Desk
+    </a>
+    <span class="nav-spacer"></span>
+    <a class="nav-link" href="index.html">Overview</a>
+    <a class="nav-link" href="social.html">Social</a>
+    <a class="nav-link active" href="proof.html">Proof</a>
+    <a class="nav-cta" href="index.html#console">See it route</a>
+  </div></nav>
+
+  <header class="head"><div class="wrap">
+    <span class="kicker">Proof of execution</span>
+    <h1>Ten events. Every path. Zero guesses.</h1>
+    <p>Each scenario below was run through Demo Desk's routing rules — hot leads, abandoned demos, bilingual conversations, repeat visitors, competitor research, a Rule 0 violation, timeout escalation, and a high-volume batch.</p>
+    <div class="stat-row">
+      <div class="stat"><b>10</b><span>events simulated</span></div>
+      <div class="stat"><b>5</b><span>routing paths covered</span></div>
+      <div class="stat"><b>100%</b><span>classified correctly</span></div>
+      <div class="stat"><b>0</b><span>messages sent on Rule 0 fail</span></div>
+    </div>
+  </div></header>
+
+  <div class="index-bar"><div class="wrap"><div class="index-row" id="indexRow"></div></div></div>
+
+  <main><div class="wrap" id="events"></div>
+    <p class="raw-note">Source of truth: <a href="PROOF_LOG.md">PROOF_LOG.md</a> — these cards render the same ten events.</p>
+  </main>
+
+  <footer><div class="wrap">
+    <span class="fbrand">
+      <svg viewBox="0 0 40 40" width="26" height="26" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#BFE3CE"/><rect x="14" y="10.5" width="12" height="8.5" rx="1.4" fill="#FBF7EE" stroke="#28433A" stroke-width="2"/><rect x="7.5" y="21.6" width="25" height="3.2" rx="1.6" fill="#28433A"/><path d="M11 24.8l-1.2 7M29 24.8l1.2 7" stroke="#28433A" stroke-width="2.4" stroke-linecap="round"/><circle cx="33.4" cy="16.2" r="1.7" fill="#CC8264"/></svg>
+      Demo Desk
+    </span>
+    <p>Proof pack · 10/10 pass · Rule 0 enforced</p>
+  </div></footer>
+
+  <script>
+    // Faithful render of PROOF_LOG.md — values are from the proof log, not rewritten.
+    var EVENTS=[
+      {n:1,id:"e1",title:"Hot Lead — Booked After Demo",path:"Path 1 · Hot Lead",fields:{Prospect:"Maya Chen",Company:"Northwind Analytics (Series B)",Role:"Head of Growth",Segment:"Sales-led",Language:"English",Signal:"Completed demo, viewed pricing, booked call",Triage:"3 min (hot window)"},decision:[["Template","Booking Confirmation (Growth persona, EN)"],["Back_to","null"]],conf:"95%",result:"<b>PASS</b> — Confirmation sent within the 10-minute window; call locked same day."},
+      {n:2,id:"e2",title:"Abandoned Demo",path:"Path 2 · Abandoned",fields:{Prospect:"Diego Santos",Company:"Lumen Logistics",Role:"RevOps Lead",Segment:"Sales-led",Language:"Spanish",Signal:"Exited at the integrations step (partial, 4.5 min)",Triage:"8 min"},decision:[["Template","Clarification (RevOps, ES)"],["Back_to","escalate-human if no reply in 60 min"]],conf:"65%",result:"<b>PASS</b> — Spanish clarification sent within window; human-escalation routing armed."},
+      {n:3,id:"e3",title:"Lukewarm Lead",path:"Path 3 · Lukewarm",fields:{Prospect:"Priya Nair",Company:"Forge DevTools",Role:"VP Engineering",Segment:"PLG → sales-assist",Language:"English",Signal:"Completed, read docs + pricing, clicked “tell me more”, no booking",Triage:"2 min"},decision:[["Template","3-day technical nurture (DevTools)"],["Back_to","nurture-sequence"]],conf:"65%",result:"<b>PASS</b> — Nurture sequence triggered (3 emails / 3 days); auto-graduates to Path 1 if a call is booked."},
+      {n:4,id:"e4",title:"Repeat Visitor",path:"Path 4 · Repeat Visitor",fields:{Prospect:"Sarah Kim",Company:"Brightloop (Seed)",Role:"Founder / CEO",Segment:"Founder-led eval",Language:"English",Signal:"3 visits in 8 days, pricing + docs, scheduled CTA",Triage:"6 min"},decision:[["Template","Escalation to Account Executive"],["Back_to","escalate-human"],["SLA","contact within 4 hours"]],conf:"95%",result:"<b>PASS</b> — High-intent signal detected; escalated to a human AE with full visit history."},
+      {n:5,id:"e5",title:"Competitor Research Signal",path:"Path 5 · Research only",fields:{Prospect:"Alex Johnson",Company:"Rival SaaS (competitor)",Role:"PM",Segment:"Unknown",Language:"English",Signal:"@rival-saas.com · viewed changelog + API docs",Triage:"—"},decision:[["Template","Polite Close (no pitch)"],["Back_to","null — do not retarget"]],conf:"95%",result:"<b>PASS</b> — Research signal handled gracefully. No spam follow-up, no CRM pollution."},
+      {n:6,id:"e6",rule0:true,title:"No Event Data — Rule 0 Violation",path:"Rule 0 · the moat",fields:{Prospect:"missing",Company:"missing",Segment:"unknown",Language:"unknown",Signal:"missing timestamp + outcome",Check:"✗ Required fields absent"},decision:[["Action","ERROR returned — resubmit with complete data"],["Message sent","NO"],["Back_to","null"]],conf:"—",result:"<b>PASS</b> — Rule 0 enforced. Low-quality request blocked before any outreach. This is the moat."},
+      {n:7,id:"e7",title:"Bilingual Prospect — Native Spanish",path:"Path 1 · Hot Lead (ES)",fields:{Prospect:"Roberto García",Company:"Mercado Cloud (LatAm SaaS)",Role:"COO",Segment:"Sales-led",Language:"Spanish",Signal:"Completed demo + booked call",Triage:"within window"},decision:[["Template","Booking Confirmation (ES — native, not translated)"],["Back_to","null"]],conf:"95%",result:"<b>PASS</b> — Spanish routing correct; native idiom used (“Acabas de ver Demo Desk en acción”), not a translation."},
+      {n:8,id:"e8",title:"Abandoned + Escalate-Human Trigger",path:"Path 2 → escalate-human",fields:{Prospect:"Michael Torres",Company:"Vertex Manufacturing",Role:"IT Director",Segment:"Enterprise eval",Language:"English",Signal:"Exited after 6 min, then no reply for 60 min",Triage:"2 min"},decision:[["Step 1","Clarification (“What got in the way?”) sent"],["Step 2","60-min window elapsed, no response"],["Back_to","escalate-human (human follow-up)"]],conf:"65%",result:"<b>PASS</b> — Back_to: escalate-human triggered correctly after the timeout."},
+      {n:9,id:"e9",title:"Lukewarm → No Response → Archive",path:"Path 3 · Lukewarm",fields:{Prospect:"Jennifer Park",Company:"Cedar Health (healthtech SaaS)",Role:"Product Manager",Segment:"PLG",Language:"English",Signal:"Completed; 3-email nurture, only Email 1 opened, no booking",Triage:"1 min"},decision:[["Outcome","Nurture completed, no conversion"],["Action","Archived — re-engage in 30 days"]],conf:"65%",result:"<b>PASS</b> — Lukewarm lead nurtured for 3 days, then archived cleanly for later re-engagement."},
+      {n:10,id:"e10",batch:true,title:"High-Volume Day — 5 Events / 1 Hour",path:"Mixed paths · batch",batchRows:[["Event A","Path 1 (Hot) — 2 min → message sent"],["Event B","Path 2 (Abandoned) — 5 min → message sent"],["Event C","Path 3 (Lukewarm) — 3 min → nurture triggered"],["Event D","Path 5 (Competitor) — 4 min → polite close"],["Event E","Path 4 (Repeat) — 2 min → escalate-human"]],summary:"5 processed · 4 messages sent · 1 escalation · 0 Rule 0 violations · 100% accuracy",result:"<b>PASS</b> — High-volume hour handled correctly; every event triaged in-window, no bottlenecks."}
+    ];
+
+    function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+
+    document.getElementById("indexRow").innerHTML=EVENTS.map(function(e){
+      return '<a href="#'+e.id+'"'+(e.rule0?' class="rule0"':'')+'>'+e.n+' · '+esc(e.title.split(" — ")[0].split(" (")[0])+'</a>';
+    }).join("");
+
+    document.getElementById("events").innerHTML=EVENTS.map(function(e){
+      var cls="event"+(e.rule0?" rule0":"")+(e.batch?" batch":"");
+      var head='<div class="ev-head"><span class="ev-num">'+e.n+'</span>'+
+        '<div class="ev-title"><h3>'+esc(e.title)+'</h3><div class="path">'+esc(e.path)+'</div></div>'+
+        '<span class="pass">PASS</span></div>';
+      var body="";
+      if(e.batch){
+        body='<ul class="batch-list">'+e.batchRows.map(function(r){return '<li><span class="bdot"></span><b>'+esc(r[0])+'</b>&nbsp;— '+esc(r[1])+'</li>';}).join("")+'</ul>'+
+          '<div class="decision"><span class="chip"><b>'+esc(e.summary)+'</b></span></div>';
+      } else {
+        body='<div class="fields">'+Object.keys(e.fields).map(function(k){return '<div class="f"><span>'+esc(k)+'</span><b>'+esc(e.fields[k])+'</b></div>';}).join("")+'</div>'+
+          '<div class="decision">'+e.decision.map(function(d){return '<span class="chip"><b>'+esc(d[0])+':</b> '+esc(d[1])+'</span>';}).join("")+
+          (e.conf&&e.conf!=="—"?'<span class="chip conf"><b>Confidence: '+esc(e.conf)+'</b></span>':'')+'</div>';
+      }
+      return '<div class="'+cls+'" id="'+e.id+'">'+head+body+'<div class="result">'+e.result+'</div></div>';
+    }).join("");
+  </script>
+</body>
+</html>

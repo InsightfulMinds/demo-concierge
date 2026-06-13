@@ -1,4 +1,4 @@
-# The Demo Concierge — Worked Examples
+# The Demo Desk — Worked Examples
 
 Each example demonstrates a decision path with explicit rule citations and outcome.
 
@@ -13,12 +13,12 @@ Email: marcus@chenplumbing.com
 Language: English
 Demo completion: 12:47 PM, full demo (12 min 34 sec)
 Demo outcome: Visited pricing page, clicked "Schedule Demo Call"
-Called booked by prospect: 12:52 PM (5 minutes later, on concierge calendar)
+Called booked by prospect: 12:52 PM (5 minutes later, on demo desk calendar)
 Vertical: Plumbing
 Time-to-triage: 3 minutes (demo end to request arrival)
 ```
 
-**Concierge Analysis:**
+**Demo Desk Analysis:**
 
 1. **Rule 0 check:** ✓ Complete event data (timestamp, name, outcome, booking)
 2. **Path classification:** Demo Completed — Hot Lead (Path 1)
@@ -34,20 +34,20 @@ Time-to-triage: 3 minutes (demo end to request arrival)
 Send immediately:
 ```
 To: marcus@chenplumbing.com
-Subject: Your AI Agents Demo — Call Scheduled
+Subject: Your Demo Desk Demo — Call Scheduled
 
 Hi Marcus,
 
 Nice work getting through the full demo. Your call is on the calendar for [DATE/TIME].
 
-We'll dig into how AI Agents works in your workflow — answering customer questions while your crew focuses on the work.
+We'll dig into how Demo Desk works in your workflow — answering customer questions while your crew focuses on the work.
 
 See you then.
 
-—Demo Concierge, AI Agents
+—Demo Desk, Demo Desk
 ```
 
-**Outcome:** Booking confirmed, warm handoff to demo specialist. Call is already scheduled; concierge job complete.
+**Outcome:** Booking confirmed, warm handoff to demo specialist. Call is already scheduled; demo desk job complete.
 
 ---
 
@@ -66,7 +66,7 @@ Vertical: Electrical
 Time-to-triage: 8 minutes (demo end to request arrival)
 ```
 
-**Concierge Analysis:**
+**Demo Desk Analysis:**
 
 1. **Rule 0 check:** ✓ Event data present (timestamp, partial completion, session analytics)
 2. **Path classification:** Demo Abandoned Midway (Path 2)
@@ -94,7 +94,7 @@ Si no está claro, te puedo mostrar la versión de 5 minutos en una llamada. Sin
 
 Link: [SHORT_CALL_LINK]
 
-—Demo Concierge, AI Agents
+—Demo Desk, Demo Desk
 ```
 
 **Outcome:** Clarification offered. If Lisa responds, pathway branches:
@@ -119,7 +119,7 @@ Time-to-triage: 12 minutes (demo end to request arrival)
 Notes: "Wants to discuss with operations manager before committing"
 ```
 
-**Concierge Analysis:**
+**Demo Desk Analysis:**
 
 1. **Rule 0 check:** ✓ Event data present (timestamp, completion, nurture consent)
 2. **Path classification:** Demo Completed — Lukewarm (Path 3)
@@ -142,8 +142,8 @@ Contact schedule: [Day 1 = 2 PM today, Day 2 = 10 AM tomorrow, Day 3 = 3 PM day 
 Language: English
 Stop trigger: Unsubscribe click or "Schedule Call" click
 
-Day 1 email subject: "Here's What You Saw in the AI Agents Demo"
-Day 2 email subject: "HVAC Shop Spotlight: How [Case Company] Uses AI Agents"
+Day 1 email subject: "Here's What You Saw in the Demo Desk Demo"
+Day 2 email subject: "HVAC Shop Spotlight: How [Case Company] Uses Demo Desk"
 Day 3 email subject: "Schedule Your Team Walkthrough (15 min)"
 ```
 
@@ -168,7 +168,7 @@ Vertical: Dental
 Time-to-triage: 6 minutes (from Visit 3 completion)
 ```
 
-**Concierge Analysis:**
+**Demo Desk Analysis:**
 
 1. **Rule 0 check:** ✓ Event data complete (three visits, timestamps, engagement progression)
 2. **Path classification:** Repeat Visitor (Path 4)
@@ -184,7 +184,7 @@ Time-to-triage: 6 minutes (from Visit 3 completion)
 Send immediately + escalate to human:
 ```
 To: schen@chenfamilydental.com
-Subject: Let's Get Serious About AI Agents for Your Practice
+Subject: Let's Get Serious About Demo Desk for Your Practice
 
 Hi Dr. Chen,
 
@@ -194,7 +194,7 @@ Let's talk directly with our team lead who works with dental practices.
 
 [SPECIALIST_CALL_LINK]
 
-—Demo Concierge, AI Agents
+—Demo Desk, Demo Desk
 
 ---
 
@@ -228,18 +228,18 @@ Request note: "Generic demo request, no personalization"
 ```
 Send to alex.johnson@n8n.com:
 
-Subject: You Loved the AI Agents Demo — Book Your Call
+Subject: You Loved the Demo Desk Demo — Book Your Call
 
 Hi Alex,
 
-Great to see you exploring AI Agents! You made it through the full demo, so you know we're serious.
+Great to see you exploring Demo Desk! You made it through the full demo, so you know we're serious.
 
 Let's schedule a call to talk features, pricing, and custom integration.
 
 [BOOKING_LINK]
 
 Looking forward to chatting,
-—Demo Concierge
+—Demo Desk
 ```
 
 **Why this fails:**
@@ -248,11 +248,11 @@ Looking forward to chatting,
 - ❌ Violates implicit "no sales pitch to competitors" moat
 - ❌ Creates future spam complaints when Alex's employer bans email list
 
-**Correct action (Concierge discipline):**
+**Correct action (Demo Desk discipline):**
 ```
 Send to alex.johnson@n8n.com:
 
-Subject: Thanks for Checking Out AI Agents
+Subject: Thanks for Checking Out Demo Desk
 
 Hi Alex,
 
@@ -260,7 +260,7 @@ Thanks for taking the time to explore the demo. We're flattered you're evaluatin
 
 If you're building on our tech or considering partnership down the road, let's talk.
 
-—Demo Concierge, AI Agents
+—Demo Desk, Demo Desk
 ```
 
 **Why this works:**
@@ -294,7 +294,7 @@ Thanks for checking out the demo! Here's your personal booking link.
 
 Looking forward to working with you.
 
-—Demo Concierge"
+—Demo Desk"
 ```
 
 **Why this fails:**
@@ -323,4 +323,4 @@ Please provide complete event data before resubmitting."
 - ✓ Enforces discipline (prevents low-quality outreach)
 - ✓ Signals professional standards ("we don't email ghosts")
 - ✓ Protects sender reputation (email deliverability)
-- ✓ Moat: "The Concierge never sends generic follow-ups"
+- ✓ Moat: "The Demo Desk never sends generic follow-ups"

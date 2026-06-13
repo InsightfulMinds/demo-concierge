@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+  <!-- Rounded Mint Green Background -->
+  <rect width="16" height="16" rx="3.5" fill="#D2F4E2" />
+
+  <!-- Left 'D' Desk Pedestal -->
+  <path d="M 3.5 7.5 L 4.5 7.5 A 2 2 0 0 1 4.5 11.5 L 3.5 11.5 Z" fill="#FDFBF7" stroke="#1B4332" stroke-width="1" stroke-linejoin="round" />
+
+  <!-- Right 'D' Desk Pedestal -->
+  <path d="M 9.5 7.5 L 10.5 7.5 A 2 2 0 0 1 10.5 11.5 L 9.5 11.5 Z" fill="#FDFBF7" stroke="#1B4332" stroke-width="1" stroke-linejoin="round" />
+
+  <!-- Tabletop -->
+  <rect x="2.5" y="4.5" width="11" height="2" rx="0.5" fill="#FDFBF7" stroke="#1B4332" stroke-width="1" stroke-linejoin="round" />
+
+  <!-- Tiny Clay Dot Accent (Sitting on the tabletop, aligned with the right D pedestal) -->
+  <circle cx="11" cy="3" r="1" fill="#D06443" />
+</svg>

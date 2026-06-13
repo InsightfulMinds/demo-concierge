@@ -3,438 +3,543 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Demo Concierge — AI Agents Follow-Up Operator</title>
+  <title>Demo Desk — Intent-Response Operator</title>
+  <meta name="description" content="Demo Desk owns the minutes after a prospect shows interest — routing every intent signal to the right next action.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Demo Desk — Own the Minutes After Interest">
+  <meta property="og:description" content="An intent-driven follow-up operator for companies that run product demos.">
+  <meta property="og:url" content="https://demo-concierge.pages.dev/">
+  <meta property="og:image" content="https://demo-concierge.pages.dev/assets/hero-diagram.png">
+  <meta property="og:image:alt" content="Intent Signal to Demo Desk to Action">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Demo Desk — Own the Minutes After Interest">
+  <meta name="twitter:description" content="Every intent signal gets the right follow-up: confirm, recover, nurture, escalate, or close.">
+  <meta name="twitter:image" content="https://demo-concierge.pages.dev/assets/hero-diagram.png">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon.ico" sizes="any">
+  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="assets/favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="assets/favicon-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root{
+      --cream:#F4EFE3; --cream-hi:#FBF7EE; --paper:#FFFFFF; --panel:#FCF9F1;
+      --mint:#BFE3CE; --mint-2:#A6D7BC; --mint-soft:#DDEEE3; --sage:#8FAE9B;
+      --forest:#28433A; --forest-2:#1E332C; --ink:#2C3A34; --muted:#6E7B72;
+      --clay:#CC8264; --clay-2:#B96E50; --clay-soft:#EFD9CC;
+      --ochre:#D9B36B; --ochre-soft:#F0E3C6;
+      --line:#E4DCCB; --line-2:#D8CFBB;
+      --shadow-sm:0 1px 2px rgba(40,67,58,.05);
+      --shadow:0 2px 6px rgba(40,67,58,.06), 0 18px 44px rgba(40,67,58,.09);
+      --shadow-lg:0 30px 70px rgba(40,67,58,.14);
+      --r:18px; --r-sm:12px;
+      --serif:"Fraunces",Georgia,"Times New Roman",serif;
+      --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
     }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      line-height: 1.6;
-      color: #222;
-      background: #f9f9f9;
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;position:relative;overflow-x:hidden}
+    /* subtle paper grain */
+    body::before{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.5;mix-blend-mode:multiply;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E")}
+    a{color:inherit;text-decoration:none}
+    h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:0;color:var(--forest)}
+    .wrap{width:min(1140px,calc(100% - 40px));margin:0 auto;position:relative;z-index:2}
+
+    /* ---------- nav ---------- */
+    .nav{position:sticky;top:0;z-index:50;background:rgba(244,239,227,.78);backdrop-filter:saturate(160%) blur(14px);border-bottom:1px solid var(--line)}
+    .nav-inner{display:flex;align-items:center;gap:20px;min-height:68px}
+    .brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:1.12rem;color:var(--forest);letter-spacing:0}
+    .brand svg{display:block;filter:drop-shadow(0 2px 4px rgba(40,67,58,.12))}
+    .nav-spacer{flex:1}
+    .nav-link{color:var(--muted);font-weight:600;font-size:.93rem;padding:7px 2px;border-bottom:2px solid transparent;transition:.18s}
+    .nav-link.active,.nav-link:hover{color:var(--forest);border-color:var(--clay)}
+    .nav-cta{background:var(--forest);color:var(--cream-hi);padding:10px 17px;border-radius:10px;font-weight:700;font-size:.88rem;transition:.18s}
+    .nav-cta:hover{background:var(--forest-2);transform:translateY(-1px);box-shadow:var(--shadow)}
+
+    /* ---------- hero ---------- */
+    .hero{position:relative;overflow:hidden;
+      background:radial-gradient(120% 90% at 8% 0%,rgba(191,227,206,.7),transparent 42%),radial-gradient(90% 80% at 100% 18%,rgba(217,179,107,.18),transparent 46%),linear-gradient(160deg,#FBF7EE 0%,#F4EFE3 52%,#E7F0E7 100%)}
+    .hero-grid{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(380px,.98fr);gap:48px;align-items:start;padding:84px 0 90px}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;padding:7px 13px;border:1px solid var(--line-2);border-radius:999px;background:rgba(255,253,247,.7);color:var(--forest);font-size:.76rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+    .pulse{width:8px;height:8px;border-radius:999px;background:var(--clay);box-shadow:0 0 0 5px rgba(204,130,100,.2);animation:pulse 2.4s infinite}
+    @keyframes pulse{0%,100%{box-shadow:0 0 0 4px rgba(204,130,100,.22)}50%{box-shadow:0 0 0 8px rgba(204,130,100,.06)}}
+    h1{margin-top:24px;font-size:clamp(3rem,6.4vw,5.6rem);line-height:.96;font-weight:600}
+    h1 .em{font-style:italic;color:var(--clay);font-weight:500}
+    .hero-copy{max-width:560px;margin-top:24px;color:var(--ink);font-size:1.18rem}
+    .hero-copy strong{color:var(--forest)}
+    .hero-diagram{display:block;max-width:720px;margin-top:28px}
+    .hero-diagram img{display:block;width:100%;height:auto;border:1px solid var(--line-2);border-radius:16px;box-shadow:var(--shadow);background:var(--cream-hi)}
+    .diagram-node{min-height:82px;padding:14px 15px;border:1px solid var(--line-2);border-radius:var(--r-sm);background:rgba(255,253,247,.72);box-shadow:var(--shadow-sm)}
+    .diagram-node b{display:block;color:var(--forest);font-weight:800;font-size:.92rem}
+    .diagram-node span{display:block;margin-top:5px;color:var(--muted);font-size:.8rem;line-height:1.45}
+    .diagram-arrow{color:var(--clay);font-weight:900}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:13px;margin-top:32px}
+    .button{display:inline-flex;align-items:center;gap:9px;min-height:50px;padding:0 22px;border-radius:12px;border:1px solid transparent;font-family:var(--sans);font-weight:700;font-size:.96rem;cursor:pointer;transition:transform .16s,box-shadow .16s,background .16s}
+    .button:hover{transform:translateY(-2px)}
+    .button.primary{background:var(--forest);color:var(--cream-hi)}
+    .button.primary:hover{background:var(--forest-2);box-shadow:var(--shadow)}
+    .button.secondary{background:rgba(255,253,247,.8);color:var(--forest);border-color:var(--line-2)}
+    .button.secondary:hover{box-shadow:var(--shadow);border-color:var(--sage)}
+    .stat-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:38px;max-width:600px}
+    .hero-stat{padding:16px 18px;border:1px solid var(--line);border-radius:var(--r-sm);background:rgba(255,253,247,.66)}
+    .hero-stat b{display:block;font-family:var(--serif);font-size:1.7rem;line-height:1;color:var(--forest)}
+    .hero-stat span{display:block;margin-top:7px;color:var(--muted);font-size:.8rem}
+
+    /* ---------- console ---------- */
+    .console{display:flex;flex-direction:column;border:1px solid var(--line-2);border-radius:var(--r);background:var(--cream-hi);box-shadow:var(--shadow-lg);overflow:hidden}
+    .console-top{display:flex;align-items:center;gap:9px;padding:14px 18px;border-bottom:1px solid var(--line);color:var(--forest);font-size:.82rem;font-weight:700;flex:0 0 auto}
+    .dot{width:10px;height:10px;border-radius:50%;background:var(--mint-2);box-shadow:8px 0 0 var(--ochre),16px 0 0 var(--clay-soft)}
+    .console-top .live{margin-left:auto;display:flex;align-items:center;gap:6px;color:var(--sage);font-weight:600;font-size:.76rem;text-transform:uppercase;letter-spacing:.08em}
+    .console-top .live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--mint-2);box-shadow:0 0 0 3px rgba(166,215,188,.35)}
+    .console-body{display:grid;gap:16px;padding:18px;max-height:min(76vh,660px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:var(--sage) transparent}
+    .console-body::-webkit-scrollbar{width:9px}
+    .console-body::-webkit-scrollbar-thumb{background:var(--sage);border-radius:9px;border:2px solid var(--cream-hi)}
+    .console-body::-webkit-scrollbar-track{background:transparent}
+    .case-tabs{display:flex;flex-wrap:wrap;gap:7px}
+    .tab{flex:0 0 auto;border:1px solid var(--line-2);border-radius:999px;background:var(--panel);color:var(--forest);cursor:pointer;font:inherit;font-size:.8rem;font-weight:700;padding:8px 13px;transition:.15s}
+    .tab:hover{border-color:var(--sage)}
+    .tab.active{background:var(--forest);color:var(--cream-hi);border-color:transparent}
+    .event-card,.decision-card{border:1px solid var(--line);border-radius:var(--r-sm);background:var(--paper);padding:17px}
+    .event-card h2,.decision-card h2,.feed h2{font-family:var(--sans);color:var(--muted);font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+    .event-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:11px;margin-top:13px}
+    .field{padding:11px 12px;border-radius:10px;background:var(--mint-soft)}
+    .field span{display:block;color:var(--sage);font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+    .field b{display:block;margin-top:4px;color:var(--forest);font-size:.96rem;font-weight:600}
+    .decision-card{background:linear-gradient(160deg,#FFFDF7,#F3F8F2)}
+    .decision-route{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:13px;flex-wrap:wrap}
+    .path-name{font-family:var(--serif);color:var(--forest);font-size:1.4rem;font-weight:600}
+    .confidence-pill{flex:0 0 auto;padding:8px 13px;border-radius:999px;background:var(--mint);color:var(--forest);font-size:.82rem;font-weight:800;white-space:nowrap}
+    .decision-list{display:grid;gap:9px;margin-top:15px;list-style:none}
+    .decision-list li{display:flex;gap:10px;color:var(--ink);font-size:.93rem}
+    .decision-list li::before{content:"";flex:0 0 auto;width:7px;height:7px;margin-top:9px;border-radius:50%;background:var(--clay)}
+    .msg-preview{position:relative;margin-top:18px;padding:14px 15px;border-radius:12px;border:1px solid var(--line);background:var(--mint-soft);color:var(--forest);font-size:.92rem;line-height:1.5}
+    .msg-preview::before{content:"Message preview";position:absolute;top:-8px;left:13px;background:var(--cream-hi);padding:0 7px;color:var(--sage);font-size:.62rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    .feed{border:1px solid var(--line);border-radius:var(--r-sm);background:var(--paper);padding:6px 16px 4px}
+    .feed h2{padding:12px 0 4px}
+    .feed-row{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid var(--line);font-size:.88rem;color:var(--ink)}
+    .feed-row:last-child{border-bottom:0}
+    .feed-row .fdot{flex:0 0 auto;width:8px;height:8px;border-radius:50%;background:var(--mint-2)}
+    .feed-row .fdot.clay{background:var(--clay)}
+    .feed-row .fdot.ochre{background:var(--ochre)}
+    .feed-row .who{font-weight:700;color:var(--forest)}
+    .feed-row em{margin-left:auto;color:var(--muted);font-style:normal;font-size:.78rem;white-space:nowrap}
+
+    /* ---------- sections ---------- */
+    section{padding:96px 0}
+    section.tight{padding-top:54px}
+    .section-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(290px,.6fr);gap:40px;align-items:end;margin-bottom:40px}
+    h2{font-size:clamp(2.1rem,4.2vw,3.5rem);line-height:1.02}
+    .section-head p,.lead{color:var(--muted);font-size:1.06rem}
+    .kicker{display:inline-block;color:var(--clay);font-weight:800;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
+
+    .problem-grid{display:grid;grid-template-columns:.78fr 1fr;gap:22px;align-items:stretch}
+    .problem-panel{border:1px solid var(--line);border-radius:var(--r);background:var(--panel);box-shadow:var(--shadow);padding:28px;display:flex;flex-direction:column;justify-content:center}
+    .problem-panel .big-number{display:block;font-family:var(--serif);color:var(--clay);font-size:clamp(3.4rem,8vw,6rem);font-weight:600;line-height:.88}
+    .problem-panel h3{margin-top:14px;font-size:1.4rem}
+    .problem-panel p{margin-top:11px;color:var(--muted)}
+    .before-after{display:grid;gap:13px}
+    .lane{display:grid;grid-template-columns:120px 1fr;gap:18px;align-items:center;padding:20px;border-radius:var(--r);border:1px solid var(--line);background:var(--paper)}
+    .lane b{font-family:var(--serif);font-size:1.1rem;color:var(--forest)}
+    .lane p{color:var(--muted);font-size:.96rem}
+    .lane.good{border-color:var(--mint-2);background:linear-gradient(120deg,#EFF7F0,#FBFDFB)}
+    .lane.accent{border-color:var(--clay-soft);background:linear-gradient(120deg,#FBF1EB,#FFFDF9)}
+
+    .path-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+    .path-card{display:flex;flex-direction:column;min-height:248px;padding:20px;border:1px solid var(--line);border-radius:var(--r);background:var(--paper);box-shadow:var(--shadow-sm);transition:transform .18s,box-shadow .18s}
+    .path-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+    .path-card .num{display:inline-grid;width:36px;height:36px;place-items:center;border-radius:10px;background:var(--mint);color:var(--forest);font-weight:800;font-family:var(--serif)}
+    .path-card h3{margin-top:16px;font-size:1.12rem}
+    .path-card p{margin-top:9px;color:var(--muted);font-size:.92rem}
+    .path-card .tag{margin-top:auto;align-self:flex-start;padding:6px 11px;border-radius:999px;background:var(--mint-soft);color:var(--forest);font-size:.76rem;font-weight:800}
+    .path-card:nth-child(5){background:linear-gradient(160deg,#FBF1EB,#FFFDF9);border-color:var(--clay-soft)}
+    .path-card:nth-child(5) .num{background:var(--clay-soft);color:var(--clay-2)}
+    .path-card:nth-child(5) .tag{background:var(--clay-soft);color:var(--clay-2)}
+
+    .moat{display:grid;grid-template-columns:.66fr 1fr;gap:28px;align-items:center;margin-top:26px;border:1px solid var(--ochre);border-radius:var(--r);background:linear-gradient(135deg,var(--ochre-soft),#FFFDF7);padding:30px}
+    .moat strong{color:var(--clay-2);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:800}
+    .moat h3{margin-top:8px;font-size:1.7rem}
+    .moat p{color:#6b5a2f}
+
+    .proof{background:linear-gradient(180deg,#FBF7EE,#F4EFE3)}
+    .proof-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:24px;align-items:start}
+    .scoreboard{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
+    .score{min-height:140px;padding:22px;border:1px solid var(--line);border-radius:var(--r);background:var(--cream-hi)}
+    .score b{font-family:var(--serif);color:var(--forest);font-size:2.6rem;line-height:1}
+    .score span{display:block;margin-top:10px;color:var(--muted);font-size:.9rem}
+    .score:nth-child(4) b{color:var(--clay)}
+    .proof-table{overflow:hidden;border:1px solid var(--line);border-radius:var(--r);background:var(--paper);box-shadow:var(--shadow)}
+    .proof-row{display:grid;grid-template-columns:1fr 1fr 92px;gap:16px;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line);font-size:.93rem}
+    .proof-row:last-child{border-bottom:0}
+    .proof-row.head{background:var(--mint-soft);color:var(--sage);font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    .pass{color:var(--forest);font-weight:800;display:inline-flex;align-items:center;gap:6px}
+    .pass::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--mint-2)}
+
+    .video-panel{display:grid;grid-template-columns:.78fr 1.22fr;gap:24px;align-items:center;border:1px solid var(--line);border-radius:var(--r);background:var(--cream-hi);box-shadow:var(--shadow);padding:24px}
+    .video-copy{padding:10px}
+    .video-copy h2{font-size:clamp(2rem,3.8vw,3.1rem)}
+    .video-copy p{margin-top:14px;color:var(--muted);font-size:1rem}
+    .video-points{display:grid;gap:9px;margin-top:18px;list-style:none;color:var(--ink);font-size:.93rem}
+    .video-points li{display:flex;gap:9px}
+    .video-points li::before{content:"";width:7px;height:7px;margin-top:9px;border-radius:50%;background:var(--clay);flex:0 0 auto}
+    .video-shell{position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:var(--r-sm);border:1px solid var(--line-2);background:linear-gradient(135deg,var(--forest-2),var(--forest));box-shadow:var(--shadow-sm)}
+    .video-shell iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+    .video-preview{position:absolute;inset:0;display:grid;place-items:center;padding:28px;text-align:center;color:var(--cream-hi);background:radial-gradient(circle at 75% 18%,rgba(191,227,206,.24),transparent 26%),linear-gradient(135deg,var(--forest-2),var(--forest))}
+    .video-preview::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(251,247,238,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(251,247,238,.08) 1px,transparent 1px);background-size:36px 36px;opacity:.32}
+    .video-preview-inner{position:relative;z-index:1;max-width:540px}
+    .play-button{display:inline-grid;place-items:center;width:74px;height:74px;margin-bottom:20px;border:1px solid rgba(251,247,238,.34);border-radius:999px;background:var(--mint);color:var(--forest);box-shadow:0 16px 36px rgba(0,0,0,.22);font-size:1.9rem;cursor:pointer;transition:transform .16s,background .16s}
+    .play-button:hover{transform:translateY(-2px);background:var(--cream-hi)}
+    .play-button[disabled]{cursor:not-allowed;opacity:.72}
+    .video-preview h3{font-family:var(--serif);color:var(--cream-hi);font-size:clamp(1.8rem,4vw,3rem);line-height:1.02}
+    .video-preview p{margin-top:10px;color:#C7D6CC}
+    .video-status{display:inline-flex;margin-top:16px;padding:7px 11px;border-radius:999px;background:rgba(251,247,238,.12);border:1px solid rgba(251,247,238,.22);color:var(--mint);font-size:.76rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    .video-shell.is-loaded .video-preview{display:none}
+
+    .system-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+    .system-card{padding:22px;border:1px solid var(--line);border-radius:var(--r);background:var(--paper);transition:transform .18s,box-shadow .18s}
+    .system-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+    .system-card b{display:block;color:var(--clay);font-size:.74rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    .system-card h3{margin-top:11px;font-size:1.14rem}
+    .system-card p{margin-top:9px;color:var(--muted);font-size:.93rem}
+
+    .implementation{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .steps{border:1px solid var(--line);border-radius:var(--r);background:var(--paper);padding:26px}
+    .step{display:grid;grid-template-columns:40px 1fr;gap:15px;padding:18px 0;border-bottom:1px solid var(--line)}
+    .step:first-child{padding-top:0}.step:last-child{padding-bottom:0;border-bottom:0}
+    .step-num{display:grid;width:40px;height:40px;place-items:center;border-radius:10px;background:var(--mint);color:var(--forest);font-weight:800;font-family:var(--serif)}
+    .step h3{font-size:1.05rem}
+    .step p{color:var(--muted);font-size:.93rem;margin-top:3px}
+    .output-card{display:flex;flex-direction:column;justify-content:space-between;border-radius:var(--r);background:var(--forest);color:var(--cream-hi);padding:28px;box-shadow:var(--shadow-lg)}
+    .output-card h3{color:var(--cream-hi);font-size:1.7rem}
+    .output-card p{margin-top:11px;color:#C7D6CC}
+    .output-card code{display:block;margin-top:22px;padding:18px;border-radius:var(--r-sm);background:rgba(255,253,247,.08);color:var(--mint);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.86rem;line-height:1.8;white-space:pre-wrap}
+    .output-card code .k{color:var(--ochre)}
+
+    .cta-band{position:relative;overflow:hidden;color:var(--cream-hi);background:radial-gradient(90% 120% at 100% 0%,rgba(204,130,100,.4),transparent 50%),linear-gradient(135deg,var(--forest-2),var(--forest))}
+    .cta-grid{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;padding:78px 0}
+    .cta-band h2{color:var(--cream-hi);max-width:760px}
+    .cta-band p{max-width:680px;margin-top:14px;color:#C7D6CC;font-size:1.08rem}
+    .cta-band .button.primary{background:var(--clay);color:#fff}
+    .cta-band .button.primary:hover{background:var(--clay-2)}
+    .cta-band .button.secondary{background:rgba(251,247,238,.1);color:var(--cream-hi);border-color:rgba(251,247,238,.28)}
+
+    footer{background:var(--forest-2);color:#A9BBB0;padding:38px 0;font-size:.9rem}
+    footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;align-items:center}
+    footer b{color:var(--cream-hi)}
+    footer .fbrand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-size:1.05rem;color:var(--cream-hi)}
+
+    @media(max-width:980px){
+      .hero-grid,.section-head,.problem-grid,.proof-grid,.video-panel,.implementation,.cta-grid,.moat{grid-template-columns:1fr}
+      .hero-grid{padding:54px 0}
+      .console-body{max-height:none}
+      .path-grid,.system-grid{grid-template-columns:repeat(2,1fr)}
+      .cta-grid{gap:22px}
     }
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    header {
-      background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-      color: white;
-      padding: 80px 20px;
-      text-align: center;
-    }
-    header h1 {
-      font-size: 3em;
-      margin-bottom: 20px;
-      font-weight: 800;
-    }
-    header p {
-      font-size: 1.3em;
-      max-width: 700px;
-      margin: 0 auto;
-      line-height: 1.5;
-    }
-    .divider {
-      height: 4px;
-      background: #fbbf24;
-      margin: 60px 0;
-    }
-    section {
-      background: white;
-      padding: 60px 40px;
-      margin: 30px 0;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-    h2 {
-      font-size: 2em;
-      margin-bottom: 30px;
-      color: #1e3a8a;
-      border-left: 4px solid #3b82f6;
-      padding-left: 15px;
-    }
-    h3 {
-      font-size: 1.4em;
-      margin-top: 25px;
-      margin-bottom: 15px;
-      color: #2563eb;
-    }
-    .problem {
-      background: #fee2e2;
-      border-left: 4px solid #dc2626;
-      padding: 20px;
-      border-radius: 4px;
-      margin: 20px 0;
-    }
-    .insight {
-      background: #dbeafe;
-      border-left: 4px solid #2563eb;
-      padding: 20px;
-      border-radius: 4px;
-      margin: 20px 0;
-    }
-    .solution {
-      background: #dcfce7;
-      border-left: 4px solid #16a34a;
-      padding: 20px;
-      border-radius: 4px;
-      margin: 20px 0;
-    }
-    .path-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin: 30px 0;
-    }
-    .path-card {
-      border: 2px solid #e5e7eb;
-      border-radius: 8px;
-      padding: 20px;
-      transition: all 0.3s ease;
-    }
-    .path-card:hover {
-      border-color: #3b82f6;
-      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
-    }
-    .path-card h4 {
-      font-size: 1.2em;
-      color: #1e3a8a;
-      margin-bottom: 10px;
-    }
-    .path-card p {
-      font-size: 0.95em;
-      color: #555;
-      line-height: 1.5;
-    }
-    .confidence {
-      font-weight: bold;
-      color: #047857;
-      font-size: 0.9em;
-      margin-top: 10px;
-    }
-    .rule-zero {
-      background: #fef3c7;
-      border-left: 4px solid #f59e0b;
-      padding: 25px;
-      border-radius: 4px;
-      margin: 30px 0;
-      font-size: 1.1em;
-    }
-    .rule-zero strong {
-      color: #d97706;
-    }
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      margin: 30px 0;
-    }
-    .feature {
-      padding: 20px;
-      text-align: center;
-    }
-    .feature-icon {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-    }
-    .feature h4 {
-      font-size: 1.1em;
-      color: #1e3a8a;
-      margin-bottom: 10px;
-    }
-    .metric {
-      background: #f3f4f6;
-      padding: 20px;
-      border-radius: 4px;
-      margin: 15px 0;
-      text-align: center;
-    }
-    .metric-number {
-      font-size: 2.2em;
-      font-weight: 800;
-      color: #2563eb;
-    }
-    .metric-label {
-      color: #666;
-      font-size: 0.95em;
-    }
-    .cta {
-      display: inline-block;
-      background: #2563eb;
-      color: white;
-      padding: 15px 35px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-      margin: 10px 5px;
-      transition: all 0.3s ease;
-    }
-    .cta:hover {
-      background: #1e40af;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-    }
-    footer {
-      background: #1f2937;
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
-      margin-top: 60px;
-    }
-    footer p {
-      margin: 5px 0;
-    }
-    .timeline {
-      margin: 30px 0;
-      padding: 20px;
-      background: #f9f9f9;
-      border-radius: 4px;
-    }
-    .timeline-item {
-      display: flex;
-      margin: 20px 0;
-      align-items: flex-start;
-    }
-    .timeline-time {
-      font-weight: 600;
-      color: #2563eb;
-      min-width: 80px;
-    }
-    .timeline-text {
-      margin-left: 20px;
-      color: #555;
-    }
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2em;
-      }
-      header p {
-        font-size: 1em;
-      }
-      section {
-        padding: 30px 20px;
-      }
-      h2 {
-        font-size: 1.5em;
-      }
+    @media(max-width:600px){
+      .wrap{width:calc(100% - 28px)}
+      .nav-inner{gap:13px}.nav-cta{display:none}
+      .stat-strip,.event-grid,.path-grid,.system-grid,.scoreboard,.lane,.proof-row{grid-template-columns:1fr}
+      .hero-diagram{grid-template-columns:1fr}
+      .diagram-arrow{justify-self:center;transform:rotate(90deg)}
+      .proof-row.head{display:none}
+      section{padding:62px 0}
     }
   </style>
 </head>
 <body>
-
-<nav style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid #e5e7eb;">
-  <div style="max-width:900px;margin:0 auto;padding:0 20px;height:58px;display:flex;align-items:center;gap:18px;">
-    <a href="index.html" style="display:flex;align-items:center;gap:9px;font-weight:800;color:#1e3a8a;text-decoration:none;font-size:1.05em;">
-      <span style="width:28px;height:28px;border-radius:7px;background:linear-gradient(135deg,#1e3a8a,#3b82f6);display:grid;place-items:center;color:#fff;font-size:.8em;">AI</span>AI&nbsp;Agents
-    </a>
-    <span style="flex:1"></span>
-    <a href="index.html" style="color:#1e3a8a;font-weight:700;text-decoration:none;font-size:.92em;border-bottom:2px solid #3b82f6;padding-bottom:2px;">Overview</a>
-    <a href="social.html" style="color:#64748b;font-weight:600;text-decoration:none;font-size:.92em;">Social</a>
-    <a href="https://askaiagents.com" target="_blank" rel="noopener" style="background:#2563eb;color:#fff;padding:8px 15px;border-radius:7px;font-weight:700;text-decoration:none;font-size:.85em;">Book a demo</a>
-  </div>
-</nav>
-
-<header>
-  <h1>The Demo Concierge</h1>
-  <p>Never lose a warm lead to slow follow-up. Triage every demo interaction within 10 minutes.</p>
-</header>
-
-<div class="container">
-
-<section>
-  <h2>The Problem</h2>
-  <div class="problem">
-    <p><strong>2,346 cold emails. 1 reply. 0 follow-up.</strong></p>
-    <p>AI Agents gets 50+ demo requests per month from serious prospects: plumbers, electricians, HVAC contractors, dentists. They watch the demo, they're interested, and then... nothing.</p>
-    <p>The warmest 1% of your inbound funnel goes cold within 24 hours.</p>
-    <p>Why? Because follow-up is treated as broadcast, not triage. You send everyone the same generic message and hope something sticks.</p>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<section>
-  <h2>The Insight</h2>
-  <div class="insight">
-    <p><strong>The money isn't in the demo. It's in the 10 minutes after.</strong></p>
-    <p>When a prospect finishes watching, they have one question in their head: "Is this worth pursuing or too complex?"</p>
-    <p>In that 10-minute window, the right follow-up converts at 3–5x the rate of spray-and-pray.</p>
-    <p>Not by convincing harder. By reading the signal and meeting them where they actually are.</p>
-  </div>
-</section>
-
-<section>
-  <h2>The Solution</h2>
-  <div class="solution">
-    <p><strong>The Demo Concierge is a disciplined follow-up operator that owns those critical 10 minutes.</strong></p>
-    <p>Five decision paths. One mandatory rule. Vertical-specific templates. Bilingual routing.</p>
-    <p>Every demo interaction gets the right next step. Not guessed. Not assumed. Read.</p>
-  </div>
-
-  <h3>The 5 Decision Paths</h3>
-  <div class="path-list">
-    <div class="path-card">
-      <h4>🔥 Path 1: Hot Lead</h4>
-      <p>Demo completed + booking requested</p>
-      <p>Send: Booking confirmation (immediate)</p>
-      <div class="confidence">Confidence: 95%</div>
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html">
+        <svg viewBox="0 0 40 40" width="32" height="32" aria-hidden="true">
+          <rect width="40" height="40" rx="11" fill="#BFE3CE"/>
+          <rect x="14" y="10.5" width="12" height="8.5" rx="1.4" fill="#FBF7EE" stroke="#28433A" stroke-width="2"/>
+          <line x1="20" y1="19" x2="20" y2="21.6" stroke="#28433A" stroke-width="2"/>
+          <rect x="7.5" y="21.6" width="25" height="3.2" rx="1.6" fill="#28433A"/>
+          <path d="M11 24.8l-1.2 7M29 24.8l1.2 7" stroke="#28433A" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M30.6 21.6v-3.2l2.6-1.8" fill="none" stroke="#CC8264" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="33.4" cy="16.2" r="1.7" fill="#CC8264"/>
+        </svg>
+        Demo Desk
+      </a>
+      <span class="nav-spacer"></span>
+      <a class="nav-link active" href="index.html">Overview</a>
+      <a class="nav-link" href="proof.html">Proof</a>
+      <a class="nav-link" href="social.html">Social</a>
+      <a class="nav-cta" href="#console">See it route</a>
     </div>
+  </nav>
 
-    <div class="path-card">
-      <h4>❓ Path 2: Abandoned</h4>
-      <p>Demo exited midway</p>
-      <p>Send: Clarification ("What broke?")</p>
-      <div class="confidence">Confidence: 65%</div>
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow"><span class="pulse"></span> Intent-response operator</span>
+        <h1>Own the minutes<br>after <span class="em">interest.</span></h1>
+        <p class="hero-copy"><strong>The leak isn't the demo — it's the silence after it.</strong> Demo Desk reads every intent signal and sends one right next step: confirm, recover, nurture, escalate, or close.</p>
+        <div class="hero-diagram" aria-label="Intent Signal to Demo Desk to Action">
+          <img src="assets/hero-diagram.svg" alt="Intent Signal to Demo Desk to Action">
+        </div>
+        <div class="hero-actions">
+          <a class="button primary" href="#console">Watch it triage →</a>
+          <a class="button secondary" href="social.html">See it in the wild</a>
+        </div>
+        <div class="stat-strip">
+          <div class="hero-stat"><b>5</b><span>decision routes, no vague bucket</span></div>
+          <div class="hero-stat"><b>10/10</b><span>simulated events passed</span></div>
+          <div class="hero-stat"><b>Rule&nbsp;0</b><span>no data, no outreach</span></div>
+        </div>
+      </div>
+
+      <div class="console" id="console">
+        <div class="console-top"><span class="dot"></span><span>Live triage preview</span><span class="live">routing</span></div>
+        <div class="console-body">
+          <div class="case-tabs" role="tablist" aria-label="Sample intent events">
+            <button class="tab active" data-case="hot" type="button">Booked</button>
+            <button class="tab" data-case="abandoned" type="button">Abandoned</button>
+            <button class="tab" data-case="lukewarm" type="button">High engagement</button>
+            <button class="tab" data-case="repeat" type="button">Repeat</button>
+            <button class="tab" data-case="competitor" type="button">Research</button>
+          </div>
+          <div class="event-card">
+            <h2>Incoming event</h2>
+            <div class="event-grid">
+              <div class="field"><span>Prospect</span><b id="eventProspect">Maya Chen</b></div>
+              <div class="field"><span>Company</span><b id="eventVertical">Northwind Analytics</b></div>
+              <div class="field"><span>Signal</span><b id="eventSignal">Completed + booked</b></div>
+              <div class="field"><span>Language</span><b id="eventLanguage">English</b></div>
+            </div>
+          </div>
+          <div class="decision-card">
+            <h2>Demo Desk decision</h2>
+            <div class="decision-route">
+              <div class="path-name" id="pathName">Path 1: Hot Lead</div>
+              <div class="confidence-pill" id="confidence">95% confidence</div>
+            </div>
+            <ul class="decision-list">
+              <li id="decisionAction">Send booking confirmation immediately.</li>
+              <li id="decisionRoute">Back_to: null. Call is booked.</li>
+              <li id="decisionGuard">Rule 0 passed: complete event data present.</li>
+            </ul>
+            <div class="msg-preview" id="decisionMsg">Hi Maya — you're booked. Confirming your Demo Desk walkthrough for Thursday 2:00 PM. Reply here if anything changes.</div>
+          </div>
+          <div class="feed">
+            <h2>Recent routes</h2>
+            <div class="feed-row"><span class="fdot"></span><span class="who">Maya C.</span>&nbsp;· Northwind Analytics → Confirm booking<em>just now</em></div>
+            <div class="feed-row"><span class="fdot clay"></span><span class="who">Diego S.</span>&nbsp;· Lumen Logistics → Recover (ES)<em>2m</em></div>
+            <div class="feed-row"><span class="fdot ochre"></span><span class="who">Priya N.</span>&nbsp;· Forge DevTools → 3-day nurture<em>6m</em></div>
+            <div class="feed-row"><span class="fdot"></span><span class="who">Sarah K.</span>&nbsp;· Brightloop → Escalate to AE<em>11m</em></div>
+            <div class="feed-row"><span class="fdot clay"></span><span class="who">Alex J.</span>&nbsp;· Rival SaaS → Polite close<em>18m</em></div>
+            <div class="feed-row"><span class="fdot"></span><span class="who">Marcus R.</span>&nbsp;· Vertex Mfg → Confirm booking<em>24m</em></div>
+            <div class="feed-row"><span class="fdot ochre"></span><span class="who">Roberto G.</span>&nbsp;· Mercado Cloud → 3-day nurture (ES)<em>31m</em></div>
+            <div class="feed-row"><span class="fdot"></span><span class="who">Jen P.</span>&nbsp;· Cedar Health → Escalate to AE<em>40m</em></div>
+          </div>
+        </div>
+      </div>
     </div>
+  </header>
 
-    <div class="path-card">
-      <h4>🌡️ Path 3: Lukewarm</h4>
-      <p>Demo completed, no booking</p>
-      <p>Send: 3-day nurture sequence</p>
-      <div class="confidence">Confidence: 65%</div>
+  <main>
+    <section class="tight">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="kicker">The problem</span><h2>The leak is after intent.</h2></div>
+          <p>Most teams obsess over getting prospects into a demo. Demo Desk owns what happens immediately after interest is shown — while the signal is fresh and the next action still matters.</p>
+        </div>
+        <div class="problem-grid">
+          <div class="problem-panel">
+            <span class="big-number">2,346</span>
+            <h3>cold emails. One reply.</h3>
+            <p>The warmest people in your funnel are the ones who already raised a hand — and nobody routes the follow-up. The leverage isn't another blast.</p>
+          </div>
+          <div class="before-after">
+            <div class="lane"><b>Before</b><p>Every interested prospect gets the same generic "thanks for watching," or nothing at all because the team is afraid of spamming the wrong people.</p></div>
+            <div class="lane good"><b>After</b><p>Each event is classified by signal quality, language, vertical, timing, and source. One useful next step — or a refusal when the data is incomplete.</p></div>
+            <div class="lane accent"><b>Impact</b><p>Sales time shifts from guessing to handling the right handoffs: booked calls, abandoned demos, repeat visitors, and high-confidence escalations.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="kicker">The system</span><h2>Five paths. One discipline.</h2></div>
+          <p>Deliberately narrow. It reads the intent signal, picks the route, sends or suppresses the matching follow-up, and records the handoff.</p>
+        </div>
+        <div class="path-grid">
+          <article class="path-card"><span class="num">1</span><h3>Hot lead</h3><p>Booked or requested a call after the demo experience.</p><p><strong>Action:</strong> confirm immediately.</p><span class="tag">95% confidence</span></article>
+          <article class="path-card"><span class="num">2</span><h3>Abandoned</h3><p>Exited midway, before the value landed.</p><p><strong>Action:</strong> ask what broke; offer a short clarify.</p><span class="tag">65% confidence</span></article>
+          <article class="path-card"><span class="num">3</span><h3>Lukewarm</h3><p>Completed or engaged deeply without booking.</p><p><strong>Action:</strong> start a 3-day vertical nurture.</p><span class="tag">65% confidence</span></article>
+          <article class="path-card"><span class="num">4</span><h3>Repeat</h3><p>Returned to the demo or pricing 2+ times, fast.</p><p><strong>Action:</strong> escalate to a human specialist.</p><span class="tag">95% confidence</span></article>
+          <article class="path-card"><span class="num">5</span><h3>Research only</h3><p>Competitor or non-buyer research signal.</p><p><strong>Action:</strong> polite close, no chase.</p><span class="tag">95% confidence</span></article>
+        </div>
+        <div class="moat">
+          <div><strong>Rule 0 — the moat</strong><h3>No event data, no outreach.</h3></div>
+          <p>Missing prospect name, business context, timestamp, source, or outcome signal? Demo Desk returns an error instead of inventing intent. That one refusal is what keeps it from becoming another spray-and-pray engine.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="proof">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="kicker">The proof</span><h2>Proof you can inspect.</h2></div>
+          <p>The proof pack covers every path: a Rule 0 failure, Spanish routing, timeout escalation, repeat-visitor escalation, and a high-volume batch.</p>
+        </div>
+        <div class="proof-grid">
+          <div class="scoreboard">
+            <div class="score"><b>10</b><span>simulated intent events run through the rules</span></div>
+            <div class="score"><b>5</b><span>decision paths covered with expected outcomes</span></div>
+            <div class="score"><b>100%</b><span>path classifications matched expected routing</span></div>
+            <div class="score"><b>0</b><span>messages sent when Rule 0 failed</span></div>
+          </div>
+          <div class="proof-table" aria-label="Proof log summary">
+            <div class="proof-row head"><span>Case</span><span>Expected route</span><span>Status</span></div>
+            <div class="proof-row"><span>Hot booking</span><span>Confirm, no handoff</span><span class="pass">Pass</span></div>
+            <div class="proof-row"><span>Abandoned demo</span><span>Clarify, 60-min timeout</span><span class="pass">Pass</span></div>
+            <div class="proof-row"><span>Spanish lead</span><span>Native Spanish booking</span><span class="pass">Pass</span></div>
+            <div class="proof-row"><span>Repeat visitor</span><span>Escalate to specialist</span><span class="pass">Pass</span></div>
+            <div class="proof-row"><span>Incomplete request</span><span>Reject; no outreach</span><span class="pass">Pass</span></div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:30px"><a class="button secondary" href="proof.html">Open the full proof log →</a></div>
+      </div>
+    </section>
+
+    <section id="video">
+      <div class="wrap">
+        <div class="video-panel">
+          <div class="video-copy">
+            <span class="kicker">Watch the walkthrough</span>
+            <h2>See how Demo Desk routes intent in real time.</h2>
+            <p>A short walkthrough of the problem, the signal, and the routing logic behind Demo Desk.</p>
+            <ul class="video-points">
+              <li>Why the minutes after interest matter.</li>
+              <li>How each signal becomes one useful next action.</li>
+              <li>Where Rule 0 prevents guessing and unnecessary outreach.</li>
+            </ul>
+          </div>
+          <div class="video-shell" data-youtube-id="1fkduPugdfk" data-title="Demo Desk walkthrough">
+            <div class="video-preview">
+              <div class="video-preview-inner">
+                <button class="play-button" type="button" aria-label="Demo Desk walkthrough video coming soon" disabled>▶</button>
+                <h3>Demo Desk walkthrough</h3>
+                <p>60–75 seconds: the problem, the insight, live routing, proof, and close.</p>
+                <span class="video-status">Walkthrough coming soon</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="kicker">The workflow</span><h2>Built for the handoff.</h2></div>
+          <p>Everything supports the same operator loop: define the role, classify the signal, choose the message, and verify the route.</p>
+        </div>
+        <div class="system-grid">
+          <article class="system-card"><b>Identity</b><h3>Defines the operator</h3><p>Mission, constraints, and the belief that warm intent deserves disciplined handling.</p></article>
+          <article class="system-card"><b>Rules</b><h3>Classifies intent</h3><p>Five paths, confidence scoring, language routing, and stale-event handling.</p></article>
+          <article class="system-card"><b>Templates</b><h3>Sends the message</h3><p>English + Spanish, tuned by segment — PLG signups, sales-led demos, and enterprise evals.</p></article>
+          <article class="system-card"><b>Proof</b><h3>Verifies behavior</h3><p>Adversarial events show it rejecting bad data and routing high intent.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap implementation">
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div><h3>Intent event arrives</h3><p>Name, business type, language, source, timestamp, and outcome signal are passed in.</p></div></div>
+          <div class="step"><div class="step-num">2</div><div><h3>Rule 0 gate runs</h3><p>If event data is incomplete, Demo Desk returns an error and sends nothing.</p></div></div>
+          <div class="step"><div class="step-num">3</div><div><h3>Path + message selected</h3><p>Signal, source, vertical, language, and timing decide the template and confidence.</p></div></div>
+          <div class="step"><div class="step-num">4</div><div><h3>Outcome routes back</h3><p>back_to is set to null, escalate-human, or nurture-sequence so the next owner is explicit.</p></div></div>
+        </div>
+        <div class="output-card">
+          <div>
+            <h3>The useful output is tiny.</h3>
+            <p>That's the point. Messy intent behavior becomes a crisp routing decision a sales team can trust.</p>
+          </div>
+          <code><span class="k">path:</span> 4
+<span class="k">reason:</span> repeat visitor, 3 views, rising engagement
+<span class="k">confidence:</span> 95%
+<span class="k">message:</span> specialist escalation
+<span class="k">back_to:</span> escalate-human
+<span class="k">sla:</span> contact within 4 hours</code>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="wrap cta-grid">
+        <div>
+          <h2>Own the minutes after interest.</h2>
+          <p>Demo Desk reads prospect intent and decides the next useful action. No spray-and-pray. No guessing. No unnecessary outreach.</p>
+        </div>
+        <div class="hero-actions">
+          <a class="button primary" href="#video">Watch walkthrough</a>
+          <a class="button secondary" href="social.html">View social proof</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span class="fbrand">
+        <svg viewBox="0 0 40 40" width="26" height="26" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#BFE3CE"/><rect x="14" y="10.5" width="12" height="8.5" rx="1.4" fill="#FBF7EE" stroke="#28433A" stroke-width="2"/><rect x="7.5" y="21.6" width="25" height="3.2" rx="1.6" fill="#28433A"/><path d="M11 24.8l-1.2 7M29 24.8l1.2 7" stroke="#28433A" stroke-width="2.4" stroke-linecap="round"/><circle cx="33.4" cy="16.2" r="1.7" fill="#CC8264"/></svg>
+        Demo Desk
+      </span>
+      <p>Intent-response operator for demo-led teams</p>
     </div>
+  </footer>
 
-    <div class="path-card">
-      <h4>⭐ Path 4: Repeat Visitor</h4>
-      <p>Viewed 2+ times in 7 days</p>
-      <p>Send: Escalate to human (high intent)</p>
-      <div class="confidence">Confidence: 95%</div>
-    </div>
+  <script>
+    document.querySelectorAll(".video-shell").forEach((shell) => {
+      const id = shell.dataset.youtubeId && shell.dataset.youtubeId.trim();
+      const button = shell.querySelector(".play-button");
+      const status = shell.querySelector(".video-status");
+      if (!button) return;
 
-    <div class="path-card">
-      <h4>🚫 Path 5: Competitor</h4>
-      <p>Research-only signal or competitor domain</p>
-      <p>Send: Polite close (no follow-up)</p>
-      <div class="confidence">Confidence: 95%</div>
-    </div>
-  </div>
+      if (!id) {
+        button.disabled = true;
+        if (status) status.textContent = "Walkthrough coming soon";
+        return;
+      }
 
-  <div class="rule-zero">
-    <strong>Rule 0 — The Moat:</strong><br>
-    No complete event data = no outreach. Ever.
-    This prevents spray-and-pray and signals discipline.
-  </div>
-</section>
+      button.disabled = false;
+      button.setAttribute("aria-label", "Watch Demo Desk walkthrough video");
+      if (status) status.textContent = "Watch walkthrough";
+      button.addEventListener("click", () => {
+        const iframe = document.createElement("iframe");
+        iframe.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?autoplay=1&rel=0`;
+        iframe.title = shell.dataset.title || "Demo Desk walkthrough video";
+        iframe.loading = "lazy";
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        iframe.allowFullscreen = true;
+        shell.appendChild(iframe);
+        shell.classList.add("is-loaded");
+      }, { once: true });
+    });
 
-<section>
-  <h2>Key Features</h2>
-  <div class="features">
-    <div class="feature">
-      <div class="feature-icon">⏱️</div>
-      <h4>10-Minute SLA</h4>
-      <p>Hot leads get a message within 10 minutes. Lukewarm leads trigger nurture within 30 min. Cold leads are archived.</p>
-    </div>
-
-    <div class="feature">
-      <div class="feature-icon">🌍</div>
-      <h4>Bilingual Native</h4>
-      <p>Spanish-speaking prospects get actual Spanish templates, not translations. Vertical-native tone, not generic pablum.</p>
-    </div>
-
-    <div class="feature">
-      <div class="feature-icon">✅</div>
-      <h4>Vertical Specific</h4>
-      <p>Plumber, electrician, HVAC, dentist — each gets messaging that respects their business model and pain points.</p>
-    </div>
-
-    <div class="feature">
-      <div class="feature-icon">🔄</div>
-      <h4>Explicit Routing</h4>
-      <p>Every outcome gets a back_to field: null (done), escalate-human (rep takes over), or nurture-sequence (auto drip).</p>
-    </div>
-
-    <div class="feature">
-      <div class="feature-icon">📊</div>
-      <h4>Confidence Scoring</h4>
-      <p>Each classification comes with confidence (95% = booked call, 65% = abandoned). You know what's reliable.</p>
-    </div>
-
-    <div class="feature">
-      <div class="feature-icon">🛑</div>
-      <h4>Rule 0 Discipline</h4>
-      <p>Incomplete event data? Return error. Don't guess. Don't send to ghosts. This is the moat.</p>
-    </div>
-  </div>
-</section>
-
-<section>
-  <h2>What the Numbers Look Like</h2>
-  <div class="metric">
-    <div class="metric-number">95%</div>
-    <div class="metric-label">of hot leads show up to calls booked within 10 minutes</div>
-  </div>
-  <div class="metric">
-    <div class="metric-number">65%</div>
-    <div class="metric-label">of abandoned prospects respond to "What broke?" clarification</div>
-  </div>
-  <div class="metric">
-    <div class="metric-number">35%</div>
-    <div class="metric-label">of lukewarm leads book calls after 3-day nurture sequence</div>
-  </div>
-  <div class="metric">
-    <div class="metric-number">0</div>
-    <div class="metric-label">spam complaints (polite close prevents harassment)</div>
-  </div>
-</section>
-
-<section>
-  <h2>How It Works: Timeline</h2>
-  <div class="timeline">
-    <div class="timeline-item">
-      <div class="timeline-time">0 min</div>
-      <div class="timeline-text">Demo ends. Event data arrives (prospect name, email, vertical, outcome)</div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-time">1–2 min</div>
-      <div class="timeline-text">Rule 0 check: Is event data complete? If no → error return. If yes → proceed.</div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-time">3–10 min</div>
-      <div class="timeline-text">Classify path (1–5) based on demo outcome signal. Select matching template (vertical + language). Send message.</div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-time">10 min+</div>
-      <div class="timeline-text">Record outcome with confidence score. Route via back_to field (null / escalate / nurture).</div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-time">60 min (if Path 2)</div>
-      <div class="timeline-text">If no response to clarification → escalate to human. Human follows up.</div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-time">3 days (if Path 3)</div>
-      <div class="timeline-text">Lukewarm lead receives 3 nurture emails (Day 1: recap, Day 2: case study, Day 3: team call).</div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <h2>What Makes This Different</h2>
-  <p><strong>vs. Spray-and-Pray:</strong> Generic systems send the same email to everyone. The Concierge reads the signal first.</p>
-  <p><strong>vs. No Follow-Up:</strong> Many teams don't follow up at all (too afraid of spam complaints). The Concierge has discipline. Incomplete data = no outreach. That's the moat.</p>
-  <p><strong>vs. English-Only:</strong> Most systems translate English templates to Spanish. The Concierge uses native Spanish messaging. There's a difference.</p>
-  <p><strong>vs. Automation Overkill:</strong> The Concierge isn't a bot that never escalates. Hot leads and repeat visitors go straight to human (via back_to field). Automation supports humans; it doesn't replace judgment.</p>
-</section>
-
-<section style="text-align: center; background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); color: white;">
-  <h2 style="color: white; border: none; padding: 0;">Ready to Never Lose a Warm Lead Again?</h2>
-  <p style="font-size: 1.1em; margin: 20px 0;">The Demo Concierge is operator-ready. Copy the identity.md file into Claude, paste your demo event, and triage.</p>
-  <div style="margin-top: 30px;">
-    <a href="#" class="cta" style="background: white; color: #2563eb;">View Full Documentation</a>
-    <a href="social.html" class="cta">See AI Agents in the Wild &rarr;</a>
-  </div>
-</section>
-
-<footer>
-  <p><strong>The Demo Concierge</strong></p>
-  <p>Built for AI Agents (askaiagents.com)</p>
-  <p style="margin-top: 15px; font-size: 0.9em; color: #ccc;">Version 1.0 | Production-Ready | 100% Operator-Driven</p>
-</footer>
-
-</div>
-
+    const cases = {
+      hot:{prospect:"Maya Chen",vertical:"Northwind Analytics",signal:"Completed + booked",language:"English",path:"Path 1: Hot Lead",confidence:"95% confidence",action:"Send booking confirmation immediately.",route:"Back_to: null. Call is booked.",guard:"Rule 0 passed: complete event data present.",msg:"Hi Maya — you're booked. Confirming your Demo Desk walkthrough for Thursday 2:00 PM. Reply here if anything changes."},
+      abandoned:{prospect:"Diego Santos",vertical:"Lumen Logistics",signal:"Exited at integrations step",language:"Spanish",path:"Path 2: Abandoned",confidence:"65% confidence",action:"Send Spanish clarification: what got in the way?",route:"Back_to: escalate-human after 60 minutes.",guard:"Rule 0 passed: timestamp + abandonment signal present.",msg:"Hola Diego — vi que saliste en el paso de integraciones. ¿Qué te detuvo? Te muestro esa parte en 3 minutos cuando quieras."},
+      lukewarm:{prospect:"Priya Nair",vertical:"Forge DevTools",signal:"Completed, read docs, no booking",language:"English",path:"Path 3: Lukewarm",confidence:"65% confidence",action:"Trigger 3-day technical nurture sequence.",route:"Back_to: nurture-sequence.",guard:"Rule 0 passed: completion + CTA data present.",msg:"Hey Priya — quick recap plus a 2-minute clip on the API + SSO setup. Want me to line up a technical walkthrough this week?"},
+      repeat:{prospect:"Sarah Kim",vertical:"Brightloop",signal:"3 visits in 8 days",language:"English",path:"Path 4: Repeat Visitor",confidence:"95% confidence",action:"Send AE escalation message.",route:"Back_to: escalate-human with full visit history.",guard:"Rule 0 passed: repeat engagement history present.",msg:"Sarah — you've been back a few times, so I'm bringing in an AE who works with seed-stage teams to answer your specific questions today."},
+      competitor:{prospect:"Alex Johnson",vertical:"Rival SaaS",signal:"Competitor domain + API docs",language:"English",path:"Path 5: Research Only",confidence:"95% confidence",action:"Send polite close, then suppress follow-up.",route:"Back_to: null. Do not nurture or retarget.",guard:"Rule 0 passed, but buyer intent is explicitly low.",msg:"Thanks for checking out Demo Desk! Here's our public docs link if it's useful. No follow-up unless you'd like one — just reply."}
+    };
+    const ids={prospect:"eventProspect",vertical:"eventVertical",signal:"eventSignal",language:"eventLanguage",path:"pathName",confidence:"confidence",action:"decisionAction",route:"decisionRoute",guard:"decisionGuard",msg:"decisionMsg"};
+    document.querySelectorAll(".tab").forEach((button)=>{
+      button.addEventListener("click",()=>{
+        const sel=cases[button.dataset.case];
+        document.querySelectorAll(".tab").forEach((i)=>i.classList.remove("active"));
+        button.classList.add("active");
+        Object.entries(ids).forEach(([k,id])=>{document.getElementById(id).textContent=sel[k];});
+      });
+    });
+  </script>
 </body>
 </html>

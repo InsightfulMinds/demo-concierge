@@ -1,4 +1,4 @@
-# The Demo Concierge — Proof of Execution
+# The Demo Desk — Proof of Execution
 
 ## 10 Simulated Demo Events (Run Through Rules)
 
@@ -26,7 +26,7 @@
 }
 ```
 
-**Concierge Analysis:**
+**Demo Desk Analysis:**
 
 1. **Rule 0 check:** ✓ All fields present (name, email, vertical, timestamp, outcome, language)
 2. **Time-to-triage:** 3 min (within hot window)
@@ -37,9 +37,9 @@
 
 **Action Taken:**
 ```
-FROM: concierge@askaiagents.com
+FROM: hello@demodesk.example
 TO: marcus@chenplumbing.com
-SUBJECT: Your AI Agents Demo — Call Scheduled
+SUBJECT: Your Demo Desk Demo — Call Scheduled
 TIME_SENT: 2026-05-28T12:50:45Z
 
 Body: [Booking Confirmation template applied — see reference-message-templates.md]
@@ -80,7 +80,7 @@ Outcome recorded:
 }
 ```
 
-**Concierge Analysis:**
+**Demo Desk Analysis:**
 
 1. **Rule 0 check:** ✓ All fields present
 2. **Time-to-triage:** 8 min (within hot window)
@@ -91,7 +91,7 @@ Outcome recorded:
 
 **Action Taken:**
 ```
-FROM: concierge@askaiagents.com
+FROM: hello@demodesk.example
 TO: lisa@roderickelectric.com
 SUBJECT: Una Pregunta Rápida Sobre Tu Demo
 TIME_SENT: 2026-05-28T14:27:45Z
@@ -134,7 +134,7 @@ Outcome recorded:
 }
 ```
 
-**Concierge Analysis:**
+**Demo Desk Analysis:**
 
 1. **Rule 0 check:** ✓ All fields present
 2. **Time-to-triage:** 2 min (within hot window, but lukewarm signal)
@@ -145,14 +145,14 @@ Outcome recorded:
 
 **Action Taken:**
 ```
-FROM: concierge@askaiagents.com
+FROM: hello@demodesk.example
 TO: james@whitmorehvac.com
 TRIGGER: nurture-hvac-3day
 TIME_SENT: 2026-05-28T16:46:00Z
 
 Sequence:
 - Day 1 (2026-05-28 18:45): Email 1 "Here's What You Saw in the Demo"
-- Day 2 (2026-05-29 10:00): Email 2 "HVAC Shop Spotlight: How [Case Company] Uses AI Agents"
+- Day 2 (2026-05-29 10:00): Email 2 "HVAC Shop Spotlight: How [Case Company] Uses Demo Desk"
 - Day 3 (2026-05-30 15:00): Email 3 "Schedule Your Team Walkthrough"
 
 Outcome recorded:
@@ -206,7 +206,7 @@ Outcome recorded:
 }
 ```
 
-**Concierge Analysis:**
+**Demo Desk Analysis:**
 
 1. **Rule 0 check:** ✓ Complete event data
 2. **Time-to-triage:** 6 min
@@ -219,11 +219,11 @@ Outcome recorded:
 
 **Action Taken:**
 ```
-FROM: concierge@askaiagents.com
+FROM: hello@demodesk.example
 TO: schen@chenfamilydental.com
 TIME_SENT: 2026-05-22T11:19:00Z
 
-Subject: Let's Get Serious About AI Agents for Your Practice
+Subject: Let's Get Serious About Demo Desk for Your Practice
 Body: [Escalation template applied]
 
 Internal routing:
@@ -268,7 +268,7 @@ Outcome recorded:
 }
 ```
 
-**Concierge Analysis:**
+**Demo Desk Analysis:**
 
 1. **Rule 0 check:** ✓ Event data present
 2. **Path classification:** Path 5 (Competitor Research Signal)
@@ -280,9 +280,9 @@ Outcome recorded:
 
 **Action Taken:**
 ```
-FROM: concierge@askaiagents.com
+FROM: hello@demodesk.example
 TO: alex.johnson@n8n.com
-SUBJECT: Thanks for Checking Out AI Agents
+SUBJECT: Thanks for Checking Out Demo Desk
 TIME_SENT: 2026-05-28T20:56:30Z
 
 Body: [Polite Close template — no sales pitch, no follow-up]
@@ -321,7 +321,7 @@ Outcome recorded:
 }
 ```
 
-**Concierge Analysis:**
+**Demo Desk Analysis:**
 
 1. **Rule 0 check:** ✗ VIOLATION — Missing required fields:
    - prospect.name (required)
@@ -332,7 +332,7 @@ Outcome recorded:
 
 **Action Taken:**
 ```
-FROM: concierge@askaiagents.com
+FROM: hello@demodesk.example
 TO: [request_source]
 SUBJECT: Rule 0 Violation — Insufficient Event Data
 STATUS: ERROR
@@ -384,7 +384,7 @@ Outcome recorded:
 }
 ```
 
-**Concierge Analysis:**
+**Demo Desk Analysis:**
 
 1. **Rule 0 check:** ✓ All fields present
 2. **Path classification:** Path 1 (Hot Lead — Booking Requested)
@@ -395,15 +395,15 @@ Outcome recorded:
 
 **Action Taken:**
 ```
-FROM: concierge@askaiagents.com
+FROM: hello@demodesk.example
 TO: roberto@garciabrothersplumbing.com
-SUBJECT: Tu Demo de AI Agents — Llamada Programada
+SUBJECT: Tu Demo de Demo Desk — Llamada Programada
 TIME_SENT: 2026-05-29T09:31:30Z
 
 Body: [Booking Confirmation template — SPANISH VERSION]
 
 Note: Spanish template uses native idiom and tone, not direct translation.
-- "Acabas de ver AI Agents en acción" (more natural than "You just experienced")
+- "Acabas de ver Demo Desk en acción" (more natural than "You just experienced")
 - Addresses crew as "tu equipo" (your crew) — relevant to plumbing business
 
 Outcome recorded:
@@ -459,7 +459,7 @@ Outcome recorded:
 
 **Escalate-Human Action:**
 ```
-FROM: concierge@askaiagents.com
+FROM: hello@demodesk.example
 TO: [account_rep]
 SUBJECT: Escalate-Human Trigger — Michael Torres (HVAC)
 TIME_SENT: 2026-05-29T14:28:30Z
@@ -523,7 +523,7 @@ Response tracking:
 
 **Archive Action (3 days later):**
 ```
-FROM: concierge@askaiagents.com
+FROM: hello@demodesk.example
 STATUS: Prospect archived (lukewarm nurture completed, no conversion)
 
 CRM note: "Jennifer Park — Path 3 nurture sequence completed without booking. Marked for re-engagement in 30 days."
@@ -581,4 +581,4 @@ Results:
 **Escalate-human timeout:** ✓ Triggered after 60 min  
 **Back_to routing:** ✓ All paths routed correctly  
 
-**Confidence:** The Concierge correctly classifies all demo outcomes and routes appropriate follow-up within timing windows.
+**Confidence:** The Demo Desk correctly classifies all demo outcomes and routes appropriate follow-up within timing windows.

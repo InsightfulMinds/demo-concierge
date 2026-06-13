@@ -1,38 +1,38 @@
-# The Demo Concierge — AI Agents Follow-Up Operator
+# Demo Desk — Intent-Response Operator
 
-**Version:** 1.0  
+**Version:** 1.1
 **Status:** Production-ready  
-**Last updated:** 2026-06-11
+**Last updated:** 2026-06-12
 
 ## What This Is
 
-The Demo Concierge is a follow-up operator that owns the critical 10 minutes after a prospect tries the AI Agents live voice demo at askaiagents.com. 
+Demo Desk is an intent-driven follow-up operator that owns the critical minutes after a prospect shows interest.
 
-**Problem it solves:** AI Agents gets 50+ demo requests per month from small business owners (plumbers, electricians, HVAC, dentists). Of those, ~2 book calls. Of those, ~0 follow up with people who tried the demo but didn't book. The warmest 1% goes cold.
+**Problem it solves:** Most companies obsess over getting prospects into a demo. Demo Desk owns what happens immediately after intent is shown.
 
-**The Concierge prevents that.** Every demo interaction gets a personalized follow-up within 10 minutes — booked call confirmation, clarity offered, nurture sequence triggered, or graceful competitor close.
+**What it does:** Demo Desk monitors intent signals, evaluates signal quality, classifies intent, and routes the appropriate follow-up action within minutes.
 
-**Result:** Never lose a hot lead to slow follow-up.
+**Core message:** Every intent signal gets the right follow-up: booked call confirmation, abandoned-demo recovery, nurture sequence, human escalation, or graceful close.
 
 ---
 
 ## Quick Start (30 seconds)
 
 ### What You Need
-- A demo event: `{prospect_name, email, vertical, demo_completion_timestamp, outcome_signal, language}`
+- An intent event: `{prospect_name, email, business_context, source, event_timestamp, outcome_signal, language}`
 - Decision rules in `rules.md` (5 paths + Rule 0)
 - Message templates in `reference-message-templates.md`
 
 ### How It Works
 
-1. **Demo ends** → prospect's interaction triggers an event
-2. **Concierge receives event** within 1–2 minutes
+1. **Intent is shown** → prospect's interaction triggers an event
+2. **Demo Desk receives event** within 1–2 minutes
 3. **Rule 0 check:** Is event data complete? If no → error return. If yes → proceed.
-4. **Classify path:** Which of 5 outcomes matches this demo?
+4. **Classify path:** Which of 5 outcomes matches this signal?
    - Hot (booked call) → Path 1 (send confirmation)
    - Abandoned (exited midway) → Path 2 (send clarification)
-   - Lukewarm (completed, no booking) → Path 3 (start nurture)
-   - Repeat visitor (2+ views) → Path 4 (escalate human)
+   - High engagement (completed, clicked deeper, form submission, no booking) → Path 3 (start nurture)
+   - Repeat visitor or multiple visits → Path 4 (escalate human)
    - Competitor research (domain match) → Path 5 (polite close)
 5. **Send message** matching path, vertical, and language
 6. **Record outcome** in CRM with confidence score
@@ -46,7 +46,7 @@ The Demo Concierge is a follow-up operator that owns the critical 10 minutes aft
 
 ```
 demo-concierge/
-├── identity.md                      # Who the Concierge is
+├── identity.md                      # Who the Demo Desk is
 ├── rules.md                         # 5 decision paths + Rule 0 (the moat)
 ├── examples.md                      # 4 worked examples + anti-patterns
 ├── reference-timing-windows.md      # SLA by path, TCPA notes
@@ -54,7 +54,7 @@ demo-concierge/
 ├── README.md                        # This file
 ├── PROOF_LOG.md                     # 10 simulated events + decisions
 ├── ANTI_EXAMPLES.md                 # 3 ways naive follow-up fails
-├── index.html                       # Landing page (single-file site)
+├── index.html                       # Operator overview page with interactive triage preview
 ├── social.html                      # Social proof page (IG / YouTube / LinkedIn / TikTok)
 ├── flow-diagram.md                  # Annotated decision flow (ASCII/Mermaid)
 ├── WRITEUP.md                       # 3-paragraph narrative
@@ -68,9 +68,9 @@ demo-concierge/
 ## Core Rules (TL;DR)
 
 ### Rule 0 — The Moat
-**No demo event data = no outreach.** Period.
+**No complete intent event data = no outreach.** Period.
 
-Missing: prospect name, vertical, demo timestamp, outcome → return error. Do not guess. Do not send generic mail.
+Missing: prospect name, business context, source, timestamp, or outcome signal → return error. Do not guess. Do not send generic mail.
 
 ### 5 Decision Paths
 
@@ -78,8 +78,8 @@ Missing: prospect name, vertical, demo timestamp, outcome → return error. Do n
 |------|--------|--------|---------|
 | **1: Hot** | Completed + booked | Send booking confirmation | null |
 | **2: Abandoned** | Exited midway | Send clarification + offer short call | escalate-human (if no response in 1h) |
-| **3: Lukewarm** | Completed, no booking | Trigger 3-day nurture sequence | nurture-sequence (system-owned) |
-| **4: Repeat** | Viewed 2+ times | Escalate to account rep | escalate-human (high intent) |
+| **3: High engagement** | Completed, form submit, clicked deeper, no booking | Trigger short nurture sequence | nurture-sequence (system-owned) |
+| **4: Repeat** | Multiple visits in a short period | Escalate to account rep | escalate-human (high intent) |
 | **5: Competitor** | Competitor domain or "research only" | Polite close, no follow-up | null |
 
 ---
@@ -126,10 +126,10 @@ All test cases have expected outcomes. Proof log shows actual results.
 1. Copy `identity.md` into a new conversation
 2. Paste the demo event (JSON format recommended)
 3. Say: "Triage this demo event"
-4. Concierge outputs: path classification + message + back_to routing
+4. Demo Desk outputs: path classification + message + back_to routing
 
 **With automation (n8n, Make, Zapier):**
-1. Webhook receives demo event from askaiagents.com
+1. Webhook receives demo event from the demo experience
 2. Call Claude API with `identity.md` + `rules.md` + event data
 3. Return message to send + routing decision
 4. Send message via email (Path 1–4) or skip (Path 5)
@@ -142,17 +142,17 @@ All test cases have expected outcomes. Proof log shows actual results.
 ### "What if the prospect didn't complete the demo, but came back later?"
 See Path 4 (Repeat Visitor). If they viewed 2+ times, escalate to human on the latest view. The system gets smarter with engagement history.
 
-### "Can we use this for other AI demo products?"
+### "Can we use this for other demo experiences?"
 Yes. The rules (path classification, Rule 0 discipline, bilingual routing) are vertical-agnostic. Update `reference-message-templates.md` for your verticals/domains, keep the logic.
 
 ### "What about SMS follow-up?"
 Email is always compliant (CAN-SPAM). SMS requires prior express written consent. Never SMS Path 5 or non-opted-in prospects. See `reference-timing-windows.md` for TCPA notes.
 
-### "How do we prevent the Concierge from over-messaging?"
+### "How do we prevent the Demo Desk from over-messaging?"
 - Rule 0 blocks low-quality events
 - Path 3 (Lukewarm) triggers a 3-day nurture *sequence*, not daily emails
 - Unsubscribe is honored immediately
-- Repeat visitors bump to Path 4 (human takes over, no Concierge cycling)
+- Repeat visitors bump to Path 4 (human takes over, no Demo Desk cycling)
 
 ---
 
@@ -165,31 +165,31 @@ If deployed, measure:
 - **Path 3 → Nurture-to-booking rate:** % of lukewarm leads who book after 3-day sequence
 - **Path 4 → Human escalation → deal rate:** % of repeat visitors assigned to rep who close
 - **Path 5 → Spam complaint rate:** Should be ~0 (polite close prevents complaints)
-- **Overall:** Demo → booking conversion rate before Concierge vs. after
+- **Overall:** Demo → booking conversion rate before Demo Desk vs. after
 
 ---
 
 ## Design Notes
 
 ### Why Path 0 (Rule 0)?
-Discipline is the moat. AI systems that say yes to everything are replaceable. The Concierge that says "no incomplete data" is defensible and respects prospect signal quality.
+Discipline is the moat. AI systems that say yes to everything are replaceable. The Demo Desk that says "no incomplete data" is defensible and respects prospect signal quality.
 
 ### Why vertical-specific templates?
 "We save you time" means different things to a plumber (crew efficiency) vs. dentist (patient satisfaction). Generic templates feel low-effort. Specific ones signal respect for the business model.
 
-### Why 10 minutes?
-Research on sales follow-up timing shows 0–10 min is "while they're still thinking about it." After 30 min, leads cool 30%. After 2 hours, cold. The Concierge's job is to catch them in the window when momentum exists.
+### Why minutes?
+The strongest moment is immediately after interest is shown. Demo Desk's job is to act while the prospect still remembers what they saw, what they wanted, and where they got stuck.
 
 ### Why bilingual?
-askaiagents.com targets small business owners in the US. ~30–40% of shop owners in high-growth regions (TX, CA, AZ, CO) prefer Spanish business communication. Offering Spanish-native follow-up signals respect and closes more deals.
+Teams running product demo experiences target small business owners in the US. ~30–40% of shop owners in high-growth regions (TX, CA, AZ, CO) prefer Spanish business communication. Offering Spanish-native follow-up signals respect and closes more deals.
 
 ---
 
 ## Contact & Support
 
-Built for AI Agents (askaiagents.com).
+Built for Demo Desk (demo experience).
 
-Questions about this operator? Triage the demo event and the Concierge will tell you what it needs.
+Questions about this operator? Triage the demo event and the Demo Desk will tell you what it needs.
 
 ---
 

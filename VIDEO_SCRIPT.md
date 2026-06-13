@@ -1,152 +1,119 @@
-# The Demo Concierge — 60–90 Second Video Script
+# Demo Desk — 60–75 Second Demo Script
 
-## Script for Sean (Record yourself walking through)
+## Script for Sean
 
----
-
-### OPENING (0–15s)
-
-**On camera, direct to lens:**
-
-"2,346 cold emails. One reply. Zero follow-up.
-
-That's the story of every AI demo funnel I've ever seen.
-
-The Demo Concierge solves the part nobody thinks about: what happens in the 10 minutes after someone actually tries the demo."
+Record with the new `index.html` page open first, then briefly show `PROOF_LOG.md`.
 
 ---
 
-### THE PROBLEM (15–35s)
+### OPENING (0–12s)
 
-**Walk over to a whiteboard or hold up a phone showing demo:**
+**Show hero page.**
 
-"Think about your sales flow. A prospect asks for a demo. They watch it. And then... radio silence.
+"Most companies spend all their energy getting prospects into a demo.
 
-Why?
+Ads. Emails. Landing pages. Calendars.
 
-Because follow-up is hard. Is the lead hot? Did they get confused? Are they a competitor research-shopping? Is this actually a sale?
+Then someone finally shows interest...
 
-Most teams guess. They send a generic 'thanks for watching' email to everyone.
+...and the follow-up is inconsistent, delayed, or never happens at all."
 
-The smart ones? They never follow up at all. They're too afraid of spam complaints."
+**Pause.**
 
----
-
-### THE INSIGHT (35–50s)
-
-**Lean in, intensity up:**
-
-"What if you could triage every demo in 60 seconds? Hot lead? Book the call immediately. Abandoned midway? Ask what broke, offer a 5-minute clarification. Lukewarm? Start a 3-day nurture sequence. Repeat visitor? Escalate to your best rep — this person is serious.
-
-That's triage. That's discipline.
-
-And that's where the money is."
+"The warmest lead in the funnel becomes yesterday's lead."
 
 ---
 
-### THE SOLUTION (50–75s)
+### THE INSIGHT (12–22s)
 
-**Show the folder structure or landing page on screen:**
+**Show hero section and overview.**
 
-"The Concierge is a prompt-operator that owns demo follow-up. Five decision paths. Vertical-specific templates. Bilingual routing. One mandatory rule: never send a message without complete event data.
+"That's the job of Demo Desk.
 
-In the 10 minutes after a demo ends, the Concierge:
-1. Reads the signal
-2. Picks the right path
-3. Sends the right message
-4. Routes the outcome
+Demo Desk owns the minutes immediately after intent is shown.
 
-No spray-and-pray. No harassment. Just informed, paced follow-up."
+Not every lead.
 
----
+Not every visitor.
 
-### PROOF & METRICS (75–85s)
-
-**Show the PROOF_LOG on screen or on a tablet:**
-
-"I tested this on 10 simulated demo events. All 10 routed correctly. Paths classified right. Timing windows hit. Bilingual templates sent to Spanish speakers.
-
-In the field, this pattern should produce:
-
-- 65% response rate on abandoned demos (they tell you what broke)
-- 35% of lukewarm leads booking calls after the 3-day sequence
-- 95% of repeat visitors escalating to human (high intent signal)
-- Zero spam complaints (discipline prevents harassment)"
+Only the people raising their hand."
 
 ---
 
-### CLOSING (85–90s)
+### LIVE WALKTHROUGH (22–48s)
 
-**Back on camera, full frame:**
+**Click the tabs in the triage preview: Booked, Abandoned, High engagement, Repeat, Research.**
 
-"The Demo Concierge isn't a replacement for your sales team. It's a force multiplier.
+"When an intent signal comes in, Demo Desk decides the next best action.
 
-It makes sure the warmest 1% of leads never go cold.
+Hot lead? Confirm the call.
 
-And that's how you stop leaving money on the table."
+Abandoned demo? Ask what got in the way.
 
----
+Lukewarm prospect? Start a nurture sequence.
 
-## Visual Recommendations (For Video Editing)
+Repeat visitor? Escalate to a human.
 
-1. **Opening shot:** You on camera, direct eye contact
-2. **Problem section:** Screen recording of typical "generic follow-up email" (generic, bland)
-3. **Insight section:** Screen showing the 5 decision paths (visual diagram)
-4. **Solution section:** Folder structure open in Finder/VS Code, showing files
-5. **Proof section:** PROOF_LOG.md open, highlighting the 10 events + results
-6. **Metrics section:** Simple chart (response rates, booking rates)
-7. **Closing shot:** You on camera again, same frame
+Competitor or research-only traffic? Close the loop and move on."
 
-## Tone Guidelines
+**Pause on the Rule 0 section.**
 
-- **Problem:** Frustrated but not bitter ("we all know this is broken")
-- **Insight:** Confident ("here's what nobody talks about")
-- **Solution:** Direct, no buzzwords ("triage, paths, routing — that's it")
-- **Proof:** Calm, factual ("tested on 10 events, all correct")
-- **Closing:** Optimistic ("this changes the game")
+"And here's the rule that matters most.
 
-## Recording Notes
+If the signal is incomplete, Demo Desk does nothing.
 
-- **Frame:** Waist-up, good lighting, quiet background
-- **Audio:** Clean, no background noise, speak clearly
-- **Pace:** Slightly slower than normal conversation (judges will watch at 1.5x speed)
-- **Length:** Target 60–90 seconds (judges hate 2–3 minute videos; short is confident)
+No guessing.
+
+No spam.
+
+No spray-and-pray automation."
 
 ---
 
-## Script Variations (Optional — If Wanting to Customize)
+### PROOF (48–63s)
 
-### Version A: Problem-focused (emphasizes pain point)
-Use this if competing against generic solutions:
-- Open with a real statistic (2,346 cold emails, 1 reply)
-- Spend more time on the problem (what existing follow-up systems do wrong)
-- Shorter solution walkthrough
-- Longer proof section (show that this actually works)
+**Open `PROOF_LOG.md` and scroll through the case headings.**
 
-### Version B: Vision-focused (emphasizes future)
-Use this if competing against other discipline-driven operators:
-- Open with vision (what if AI sales funnels actually worked?)
-- Shorter problem walkthrough
-- Longer solution walkthrough (show the five paths clearly)
-- Longer closing (what this unlocks)
+"I tested ten different scenarios across every routing path.
 
-### Version C: Metric-focused (emphasizes ROI)
-Use this if judges care about numbers:
-- Open with a number (2,346 emails, 1 reply = 0.04% conversion)
-- Shorter problem and solution
-- Much longer proof section (show test results, expected metrics)
-- Closing: "Here's what this does for your bottom line"
+Hot leads.
 
-**Recommendation:** Stick with the main script above. It's balanced across problem (specificity), solution (discipline), and proof (confidence).
+Abandoned demos.
+
+Multilingual conversations.
+
+Human escalation.
+
+High-volume batches.
+
+Every event routed correctly."
 
 ---
 
-## Post-Production Checklist
+### CLOSE (62–75s)
 
-- [ ] Video is 60–90 seconds
-- [ ] Audio is clean (no background noise)
-- [ ] Frame is stable (no camera shake)
-- [ ] Text on screen is readable (16pt+ font)
-- [ ] Titles/graphics are branded (simple, professional)
-- [ ] Final video is MP4 or webm (shareable format)
-- [ ] No names of internal projects/tools visible in video (keep it to askaiagents.com, "The Concierge," "demo," "5 paths")
+**Back to the site footer or on camera.**
+
+"Most businesses don't have an attention problem.
+
+They have a follow-up problem.
+
+Demo Desk makes sure every signal of intent gets the response it deserves, while humans spend their time on the conversations that actually matter."
+
+---
+
+## Screen Recording Checklist
+
+- Start on the live site overview page, not the file tree.
+- Click every tab in the triage preview once.
+- Pause briefly on "No event data, no outreach."
+- Show `PROOF_LOG.md` case headings and the summary section.
+- Keep private project names, local folders, and private browser tabs out of frame.
+- Target length: 60–75 seconds.
+
+## Tone
+
+- Direct and crisp.
+- Emphasize discipline over hype.
+- Say "operator" and "routing" more than "AI automation."
+- Keep the close practical: this helps sales reps focus on real conversations.

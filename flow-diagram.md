@@ -1,4 +1,4 @@
-# The Demo Concierge — Decision Flow (Annotated)
+# The Demo Desk — Decision Flow (Annotated)
 
 ## ASCII Flow Diagram
 
@@ -232,7 +232,7 @@ IF event.language == "bilingual"
 
 ## Time-Critical Gates
 
-**Concierge must process within these windows:**
+**Demo Desk must process within these windows:**
 
 - **0–10 min:** Paths 1, 2, 4, 5 (hot/abandoned/repeat/competitor)
 - **0–30 min:** Path 3 (lukewarm, nurture sequence trigger)
@@ -284,7 +284,7 @@ Classification ambiguity (e.g., "repeat visit but also competitor domain")
 
 ## Measurement Points
 
-The Concierge logs these metrics for every event:
+The Demo Desk logs these metrics for every event:
 
 1. **Path classification accuracy** (did we categorize correctly?)
 2. **Message send time** (within SLA window?)

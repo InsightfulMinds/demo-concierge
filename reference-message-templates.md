@@ -4,22 +4,22 @@
 
 ### PLUMBING (English)
 ```
-Subject: Your AI Agents Demo — Call Scheduled
+Subject: Your Demo Desk Demo — Call Scheduled
 
 Hi [NAME],
 
-You just experienced AI Agents firsthand. Your call with [SPECIALIST_NAME] is on the calendar.
+You just experienced Demo Desk firsthand. Your call with [SPECIALIST_NAME] is on the calendar.
 
 We'll walk through how it handles the questions your customers ask — and what your crew actually does.
 
 See you on [DATE] at [TIME].
 
-—Demo Concierge, AI Agents
+—Demo Desk, Demo Desk
 ```
 
 ### ELECTRICAL (English)
 ```
-Subject: Your AI Agents Demo — Next Steps
+Subject: Your Demo Desk Demo — Next Steps
 
 Hi [NAME],
 
@@ -29,7 +29,7 @@ We'll dig into how this fits into your crew's actual workflow — not theory, ju
 
 [DATE] at [TIME] — looking forward to it.
 
-—Demo Concierge, AI Agents
+—Demo Desk, Demo Desk
 ```
 
 ### HVAC (English)
@@ -38,28 +38,28 @@ Subject: Your Demo Scheduled
 
 Hi [NAME],
 
-Your AI Agents demo call is booked. [DATE] at [TIME].
+Your Demo Desk demo call is booked. [DATE] at [TIME].
 
 We'll show you exactly how this runs in the background without interrupting your day.
 
 See you then.
 
-—Demo Concierge, AI Agents
+—Demo Desk, Demo Desk
 ```
 
 ### DENTAL (English)
 ```
-Subject: Your AI Agents Demo — Call Confirmed
+Subject: Your Demo Desk Demo — Call Confirmed
 
 Hi Dr. [NAME],
 
-Your AI Agents demo is scheduled for [DATE] at [TIME].
+Your Demo Desk demo is scheduled for [DATE] at [TIME].
 
 We'll walk through how this handles appointment questions and patient inquiries — instantly.
 
 Looking forward to showing you how it works for your practice.
 
-—Demo Concierge, AI Agents
+—Demo Desk, Demo Desk
 ```
 
 ---
@@ -68,22 +68,22 @@ Looking forward to showing you how it works for your practice.
 
 ### PLOMERÍA
 ```
-Asunto: Tu Demo de AI Agents — Llamada Programada
+Asunto: Tu Demo de Demo Desk — Llamada Programada
 
 Hola [NAME],
 
-Acabas de ver AI Agents en acción. Tu llamada con [SPECIALIST_NAME] está en el calendario.
+Acabas de ver Demo Desk en acción. Tu llamada con [SPECIALIST_NAME] está en el calendario.
 
 Vamos a hablar sobre cómo maneja las preguntas que reciben tus clientes — y qué hace tu equipo en realidad.
 
 Nos vemos el [FECHA] a las [HORA].
 
-—Demo Concierge, AI Agents
+—Demo Desk, Demo Desk
 ```
 
 ### ELECTRICIDAD
 ```
-Asunto: Tu Demo de AI Agents — Próximos Pasos
+Asunto: Tu Demo de Demo Desk — Próximos Pasos
 
 Hola [NAME],
 
@@ -93,7 +93,7 @@ Vamos a ver exactamente cómo funciona en el trabajo real de tu equipo — sin t
 
 [FECHA] a las [HORA] — nos vemos.
 
-—Demo Concierge, AI Agents
+—Demo Desk, Demo Desk
 ```
 
 ### HVAC (ESPAÑOL)
@@ -102,28 +102,28 @@ Asunto: Tu Demo Programada
 
 Hola [NAME],
 
-Tu llamada de demo de AI Agents está programada para [FECHA] a las [HORA].
+Tu llamada de demo de Demo Desk está programada para [FECHA] a las [HORA].
 
 Te mostraremos cómo funciona en el fondo sin interrumpir tu día de trabajo.
 
 Nos vemos.
 
-—Demo Concierge, AI Agents
+—Demo Desk, Demo Desk
 ```
 
 ### ODONTOLOGÍA
 ```
-Asunto: Tu Demo de AI Agents — Llamada Confirmada
+Asunto: Tu Demo de Demo Desk — Llamada Confirmada
 
 Hola Dra./Dr. [NAME],
 
-Tu demo de AI Agents está programada para [FECHA] a las [HORA].
+Tu demo de Demo Desk está programada para [FECHA] a las [HORA].
 
 Vamos a ver cómo maneja las preguntas de citas e inquietudes de pacientes — al instante.
 
 Esperamos mostrarte cómo funciona para tu consultorio.
 
-—Demo Concierge, AI Agents
+—Demo Desk, Demo Desk
 ```
 
 ---
@@ -144,7 +144,7 @@ If it's the latter, I can show you the 5-minute version in a quick call. No sale
 
 [LINK: 30-min Calendar]
 
-—Demo Concierge, AI Agents
+—Demo Desk, Demo Desk
 ```
 
 ### ELECTRICAL (English)
@@ -161,7 +161,7 @@ Either way, I can show you the short version (5 min, practical). Let's jump on a
 
 [LINK: 30-min Calendar]
 
-—Demo Concierge, AI Agents
+—Demo Desk, Demo Desk
 ```
 
 ### HVAC (English)
@@ -176,7 +176,7 @@ If something didn't make sense, let's do a 5-minute walkthrough focused on your 
 
 [LINK: 30-min Calendar]
 
-—Demo Concierge, AI Agents
+—Demo Desk, Demo Desk
 ```
 
 ### DENTAL (English)
@@ -191,7 +191,7 @@ Anything we can clarify? Sometimes a quick 1:1 call clears things up faster than
 
 [LINK: 30-min Calendar]
 
-—Demo Concierge, AI Agents
+—Demo Desk, Demo Desk
 ```
 
 ---
@@ -200,15 +200,15 @@ Anything we can clarify? Sometimes a quick 1:1 call clears things up faster than
 
 ### NURTURE EMAIL 1: Recap + FAQ
 
-**Subject:** "Here's What You Saw in the AI Agents Demo"
+**Subject:** "Here's What You Saw in the Demo Desk Demo"
 
 ```
 Hi [NAME],
 
-You just walked through the AI Agents demo. Here's a quick recap of what you experienced:
+You just walked through the Demo Desk demo. Here's a quick recap of what you experienced:
 
 ✓ The Interface — how your team logs in and sends a request
-✓ The Workflow — how AI Agents answers in real-time
+✓ The Workflow — how Demo Desk answers in real-time
 ✓ The Results — time saved per day for your business
 
 Common questions we hear:
@@ -224,7 +224,7 @@ A: Yes — we've deployed this in [# cases] [vertical] businesses. [Case study l
 
 Questions? Reply here or [LINK: 30-min Call].
 
-—Demo Concierge, AI Agents
+—Demo Desk, Demo Desk
 ```
 
 ### NURTURE EMAIL 2: Vertical Case Study
@@ -245,7 +245,7 @@ You saw the demo. Here's a real example from [Case Company Name], a [vertical] l
 [CASE COMPANY] was answering 30–50 questions per week manually.
 One person, one hour per day, just answering the same questions over and over.
 
-With AI Agents, those 50 questions are answered in seconds.
+With Demo Desk, those 50 questions are answered in seconds.
 The person now focuses on scheduling and high-value conversations.
 
 Result: 8–10 hours saved per week. Same accuracy. Higher customer satisfaction.
@@ -254,7 +254,7 @@ Result: 8–10 hours saved per week. Same accuracy. Higher customer satisfaction
 
 Want to see this for your crew? [LINK: 30-min Call]
 
-—Demo Concierge, AI Agents
+—Demo Desk, Demo Desk
 ```
 
 ### NURTURE EMAIL 3: Team Walkthrough
@@ -266,7 +266,7 @@ Hi [NAME],
 
 The last step: seeing this with your team.
 
-AI Agents isn't just for you to understand — it's for your crew to believe.
+Demo Desk isn't just for you to understand — it's for your crew to believe.
 
 A 15-minute walkthrough with [SPECIALIST_NAME] + your team clears up questions in real-time.
 
@@ -274,7 +274,7 @@ A 15-minute walkthrough with [SPECIALIST_NAME] + your team clears up questions i
 
 If that doesn't work, reply and we'll find a time.
 
-—Demo Concierge, AI Agents
+—Demo Desk, Demo Desk
 ```
 
 ---
@@ -283,7 +283,7 @@ If that doesn't work, reply and we'll find a time.
 
 ### ENGLISH
 ```
-Subject: Let's Get Serious About AI Agents for Your [Vertical]
+Subject: Let's Get Serious About Demo Desk for Your [Vertical]
 
 Hi [NAME],
 
@@ -295,12 +295,12 @@ Let's talk directly with our team lead who works with [verticals like yours].
 
 No pressure — just a conversation about whether this makes sense for your business.
 
-—Demo Concierge, AI Agents
+—Demo Desk, Demo Desk
 ```
 
 ### SPANISH
 ```
-Asunto: Hablemos en Serio sobre AI Agents para tu [Vertical]
+Asunto: Hablemos en Serio sobre Demo Desk para tu [Vertical]
 
 Hola [NAME],
 
@@ -312,7 +312,7 @@ Hablemos directamente con nuestro líder de equipo que trabaja con [vertical] co
 
 Sin presión — solo una conversación sobre si tiene sentido para tu negocio.
 
-—Demo Concierge, AI Agents
+—Demo Desk, Demo Desk
 ```
 
 ---
@@ -321,7 +321,7 @@ Sin presión — solo una conversación sobre si tiene sentido para tu negocio.
 
 ### ENGLISH (All Verticals — Same)
 ```
-Subject: Thanks for Checking Out AI Agents
+Subject: Thanks for Checking Out Demo Desk
 
 Hi [NAME],
 
@@ -331,12 +331,12 @@ If you're building on our tech down the road or considering partnership, let's t
 
 Best of luck with your evaluations.
 
-—Demo Concierge, AI Agents
+—Demo Desk, Demo Desk
 ```
 
 ### SPANISH (All Verticals — Same)
 ```
-Asunto: Gracias por Revisar AI Agents
+Asunto: Gracias por Revisar Demo Desk
 
 Hola [NAME],
 
@@ -346,7 +346,7 @@ Si en algún momento quieres construir sobre nuestro sistema o considerar una as
 
 Buena suerte con tus evaluaciones.
 
-—Demo Concierge, AI Agents
+—Demo Desk, Demo Desk
 ```
 
 ---
@@ -364,7 +364,7 @@ Every template above is a skeleton. Before sending, fill:
 
 **Do not:**
 - Use full title (e.g., "Mr. Rodriguez" — use "Rodriguez")
-- Say "AI Agents team" — say "I" or use specialist name
+- Say "Demo Desk team" — say "I" or use specialist name
 - Assume they remember the demo — remind them what they saw
 - Use jargon ("LLM," "API," "webhook") — stay practical
 - Misspell vertical name (HVAC is OK; don't say "Heating/Cooling")

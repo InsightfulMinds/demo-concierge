@@ -1,35 +1,59 @@
 <!DOCTYPE html>
 <!--
-  AI Agents — Social Proof page (illustrative mockup).
+  Demo Desk — Social Proof page (illustrative mockup).
   Self-contained: no external assets, fonts, or scripts. All imagery is generated inline SVG.
   Engagement figures and customer names are representative sample content for demonstration,
-  not live metrics. Brand: AI Agents (askaiagents.com).
+  not live metrics. Brand: Demo Desk.
 -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Agents — Social</title>
+<title>Demo Desk — Social</title>
+<meta name="description" content="Launch-preview social concepts for Demo Desk, an intent-response operator for demo-led teams.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Demo Desk Social Proof">
+<meta property="og:description" content="Launch-preview social channel concepts for Demo Desk.">
+<meta property="og:url" content="https://demo-concierge.pages.dev/social">
+<meta property="og:image" content="https://demo-concierge.pages.dev/assets/hero-diagram.png">
+<meta property="og:image:alt" content="Intent Signal to Demo Desk to Action">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Demo Desk Social Proof">
+<meta name="twitter:description" content="Launch-preview social channel concepts for Demo Desk.">
+<meta name="twitter:image" content="https://demo-concierge.pages.dev/assets/hero-diagram.png">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="assets/favicon-16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="assets/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --navy:#1e3a8a; --blue:#3b82f6; --blue2:#2563eb; --amber:#fbbf24;
-    --ink:#0f172a; --muted:#64748b; --line:#e5e7eb; --bg:#f1f5f9; --card:#ffffff;
+    --cream:#F4EFE3; --cream-hi:#FBF7EE; --paper:#FFFFFF; --panel:#FCF9F1;
+    --mint:#BFE3CE; --mint-2:#A6D7BC; --mint-soft:#DDEEE3; --sage:#8FAE9B;
+    --forest:#28433A; --forest-2:#1E332C; --ink:#2C3A34; --muted:#6E7B72;
+    --clay:#CC8264; --clay-2:#B96E50; --ochre:#D9B36B;
+    --line:#E4DCCB; --bg:#F4EFE3; --card:#FFFFFF;
+    --navy:#28433A; --blue:#6FA98C; --blue2:#28433A; --amber:#D9B36B;
     --ig:linear-gradient(45deg,#feda75 0%,#fa7e1e 25%,#d62976 50%,#962fbf 75%,#4f5bd5 100%);
     --yt:#ff0000; --li:#0a66c2; --tt:#000000; --verify:#3897f0;
-    --shadow:0 1px 3px rgba(15,23,42,.08),0 8px 24px rgba(15,23,42,.06);
+    --shadow:0 1px 3px rgba(40,67,58,.07),0 10px 30px rgba(40,67,58,.08);
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}
+  body{font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}
+  .hero h1,.brand{font-family:"Fraunces",Georgia,serif}
   a{color:inherit;text-decoration:none}
   img{display:block;max-width:100%}
   .wrap{max-width:980px;margin:0 auto;padding:0 16px}
 
   /* ---------- top site nav ---------- */
-  .nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--line)}
+  .nav{position:sticky;top:0;z-index:50;background:rgba(244,239,227,.82);backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--line)}
   .nav .wrap{display:flex;align-items:center;gap:18px;height:60px}
-  .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.02em;font-size:1.05rem}
-  .brand .logo{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--navy),var(--blue));display:grid;place-items:center;color:#fff;font-weight:800;font-size:.8rem}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:0;font-size:1.05rem}
+  .brand .logo{display:grid;place-items:center;width:30px;height:30px}
   .brand .vchk{width:15px;height:15px}
   .nav .spacer{flex:1}
   .nav a.link{color:var(--muted);font-weight:600;font-size:.92rem;padding:6px 2px;border-bottom:2px solid transparent}
@@ -38,9 +62,12 @@
   .nav .demo:hover{background:var(--navy)}
 
   /* ---------- hero strip ---------- */
-  .hero{background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 100%);color:#fff;padding:34px 0 26px}
-  .hero h1{font-size:1.7rem;font-weight:800;letter-spacing:-.02em}
+  .hero{background:linear-gradient(135deg,var(--forest-2),var(--forest));color:var(--cream-hi);padding:34px 0 26px}
+  .hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:24px;align-items:center}
+  .hero h1{font-size:1.7rem;font-weight:800;letter-spacing:0}
   .hero p{opacity:.9;margin-top:6px;max-width:640px}
+  .hero-card{border:1px solid rgba(251,247,238,.18);border-radius:12px;overflow:hidden;background:#FBF7EE;box-shadow:0 16px 40px rgba(0,0,0,.16)}
+  .hero-card img{display:block;width:100%;height:auto}
 
   /* ---------- platform tabs ---------- */
   .tabs{position:sticky;top:60px;z-index:40;background:var(--bg);padding:14px 0 6px}
@@ -64,27 +91,27 @@
   /* ---------- Instagram ---------- */
   .ig-head{display:flex;gap:28px;align-items:center;padding:26px;margin:16px 0}
   .ig-ava{flex:0 0 auto;width:120px;height:120px;border-radius:50%;padding:4px;background:var(--ig)}
-  .ig-ava>div{width:100%;height:100%;border-radius:50%;border:3px solid #fff;background-size:cover}
+  .ig-ava>div{width:100%;height:100%;border-radius:50%;border:3px solid #fff;background-size:cover;background-position:center;overflow:hidden}
   .ig-meta{flex:1;min-width:0}
   .ig-top{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
   .ig-top h2{font-size:1.3rem;font-weight:500;display:flex;align-items:center;gap:6px}
   .btn{border:1px solid var(--line);background:#efefef;border-radius:8px;padding:7px 16px;font-weight:600;font-size:.88rem;cursor:pointer}
-  .btn.primary{background:var(--blue2);color:#fff;border-color:transparent}
+  .btn.primary{background:var(--navy);color:#fffdf7;border-color:transparent}
   .ig-stats{display:flex;gap:34px;margin:16px 0 10px}
   .ig-stats b{font-weight:700}
   .ig-bio{font-size:.94rem}
   .ig-bio .h{font-weight:700}
-  .ig-bio a{color:#00376b;font-weight:600}
+  .ig-bio a{color:var(--navy);font-weight:600}
   .ig-hl{display:flex;gap:22px;padding:6px 26px 22px;overflow-x:auto}
   .ig-hl .h{flex:0 0 auto;text-align:center;width:74px}
   .ig-hl .ring{width:66px;height:66px;border-radius:50%;border:1px solid var(--line);padding:3px;margin:0 auto 6px;background-size:cover}
-  .ig-hl .ring>div{width:100%;height:100%;border-radius:50%;border:2px solid #fff;background-size:cover}
+  .ig-hl .ring>div{width:100%;height:100%;border-radius:50%;border:2px solid #fff;background-size:cover;background-position:center;overflow:hidden}
   .ig-hl small{font-size:.78rem;color:var(--ink)}
   .ig-tabsbar{display:flex;justify-content:center;gap:60px;border-top:1px solid var(--line);margin-top:4px}
   .ig-tabsbar span{padding:14px 0;font-size:.78rem;font-weight:700;letter-spacing:.08em;color:var(--muted);display:flex;align-items:center;gap:6px}
   .ig-tabsbar span.on{color:var(--ink);border-top:1px solid var(--ink);margin-top:-1px}
   .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin:4px 0 30px}
-  .gtile{position:relative;aspect-ratio:1;background:#ddd;background-size:cover;cursor:pointer;overflow:hidden}
+  .gtile{position:relative;aspect-ratio:1;background:#ddd;cursor:pointer;overflow:hidden}
   .gtile .ov{position:absolute;inset:0;background:rgba(0,0,0,.42);display:flex;align-items:center;justify-content:center;gap:24px;color:#fff;font-weight:800;opacity:0;transition:.2s}
   .gtile:hover .ov{opacity:1}
   .gtile .ov span{display:flex;align-items:center;gap:7px}
@@ -94,7 +121,7 @@
   .yt{background:#0f0f0f;color:#fff;border-radius:14px;overflow:hidden;margin:16px 0 30px}
   .yt-banner{height:160px;background-size:cover;background-position:center}
   .yt-head{display:flex;gap:22px;align-items:center;padding:22px}
-  .yt-ava{width:96px;height:96px;border-radius:50%;background-size:cover;flex:0 0 auto}
+  .yt-ava{width:96px;height:96px;border-radius:50%;background-size:cover;background-position:center;flex:0 0 auto;overflow:hidden}
   .yt-h h2{font-size:1.5rem;font-weight:700;display:flex;align-items:center;gap:7px}
   .yt-h .sub{color:#aaa;font-size:.9rem;margin-top:4px}
   .yt-h .desc{color:#aaa;font-size:.86rem;margin-top:6px;max-width:520px}
@@ -104,14 +131,14 @@
   .yt-chips span.on{background:#fff;color:#0f0f0f}
   .yt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;padding:8px 22px 26px}
   .vid{cursor:pointer}
-  .vthumb{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#222;background-size:cover}
+  .vthumb{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#222}
   .vthumb .dur{position:absolute;right:7px;bottom:7px;background:rgba(0,0,0,.82);font-size:.74rem;font-weight:700;padding:1px 5px;border-radius:4px}
   .vid h3{font-size:.95rem;font-weight:600;margin:9px 0 3px;line-height:1.3}
   .vid .m{color:#aaa;font-size:.82rem}
   .yt-shorts-title{padding:6px 22px;font-weight:700;display:flex;align-items:center;gap:8px}
   .shorts{display:flex;gap:14px;padding:8px 22px 26px;overflow-x:auto}
   .short{flex:0 0 auto;width:150px;cursor:pointer}
-  .sthumb{aspect-ratio:9/16;border-radius:12px;overflow:hidden;background-size:cover;position:relative}
+  .sthumb{aspect-ratio:9/16;border-radius:12px;overflow:hidden;position:relative}
   .sthumb .v{position:absolute;left:8px;bottom:8px;font-size:.78rem;font-weight:700;text-shadow:0 1px 3px rgba(0,0,0,.7)}
   .short p{font-size:.83rem;font-weight:600;margin-top:6px;line-height:1.25;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 
@@ -119,7 +146,7 @@
   .li-head{border-radius:14px;overflow:hidden;margin:16px 0 18px;background:#fff;border:1px solid var(--line)}
   .li-cover{height:130px;background-size:cover;background-position:center}
   .li-body{padding:0 24px 22px;position:relative}
-  .li-logo{width:104px;height:104px;border-radius:14px;border:3px solid #fff;background:#fff;margin-top:-52px;background-size:cover}
+  .li-logo{width:104px;height:104px;border-radius:50%;border:3px solid #fff;background:#fff;margin-top:-52px;background-size:cover;background-position:center;overflow:hidden}
   .li-body h2{font-size:1.45rem;font-weight:700;margin-top:10px;display:flex;align-items:center;gap:7px}
   .li-tag{color:var(--ink);margin-top:3px}
   .li-sub{color:var(--muted);font-size:.9rem;margin-top:4px}
@@ -128,12 +155,12 @@
   .li-actions .v{background:#fff;color:var(--li);border:1px solid var(--li);border-radius:999px;padding:8px 18px;font-weight:700;cursor:pointer}
   .post{margin:0 0 16px;padding:16px 18px}
   .post .ph{display:flex;gap:12px;align-items:flex-start}
-  .post .pa{width:48px;height:48px;border-radius:50%;background-size:cover;flex:0 0 auto}
+  .post .pa{width:48px;height:48px;border-radius:50%;background-size:cover;background-position:center;flex:0 0 auto;overflow:hidden}
   .post .pn{font-weight:700;font-size:.95rem;display:flex;align-items:center;gap:5px}
   .post .pm{color:var(--muted);font-size:.8rem}
   .post .pt{margin:12px 0;font-size:.94rem;white-space:pre-line}
   .post .pt .tag{color:var(--li);font-weight:600}
-  .post .pimg{border-radius:10px;overflow:hidden;border:1px solid var(--line);aspect-ratio:1.91/1;background-size:cover}
+  .post .pimg{position:relative;border-radius:10px;overflow:hidden;border:1px solid var(--line);aspect-ratio:1.91/1}
   .post .react{display:flex;align-items:center;gap:6px;color:var(--muted);font-size:.82rem;padding:10px 2px 0;margin-top:8px;border-top:1px solid var(--line)}
   .post .react .emo{display:flex}
   .post .react .emo i{width:18px;height:18px;border-radius:50%;display:inline-grid;place-items:center;margin-left:-4px;border:1.5px solid #fff;font-size:10px;font-style:normal}
@@ -143,7 +170,7 @@
 
   /* ---------- TikTok ---------- */
   .tt-head{display:flex;gap:24px;align-items:center;padding:24px;margin:16px 0;color:#fff;background:#111;border-radius:14px}
-  .tt-ava{width:110px;height:110px;border-radius:50%;background-size:cover;flex:0 0 auto}
+  .tt-ava{width:110px;height:110px;border-radius:50%;background-size:cover;background-position:center;flex:0 0 auto;overflow:hidden}
   .tt-h h2{font-size:1.35rem;font-weight:800;display:flex;align-items:center;gap:6px}
   .tt-h .at{color:#aaa;margin-top:2px}
   .tt-stats{display:flex;gap:26px;margin:12px 0}
@@ -151,7 +178,7 @@
   .tt-h .bio{color:#ddd;font-size:.9rem;max-width:460px}
   .tt-follow{margin-left:auto;background:#fe2c55;color:#fff;border:none;border-radius:8px;padding:10px 26px;font-weight:700;cursor:pointer;flex:0 0 auto}
   .tt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px;margin-bottom:30px}
-  .tt-tile{aspect-ratio:9/16;border-radius:8px;overflow:hidden;position:relative;background-size:cover;cursor:pointer}
+  .tt-tile{aspect-ratio:9/16;border-radius:8px;overflow:hidden;position:relative;cursor:pointer;background:#1a1a1a}
   .tt-tile .v{position:absolute;left:8px;bottom:8px;color:#fff;font-weight:700;font-size:.82rem;text-shadow:0 1px 3px rgba(0,0,0,.7);display:flex;align-items:center;gap:5px}
   .tt-tile .cap{position:absolute;left:8px;right:8px;top:8px;color:#fff;font-size:.78rem;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,.8);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 
@@ -159,10 +186,10 @@
   .modal{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
   .modal.show{display:flex}
   .modal .box{background:#fff;border-radius:12px;overflow:hidden;display:grid;grid-template-columns:1fr 360px;max-width:900px;width:100%;max-height:88vh}
-  .modal .mimg{background:#000;background-size:cover;background-position:center;min-height:420px}
+  .modal .mimg{position:relative;background:#000;background-size:cover;background-position:center;min-height:420px}
   .modal .mside{display:flex;flex-direction:column;max-height:88vh}
   .modal .mhead{display:flex;align-items:center;gap:10px;padding:14px;border-bottom:1px solid var(--line);font-weight:700}
-  .modal .mhead .a{width:34px;height:34px;border-radius:50%;background-size:cover}
+  .modal .mhead .a{width:34px;height:34px;border-radius:50%;background-size:cover;background-position:center;overflow:hidden}
   .modal .mcom{flex:1;overflow:auto;padding:14px;display:flex;flex-direction:column;gap:13px}
   .modal .mcom .c{font-size:.9rem}.modal .mcom .c b{margin-right:6px}
   .modal .mfoot{border-top:1px solid var(--line);padding:12px 14px}
@@ -172,9 +199,27 @@
   .modal .mfoot .t{color:var(--muted);font-size:.72rem;letter-spacing:.04em;margin-top:3px}
   .modal .x{position:absolute;top:16px;right:20px;color:#fff;font-size:2rem;cursor:pointer;line-height:1}
 
-  footer{background:#0f172a;color:#cbd5e1;text-align:center;padding:30px 16px;margin-top:20px;font-size:.86rem}
-  footer b{color:#fff}
+  footer{background:var(--forest-2);color:#A9BBB0;text-align:center;padding:30px 16px;margin-top:20px;font-size:.86rem}
+  footer b{color:#FBF7EE}
   .disc{color:var(--muted);font-size:.74rem;margin-top:8px}
+
+  /* ---------- simulated media cards ---------- */
+  .asset-card{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;padding:24px;color:#FBF7EE;background:linear-gradient(135deg,var(--a),var(--b))}
+  .asset-card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 78% 16%,rgba(251,247,238,.22),transparent 24%),radial-gradient(circle at 12% 86%,rgba(251,247,238,.16),transparent 30%);pointer-events:none}
+  .asset-card::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(251,247,238,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(251,247,238,.08) 1px,transparent 1px);background-size:34px 34px;opacity:.32;pointer-events:none}
+  .asset-card>*{position:relative;z-index:1}
+  .asset-chip{align-self:flex-start;border:1px solid rgba(251,247,238,.34);border-radius:999px;padding:6px 10px;background:rgba(251,247,238,.12);font-size:.74rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+  .asset-title{max-width:92%;font-family:"Fraunces",Georgia,serif;font-size:clamp(1.55rem,4vw,3rem);font-weight:700;line-height:1.02;letter-spacing:0;text-wrap:balance}
+  .asset-label{font-size:.88rem;font-weight:800;opacity:.88}
+  .asset-flow{display:flex;align-items:center;gap:9px;margin-top:12px;font-weight:800}
+  .asset-flow span{display:grid;place-items:center;min-width:32px;height:32px;border-radius:999px;background:rgba(251,247,238,.18);border:1px solid rgba(251,247,238,.25)}
+  .asset-card.wide{padding:22px}
+  .asset-card.wide .asset-title{font-size:clamp(1.4rem,2.8vw,2.4rem);max-width:78%}
+  .asset-card.vertical{padding:18px}
+  .asset-card.vertical .asset-title{font-size:clamp(1.35rem,4.8vw,2.15rem);max-width:100%}
+  .asset-card.mini{position:relative;width:100%;height:100%;padding:0;display:grid;place-items:center;text-align:center}
+  .asset-card.mini .asset-title{font-family:var(--sans);font-size:.78rem;line-height:1.05}
+  .mimg .asset-card{position:relative;min-height:100%}
 
   @media(max-width:720px){
     .ig-head{flex-direction:column;text-align:center;gap:16px}
@@ -182,6 +227,8 @@
     .ig-ava{width:92px;height:92px}
     .modal .box{grid-template-columns:1fr}.modal .mimg{min-height:300px}
     .yt-head{flex-wrap:wrap}.yt-sub{margin-left:0}
+    .hero .wrap{grid-template-columns:1fr}
+    .hero-card{display:none}
     .hero h1{font-size:1.35rem}
   }
 </style>
@@ -190,19 +237,25 @@
 
 <!-- ============ TOP NAV ============ -->
 <div class="nav"><div class="wrap">
-  <a class="brand" href="index.html"><span class="logo">AI</span> AI&nbsp;Agents
+  <a class="brand" href="index.html"><span class="logo"><svg viewBox="0 0 40 40" width="30" height="30" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#BFE3CE"/><rect x="14" y="10.5" width="12" height="8.5" rx="1.4" fill="#FBF7EE" stroke="#28433A" stroke-width="2"/><line x1="20" y1="19" x2="20" y2="21.6" stroke="#28433A" stroke-width="2"/><rect x="7.5" y="21.6" width="25" height="3.2" rx="1.6" fill="#28433A"/><path d="M11 24.8l-1.2 7M29 24.8l1.2 7" stroke="#28433A" stroke-width="2.4" stroke-linecap="round"/><path d="M30.6 21.6v-3.2l2.6-1.8" fill="none" stroke="#CC8264" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="33.4" cy="16.2" r="1.7" fill="#CC8264"/></svg></span> Demo&nbsp;Desk
     <svg class="vchk" viewBox="0 0 24 24" fill="#3897f0"><path d="M12 2l2.4 1.8 3-.2 1 2.8 2.6 1.5-.9 2.9.9 2.9-2.6 1.5-1 2.8-3-.2L12 22l-2.4-1.8-3 .2-1-2.8L3 16.3l.9-2.9L3 10.5 5.6 9l1-2.8 3 .2z"/><path d="M10.4 14.6l-2-2 1.2-1.2.8.8 3-3 1.2 1.2z" fill="#fff"/></svg>
   </a>
   <div class="spacer"></div>
   <a class="link" href="index.html">Overview</a>
+  <a class="link" href="proof.html">Proof</a>
   <a class="link active" href="social.html">Social</a>
-  <a class="demo" href="https://askaiagents.com" target="_blank" rel="noopener">Book a demo</a>
+  <a class="demo" href="index.html#console">See routing</a>
 </div></div>
 
 <!-- ============ HERO ============ -->
 <div class="hero"><div class="wrap">
-  <h1>AI Agents in the wild</h1>
-  <p>Real demos, real wins, real conversations. Here's how home-service teams are using AI Agents to answer every call and never lose a warm lead.</p>
+  <div>
+    <h1>Demo Desk social proof</h1>
+    <p>Illustrative social assets for an intent-response operator: intent signal in, routing decision out, useful follow-up within minutes.</p>
+  </div>
+  <div class="hero-card" aria-hidden="true">
+    <img src="assets/hero-diagram.svg" alt="">
+  </div>
 </div></div>
 
 <!-- ============ PLATFORM TABS ============ -->
@@ -229,17 +282,16 @@
     <div class="ig-ava"><div id="igAva"></div></div>
     <div class="ig-meta">
       <div class="ig-top">
-        <h2>askaiagents <svg class="verified" viewBox="0 0 24 24" fill="#3897f0"><path d="M12 2l2.4 1.8 3-.2 1 2.8L21 8l-.9 2.9L21 13.8l-2.6 1.5-1 2.8-3-.2L12 19.8l-2.4-1.8-3 .2-1-2.8L3 13.8 3.9 11 3 8l2.6-1.5 1-2.8 3 .2z"/><path d="M10.4 14.2l-2-2 1.2-1.2.8.8 3-3 1.2 1.2z" fill="#fff"/></svg></h2>
+        <h2>demodesk <svg class="verified" viewBox="0 0 24 24" fill="#3897f0"><path d="M12 2l2.4 1.8 3-.2 1 2.8L21 8l-.9 2.9L21 13.8l-2.6 1.5-1 2.8-3-.2L12 19.8l-2.4-1.8-3 .2-1-2.8L3 13.8 3.9 11 3 8l2.6-1.5 1-2.8 3 .2z"/><path d="M10.4 14.2l-2-2 1.2-1.2.8.8 3-3 1.2 1.2z" fill="#fff"/></svg></h2>
         <button class="btn primary">Follow</button>
         <button class="btn">Message</button>
       </div>
       <div class="ig-stats"><span><b>247</b> posts</span><span><b>38.4k</b> followers</span><span><b>312</b> following</span></div>
       <div class="ig-bio">
-        <div class="h">AI Agents · 24/7 AI Receptionist</div>
-        AI voice agents that answer every call, book the job, and never miss a lead ☎️🤖<br>
-        Built for plumbers · HVAC · electricians · dentists<br>
-        👇 Try the 60-second live demo<br>
-        <a href="https://askaiagents.com" target="_blank" rel="noopener">askaiagents.com</a>
+        <div class="h">Demo Desk · Intent-response operator</div>
+        Own the minutes after a prospect shows interest.<br>
+        Demo completed · abandoned · repeat visit · form submit · booked call<br>
+        Follow-up routing for teams that run product demos
       </div>
     </div>
   </div>
@@ -257,9 +309,9 @@
     <div class="yt-head">
       <div class="yt-ava" id="ytAva"></div>
       <div class="yt-h">
-        <h2>AI Agents <svg class="verified" viewBox="0 0 24 24" fill="#aaa"><circle cx="12" cy="12" r="10"/><path d="M10.4 14.2l-2-2 1.2-1.2.8.8 3-3 1.2 1.2z" fill="#0f0f0f"/></svg></h2>
-        <div class="sub">@askaiagents · 12.3K subscribers · 89 videos</div>
-        <div class="desc">Watch real AI voice agents answer calls, book jobs, and handle objections live. Setup walkthroughs, customer results, and behind-the-scenes.</div>
+        <h2>Demo Desk <svg class="verified" viewBox="0 0 24 24" fill="#aaa"><circle cx="12" cy="12" r="10"/><path d="M10.4 14.2l-2-2 1.2-1.2.8.8 3-3 1.2 1.2z" fill="#0f0f0f"/></svg></h2>
+        <div class="sub">@demodesk · 12.3K subscribers · 89 videos</div>
+        <div class="desc">Watch intent signals become useful next actions: confirmations, recovery, nurture, human escalation, and graceful closes.</div>
       </div>
       <button class="yt-sub">Subscribe</button>
     </div>
@@ -279,8 +331,8 @@
     <div class="li-cover" id="liCover"></div>
     <div class="li-body">
       <div class="li-logo" id="liLogo"></div>
-      <h2>AI Agents <svg class="verified" viewBox="0 0 24 24" fill="#0a66c2"><path d="M12 2l2.4 1.8 3-.2 1 2.8L21 8l-.9 2.9L21 13.8l-2.6 1.5-1 2.8-3-.2L12 19.8l-2.4-1.8-3 .2-1-2.8L3 13.8 3.9 11 3 8l2.6-1.5 1-2.8 3 .2z"/><path d="M10.4 14.2l-2-2 1.2-1.2.8.8 3-3 1.2 1.2z" fill="#fff"/></svg></h2>
-      <div class="li-tag">AI voice agents for home-service businesses</div>
+      <h2>Demo Desk <svg class="verified" viewBox="0 0 24 24" fill="#0a66c2"><path d="M12 2l2.4 1.8 3-.2 1 2.8L21 8l-.9 2.9L21 13.8l-2.6 1.5-1 2.8-3-.2L12 19.8l-2.4-1.8-3 .2-1-2.8L3 13.8 3.9 11 3 8l2.6-1.5 1-2.8 3 .2z"/><path d="M10.4 14.2l-2-2 1.2-1.2.8.8 3-3 1.2 1.2z" fill="#fff"/></svg></h2>
+      <div class="li-tag">Intent-response operator for product demo teams</div>
       <div class="li-sub">Software Development · Austin, TX · 4,127 followers</div>
       <div class="li-actions"><button class="f">+ Follow</button><button class="v">Visit website</button></div>
     </div>
@@ -293,10 +345,10 @@
   <div class="tt-head">
     <div class="tt-ava" id="ttAva"></div>
     <div class="tt-h">
-      <h2>AI Agents <svg class="verified" viewBox="0 0 24 24" fill="#20d5ec"><path d="M12 2l2.4 1.8 3-.2 1 2.8L21 8l-.9 2.9L21 13.8l-2.6 1.5-1 2.8-3-.2L12 19.8l-2.4-1.8-3 .2-1-2.8L3 13.8 3.9 11 3 8l2.6-1.5 1-2.8 3 .2z"/><path d="M10.4 14.2l-2-2 1.2-1.2.8.8 3-3 1.2 1.2z" fill="#111"/></svg></h2>
-      <div class="at">@askaiagents</div>
+      <h2>Demo Desk <svg class="verified" viewBox="0 0 24 24" fill="#20d5ec"><path d="M12 2l2.4 1.8 3-.2 1 2.8L21 8l-.9 2.9L21 13.8l-2.6 1.5-1 2.8-3-.2L12 19.8l-2.4-1.8-3 .2-1-2.8L3 13.8 3.9 11 3 8l2.6-1.5 1-2.8 3 .2z"/><path d="M10.4 14.2l-2-2 1.2-1.2.8.8 3-3 1.2 1.2z" fill="#111"/></svg></h2>
+      <div class="at">@demodesk</div>
       <div class="tt-stats"><span><b>289</b> <small>Following</small></span><span><b>61.2K</b> <small>Followers</small></span><span><b>918.4K</b> <small>Likes</small></span></div>
-      <div class="bio">POV: your phone never goes to voicemail again 📞 Real AI agents, real bookings. Demo in bio 🔗</div>
+      <div class="bio">Own the minutes after interest. Intent signals routed into useful follow-up, without spray-and-pray.</div>
     </div>
     <button class="tt-follow">Follow</button>
   </div>
@@ -311,7 +363,7 @@
   <div class="box">
     <div class="mimg" id="mImg"></div>
     <div class="mside">
-      <div class="mhead"><div class="a" id="mA"></div>askaiagents</div>
+      <div class="mhead"><div class="a" id="mA"></div>demodesk</div>
       <div class="mcom" id="mCom"></div>
       <div class="mfoot">
         <div class="ico">
@@ -327,8 +379,8 @@
 </div>
 
 <footer>
-  <b>AI Agents</b> — 24/7 AI receptionist for home-service businesses · <a href="https://askaiagents.com" target="_blank" rel="noopener" style="color:#93c5fd">askaiagents.com</a>
-  <div class="disc">Social feed shown for illustration. Sample posts and engagement are representative of the brand's presence.</div>
+  <b>Demo Desk</b> — intent-response operator for companies that run product demos
+  <div class="disc">Launch-preview channel concepts for the Demo Desk brand.</div>
 </footer>
 
 <script>
@@ -337,21 +389,22 @@ function uri(svg){return "url(\"data:image/svg+xml;utf8,"+encodeURIComponent(svg
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 
 // brand logomark avatar
-function avatar(bg){bg=bg||"#1e3a8a";return uri(
-  '<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+bg+'"/><stop offset="1" stop-color="#3b82f6"/></linearGradient></defs>'+
+function avatar(){return uri(
+  '<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#28433A"/><stop offset="1" stop-color="#6FA98C"/></linearGradient></defs>'+
   '<rect width="240" height="240" fill="url(#g)"/>'+
-  '<circle cx="120" cy="98" r="34" fill="none" stroke="#fff" stroke-width="9"/>'+
-  '<rect x="112" y="128" width="16" height="34" fill="#fff"/>'+
-  '<path d="M70 178c0-28 22-44 50-44s50 16 50 44" fill="none" stroke="#fbbf24" stroke-width="9" stroke-linecap="round"/>'+
-  '<text x="120" y="214" font-family="Arial" font-size="30" font-weight="800" fill="#fff" text-anchor="middle">AI</text></svg>');}
+  '<rect x="62" y="138" width="116" height="15" rx="7" fill="#FBF7EE"/>'+
+  '<path d="M80 153l-9 40M160 153l9 40" stroke="#FBF7EE" stroke-width="12" stroke-linecap="round"/>'+
+  '<rect x="92" y="88" width="56" height="40" rx="6" fill="none" stroke="#FBF7EE" stroke-width="7"/>'+
+  '<path d="M170 138v-22l16-11" fill="none" stroke="#CC8264" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>'+
+  '<circle cx="188" cy="100" r="9" fill="#CC8264"/></svg>');}
 
 function person(seed){var c=['#0ea5e9','#6366f1','#f97316','#10b981','#ec4899','#14b8a6','#8b5cf6','#ef4444'][seed%8];
   return uri('<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120"><rect width="120" height="120" fill="'+c+'"/>'+
   '<circle cx="60" cy="46" r="22" fill="#fff" opacity=".95"/>'+
   '<path d="M22 112c0-24 17-36 38-36s38 12 38 36" fill="#fff" opacity=".95"/></svg>');}
 
-var PAL={blue:['#1e3a8a','#3b82f6'],dark:['#0f172a','#1e3a8a'],amber:['#b45309','#fbbf24'],green:['#065f46','#10b981'],
-  pink:['#9d174d','#ec4899'],teal:['#0f766e','#2dd4bf'],violet:['#5b21b6','#8b5cf6'],slate:['#334155','#64748b']};
+var PAL={blue:['#28433A','#6FA98C'],dark:['#1E332C','#28433A'],amber:['#B96E50','#D9B36B'],green:['#2F6B4F','#8FAE9B'],
+  pink:['#B96E50','#CC8264'],teal:['#3F7B5F','#A6D7BC'],violet:['#4F6F62','#8FAE9B'],slate:['#4F6F62','#6E7B72']};
 function wrapText(t,max){var w=t.split(' '),lines=[],cur='';w.forEach(function(x){if((cur+' '+x).trim().length>max){lines.push(cur.trim());cur=x;}else cur+=' '+x;});if(cur.trim())lines.push(cur.trim());return lines;}
 
 // generic branded card image (square / wide / vertical via w,h)
@@ -361,14 +414,14 @@ function tile(o){
   var fs=o.fs||(w<300?34:54), lh=fs*1.12, startY=h/2-(lines.length-1)*lh/2;
   var motif='';
   if(o.kind==='stars'){motif='<g transform="translate('+(w/2-70)+','+(startY-fs-44)+')">'+
-    [0,1,2,3,4].map(function(i){return star(i*30,0,13,'#fbbf24');}).join('')+'</g>';startY+=10;}
+    [0,1,2,3,4].map(function(i){return star(i*30,0,13,'#D9B36B');}).join('')+'</g>';startY+=10;}
   if(o.kind==='stat'){fs=o.fs||Math.min(w*0.5,150);lh=fs*1.05;lines=wrapText(o.title,8);startY=h/2-(lines.length-1)*lh/2;}
   if(o.kind==='call'){motif='<g transform="translate('+(w/2)+','+(startY-fs-10)+')">'+
     '<circle r="48" fill="rgba(255,255,255,.16)"/><path d="M-18 -20c-4 0-7 3-7 7 0 22 19 41 41 41 4 0 7-3 7-7v-9c0-3-2-5-5-6l-9-2c-2 0-4 1-5 2l-3 3c-7-4-12-9-16-16l3-3c1-1 2-3 2-5l-2-9c-1-3-3-5-6-5z" fill="#fff"/></g>';startY+=24;}
   if(o.kind==='play'){motif='<g transform="translate('+(w/2)+','+(h/2)+')"><circle r="46" fill="rgba(0,0,0,.45)"/><path d="M-14 -22 22 0 -14 22z" fill="#fff"/></g>';}
   var label=o.label?('<text x="36" y="'+(h-40)+'" font-family="Arial" font-size="'+(w<300?20:26)+'" font-weight="800" fill="#fff" opacity=".92">'+esc(o.label)+'</text>'):'';
   var chip='<g transform="translate(34,40)"><rect width="'+(w<300?112:150)+'" height="'+(w<300?34:42)+'" rx="'+(w<300?17:21)+'" fill="rgba(255,255,255,.18)"/>'+
-    '<text x="'+(w<300?56:75)+'" y="'+(w<300?23:28)+'" font-family="Arial" font-size="'+(w<300?16:20)+'" font-weight="800" fill="#fff" text-anchor="middle">AI Agents</text></g>';
+    '<text x="'+(w<300?56:75)+'" y="'+(w<300?23:28)+'" font-family="Arial" font-size="'+(w<300?16:20)+'" font-weight="800" fill="#fff" text-anchor="middle">Demo Desk</text></g>';
   var txt=(o.kind==='play')?'':lines.map(function(l,i){return '<text x="'+(w/2)+'" y="'+(startY+i*lh)+'" font-family="Arial,Helvetica" font-size="'+fs+'" font-weight="800" fill="#fff" text-anchor="middle">'+esc(l)+'</text>';}).join('');
   return uri('<svg xmlns="http://www.w3.org/2000/svg" width="'+w+'" height="'+h+'"><defs>'+
     '<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+p[0]+'"/><stop offset="1" stop-color="'+p[1]+'"/></linearGradient>'+
@@ -378,87 +431,103 @@ function tile(o){
 }
 function star(x,y,r,c){var p=[];for(var i=0;i<10;i++){var a=Math.PI/5*i-Math.PI/2,rr=i%2?r*.45:r;p.push((x+rr*Math.cos(a)).toFixed(1)+','+(y+rr*Math.sin(a)).toFixed(1));}return '<polygon points="'+p.join(' ')+'" fill="'+c+'"/>';}
 
-function banner(){return uri('<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="200"><defs><linearGradient id="b" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0f172a"/><stop offset="1" stop-color="#1e3a8a"/></linearGradient></defs>'+
+function assetHTML(o, shape){
+  var p=PAL[o.pal]||PAL.blue;
+  var title=esc(o.title||'Intent signal');
+  var label=esc(o.label||'Demo Desk');
+  var cls='asset-card '+(shape||'square');
+  var flow='<div class="asset-flow"><span>1</span><b>Signal</b><span>2</span><b>Route</b><span>3</span><b>Action</b></div>';
+  if(shape==='mini'){
+    return '<div class="'+cls+'" style="--a:'+p[0]+';--b:'+p[1]+'"><div class="asset-title">'+title+'</div></div>';
+  }
+  return '<div class="'+cls+'" style="--a:'+p[0]+';--b:'+p[1]+'">'+
+    '<div class="asset-chip">'+label+'</div>'+
+    '<div><div class="asset-title">'+title+'</div>'+flow+'</div>'+
+    '<div class="asset-label">Demo Desk · intent-response operator</div>'+
+  '</div>';
+}
+
+function banner(){return uri('<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="200"><defs><linearGradient id="b" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1E332C"/><stop offset="1" stop-color="#28433A"/></linearGradient></defs>'+
   '<rect width="1280" height="200" fill="url(#b)"/>'+
-  '<g opacity=".5">'+[0,1,2,3,4,5,6,7].map(function(i){return '<circle cx="'+(120+i*150)+'" cy="100" r="'+(8+i*3)+'" fill="none" stroke="#3b82f6" stroke-width="2"/>';}).join('')+'</g>'+
-  '<text x="64" y="92" font-family="Arial" font-size="42" font-weight="800" fill="#fff">AI Agents</text>'+
-  '<text x="64" y="132" font-family="Arial" font-size="24" fill="#93c5fd">Answer every call. Book every job. 24/7.</text></svg>');}
+  '<g opacity=".55">'+[0,1,2,3,4,5,6,7].map(function(i){return '<circle cx="'+(120+i*150)+'" cy="100" r="'+(8+i*3)+'" fill="none" stroke="#6FA98C" stroke-width="2"/>';}).join('')+'</g>'+
+  '<text x="64" y="92" font-family="Arial" font-size="42" font-weight="800" fill="#FBF7EE">Demo Desk</text>'+
+  '<text x="64" y="132" font-family="Arial" font-size="24" fill="#CC8264">Intent signal &#8594; Demo Desk &#8594; Action</text></svg>');}
 
 /* ---------- DATA ---------- */
 var IG_GRID=[
-  {pal:'dark',kind:'stat',title:'2,346',label:'cold emails → 1 reply',cap:'Cold outreach is broken. The warmest leads are the ones who already tried your demo — and nobody follows up. Swipe to see the fix. 👀',likes:'3,204',cmts:[['mike_apexplumbing','this is painfully accurate 😅'],['hvac_jenna','needed this today'],['askaiagents','the 10-minute window is everything ⏱️']],time:'2 DAYS AGO'},
-  {pal:'green',kind:'stars',title:'"9 jobs booked while I was on a roof."',label:'Apex Plumbing',cap:'⭐⭐⭐⭐⭐ Mike runs a 4-truck plumbing crew. AI Agents answered 27 calls last week and booked 9 — zero missed. #plumbinglife',likes:'1,540',cmts:[['mike_apexplumbing','still can’t believe it 🙌'],['leadgen_sara','what’s the setup time?'],['askaiagents','@leadgen_sara about 7 minutes 😉']],time:'4 DAYS AGO'},
-  {pal:'blue',kind:'call',title:'Booked in 38 seconds',label:'Live demo',cap:'Watch AI Agents answer, qualify, and book a real appointment in under a minute. Sound on 🔊',likes:'2,891',cmts:[['electricpro_dave','the voice is wild'],['dentaldesk_amy','wait it does scheduling too?'],['askaiagents','@dentaldesk_amy yep — straight into your calendar 📅']],time:'5 DAYS AGO'},
-  {pal:'amber',kind:'card',title:'The 10-minute window',label:'Why speed wins',cap:'Leads contacted within 10 minutes convert 3–5x higher. After 30 min they cool fast. AI Agents never sleeps on a lead.',likes:'1,102',cmts:[['growthmark','3-5x is no joke'],['askaiagents','speed is the whole moat 🚀']],time:'1 WEEK AGO'},
-  {pal:'pink',kind:'card',title:'Tu agente habla español',label:'Bilingual native',cap:'No translations — native Spanish from the first hello. 🇲🇽 Atiende cada llamada, agenda cada cita.',likes:'1,876',cmts:[['rosa_hvac_tx','por fin 🙌'],['askaiagents','para los negocios que lo necesitan 💙']],time:'1 WEEK AGO'},
-  {pal:'teal',kind:'stat',title:'0',label:'missed calls last month',cap:'From 31% missed → 0%. Every ring answered, day or night. That’s the difference between a booked job and a competitor’s job.',likes:'2,233',cmts:[['roofright_co','0% is the dream'],['askaiagents','it’s the new baseline ✅']],time:'2 WEEKS AGO'},
-  {pal:'violet',kind:'card',title:'Meet the humans behind the agents',label:'Team',cap:'We obsess over one thing: every call answered like your best employee on their best day. 👋',likes:'987',cmts:[['fan_account','great team!'],['askaiagents','❤️']],time:'2 WEEKS AGO'},
-  {pal:'slate',kind:'card',title:'Setup in 7 minutes',label:'Walkthrough',cap:'Connect your number, pick your voice, set your booking rules. Done. Full walkthrough on YouTube.',likes:'1,344',cmts:[['newcustomer_kev','did it in 6 😎'],['askaiagents','speedrun 🏁']],time:'3 WEEKS AGO'},
-  {pal:'green',kind:'stars',title:'"Booked 5 patients overnight."',label:'BrightSmile Dental',cap:'⭐⭐⭐⭐⭐ After-hours used to go to voicemail. Now it books. Amy’s front desk wakes up to a full schedule.',likes:'1,690',cmts:[['dentaldesk_amy','game changer'],['askaiagents','overnight bookings hit different 🌙']],time:'3 WEEKS AGO'},
-  {pal:'blue',kind:'call',title:'Objection handled, live',label:'"How much?"',cap:'It quotes, reassures, and still books the call. Watch how it handles the #1 question on every call.',likes:'1,455',cmts:[['salescoach_t','clean rebuttal'],['askaiagents','reads the signal, then books 🎯']],time:'4 WEEKS AGO'},
-  {pal:'amber',kind:'stat',title:'24/7',label:'always answering',cap:'Nights, weekends, holidays, the lunch rush. AI Agents is the employee that never calls in sick.',likes:'1,209',cmts:[['hvac_jenna','no PTO 😂'],['askaiagents','built different 💪']],time:'5 WEEKS AGO'},
-  {pal:'pink',kind:'card',title:'From missed call to booked job',label:'Before / After',cap:'Same lead. Two worlds. One has a voicemail nobody checks. The other has a confirmed appointment.',likes:'1,612',cmts:[['fieldservice_pro','the contrast 👀'],['askaiagents','this is the whole pitch 🙂']],time:'6 WEEKS AGO'}
+  {pal:'dark',kind:'stat',title:'Intent shown',label:'now what?',cap:'Most teams optimize for getting a prospect into the demo. Demo Desk owns the minutes right after interest is shown.',likes:'3,204',cmts:[['opslead_maya','this is the missing handoff'],['growthmark','routing beats blasting'],['demodesk','signal first, action second']],time:'2 DAYS AGO'},
+  {pal:'green',kind:'card',title:'Booked call',label:'Confirm',cap:'If the prospect books, Demo Desk confirms the meeting and stops. No extra nurture. No duplicate chase.',likes:'1,540',cmts:[['revops_eli','love the restraint'],['founderdesk','clean handoff'],['demodesk','the useful action is enough']],time:'4 DAYS AGO'},
+  {pal:'blue',kind:'card',title:'Abandoned demo',label:'Recover',cap:'An abandoned demo is not always a lost lead. It may be confusion. Demo Desk asks one useful clarification question.',likes:'2,891',cmts:[['pm_sara','this is so much better than a drip'],['salesops_drew','one useful question wins'],['demodesk','confused is not cold']],time:'5 DAYS AGO'},
+  {pal:'amber',kind:'card',title:'Repeat visit',label:'Escalate',cap:'Multiple visits in a short window are a high-intent signal. Demo Desk routes that to a human with context.',likes:'1,102',cmts:[['ae_jordan','this is where reps should spend time'],['demodesk','exactly: context before contact']],time:'1 WEEK AGO'},
+  {pal:'teal',kind:'card',title:'Form submit',label:'Classify',cap:'A form submission is not automatically hot. Demo Desk reads the surrounding behavior before picking a follow-up path.',likes:'1,876',cmts:[['demandgen_lina','thank you for saying this'],['demodesk','not all forms mean the same thing']],time:'1 WEEK AGO'},
+  {pal:'slate',kind:'stat',title:'0',label:'guesswork',cap:'No complete event data means no outreach. Demo Desk refuses to invent intent.',likes:'2,233',cmts:[['crm_admin','this would save our database'],['demodesk','clean inputs, clean actions']],time:'2 WEEKS AGO'},
+  {pal:'violet',kind:'card',title:'Research-only',label:'Close',cap:'Competitor or research-only signals get a graceful close. No nurture. No retargeting pile-on.',likes:'987',cmts:[['legalops','underrated'],['demodesk','respect is part of the system']],time:'2 WEEKS AGO'},
+  {pal:'green',kind:'card',title:'High engagement',label:'Nurture',cap:'When someone finishes the demo but does not book, Demo Desk starts a short, specific nurture sequence.',likes:'1,344',cmts:[['saasfounder','specific is the key'],['demodesk','no generic thanks-for-watching emails']],time:'3 WEEKS AGO'},
+  {pal:'amber',kind:'card',title:'Minutes matter',label:'SLA',cap:'Demo Desk routes follow-up while the prospect still remembers what they saw and why they cared.',likes:'1,690',cmts:[['salesops_drew','speed plus relevance'],['demodesk','that combo is the whole thing']],time:'3 WEEKS AGO'},
+  {pal:'blue',kind:'card',title:'Signal → route',label:'Workflow',cap:'Intent signal enters. Demo Desk evaluates quality. The right action leaves with an explicit owner.',likes:'1,455',cmts:[['revops_eli','simple but sharp'],['demodesk','that is the design']],time:'4 WEEKS AGO'},
+  {pal:'teal',kind:'stat',title:'5',label:'follow-up routes',cap:'Confirm, recover, nurture, escalate, or close. Every route exists to prevent unnecessary outreach.',likes:'1,209',cmts:[['pm_sara','finally a sane follow-up map'],['demodesk','small map, strong behavior']],time:'5 WEEKS AGO'},
+  {pal:'pink',kind:'card',title:'No spray-and-pray',label:'Principle',cap:'Demo Desk reads prospect intent and decides the next useful action. Guessing is not a strategy.',likes:'1,612',cmts:[['growthmark','stealing this line'],['demodesk','it belongs on the wall']],time:'6 WEEKS AGO'}
 ];
 
 var YT_VIDS=[
-  {pal:'dark',title:'I Let an AI Answer My Plumbing Calls for 30 Days (Results)',dur:'14:22',views:'48K views',ago:'2 weeks ago'},
-  {pal:'blue',kind:'call',title:'AI Agents Live Demo — Booking a Job in 38 Seconds',dur:'2:41',views:'23K views',ago:'3 weeks ago'},
-  {pal:'green',title:'How HVAC Companies Use AI to Never Miss a Call',dur:'9:08',views:'11K views',ago:'1 month ago'},
-  {pal:'slate',title:'Full Setup Walkthrough (7 Minutes, Start to Finish)',dur:'7:33',views:'8.9K views',ago:'1 month ago'},
-  {pal:'pink',title:'Spanish-Speaking AI Agent Demo — Atiende en Español',dur:'4:12',views:'14K views',ago:'1 month ago'},
-  {pal:'amber',title:'Real Customer Story: 9 Jobs Booked in One Week',dur:'6:50',views:'19K views',ago:'2 months ago'},
-  {pal:'violet',title:'Can AI Handle "How Much Does It Cost?" — Objection Test',dur:'5:27',views:'7.2K views',ago:'2 months ago'},
-  {pal:'teal',title:'After-Hours Calls: Voicemail vs. AI Agents (Side by Side)',dur:'8:15',views:'10K views',ago:'3 months ago'}
+  {pal:'dark',title:'Demo Desk Walkthrough: Intent Signal to Follow-Up Action',dur:'6:42',views:'48K views',ago:'2 weeks ago'},
+  {pal:'blue',title:'What Happens After Someone Abandons Your Demo?',dur:'4:18',views:'23K views',ago:'3 weeks ago'},
+  {pal:'green',title:'How to Route Repeat Visitors Without Guessing',dur:'8:09',views:'11K views',ago:'1 month ago'},
+  {pal:'slate',title:'Rule 0: No Event Data, No Outreach',dur:'5:33',views:'8.9K views',ago:'1 month ago'},
+  {pal:'pink',title:'Five Follow-Up Routes for Product Demo Teams',dur:'7:12',views:'14K views',ago:'1 month ago'},
+  {pal:'amber',title:'Booked Call Confirmation vs. Nurture: Choosing Correctly',dur:'6:50',views:'19K views',ago:'2 months ago'},
+  {pal:'violet',title:'Competitor Signal? Graceful Close, No Chase',dur:'5:27',views:'7.2K views',ago:'2 months ago'},
+  {pal:'teal',title:'Form Submission Is Not Always Buyer Intent',dur:'8:15',views:'10K views',ago:'3 months ago'}
 ];
 var YT_SHORTS=[
-  {pal:'blue',title:'POV: your phone never goes to voicemail 📞',v:'212K views'},
-  {pal:'green',title:'0 missed calls this month 😮',v:'140K views'},
-  {pal:'pink',title:'Tu agente contesta en español 🇲🇽',v:'98K views'},
-  {pal:'amber',title:'Booked while he was on a ladder 🪜',v:'176K views'},
-  {pal:'violet',title:'It handled the price objection 👀',v:'64K views'},
-  {pal:'dark',title:'7-minute setup speedrun ⏱️',v:'51K views'}
+  {pal:'blue',title:'Intent signal enters. Action leaves.',v:'212K views'},
+  {pal:'green',title:'Booked call? Confirm and stop.',v:'140K views'},
+  {pal:'pink',title:'Abandoned does not mean cold.',v:'98K views'},
+  {pal:'amber',title:'Repeat visit means human handoff.',v:'176K views'},
+  {pal:'violet',title:'Research-only gets a graceful close.',v:'64K views'},
+  {pal:'dark',title:'No event data, no outreach.',v:'51K views'}
 ];
 
 var LI_POSTS=[
-  {who:'AI Agents',sub:'4,127 followers',time:'1d',logo:true,
-   text:'We just crossed 1,000,000 calls answered. 🎉\n\nA million times, a home-service business didn’t miss a lead because a human couldn’t pick up. Nights, weekends, the lunch rush — every call got a real conversation and, when it mattered, a booked job.\n\nThank you to the plumbers, HVAC techs, electricians, and dental offices who trust us with their front desk.',
-   tag:'#AI #SmallBusiness #Milestone',img:{pal:'dark',kind:'stat',title:'1,000,000',label:'calls answered'},likes:'1,284',cmts:'96',reps:'141'},
-  {who:'AI Agents',sub:'4,127 followers',time:'4d',logo:true,
-   text:'Case study: Apex Plumbing went from 31% missed calls to 0% in two weeks.\n\nThe owner, Mike, runs four trucks and couldn’t answer the phone mid-job. AI Agents now handles overflow and after-hours — 27 calls last week, 9 booked. Full breakdown in the comments. 👇',
-   tag:'#CaseStudy #HomeServices',img:{pal:'green',kind:'stars',title:'31% missed → 0%',label:'Apex Plumbing'},likes:'742',cmts:'58',reps:'63'},
-  {who:'AI Agents',sub:'4,127 followers',time:'1w',logo:true,
-   text:'We’re hiring a Customer Success Lead (remote, US). 🚀\n\nIf you’ve worked with home-service businesses and love turning a great product into great outcomes, we want to talk. Link in comments.',
-   tag:'#Hiring #RemoteJobs #CustomerSuccess',img:{pal:'blue',kind:'card',title:'We’re hiring',label:'Customer Success Lead'},likes:'431',cmts:'37',reps:'88'},
-  {who:'AI Agents',sub:'4,127 followers',time:'2w',logo:true,
-   text:'Speed is the whole game.\n\nLeads contacted within 10 minutes convert 3–5x higher than those contacted an hour later. Most teams know this. Almost none can act on it 24/7. That’s the gap AI Agents closes.',
-   tag:'#Sales #LeadResponse',img:{pal:'amber',kind:'card',title:'The 10-minute window',label:'Why speed wins'},likes:'968',cmts:'74',reps:'120'}
+  {who:'Demo Desk',sub:'4,127 followers',time:'1d',logo:true,
+   text:'Most companies obsess over getting prospects into a demo.\n\nDemo Desk owns what happens immediately after interest is shown. Demo completed, abandoned, repeat visit, booked call, form submit, high engagement, research-only signal: each one gets classified and routed into the next useful action.',
+   tag:'#RevOps #ProductDemos #LeadResponse',img:{pal:'dark',kind:'card',title:'Own the minutes after interest',label:'Demo Desk'},likes:'1,284',cmts:'96',reps:'141'},
+  {who:'Demo Desk',sub:'4,127 followers',time:'4d',logo:true,
+   text:'A booked call does not need five more emails.\n\nIt needs a clean confirmation, the right context attached, and a handoff that tells the next owner exactly what happened. Demo Desk is built around that kind of restraint.',
+   tag:'#SalesOps #RevOps',img:{pal:'green',kind:'card',title:'Booked call → confirmation',label:'Route 1'},likes:'742',cmts:'58',reps:'63'},
+  {who:'Demo Desk',sub:'4,127 followers',time:'1w',logo:true,
+   text:'An abandoned demo is a signal, not a verdict.\n\nSometimes the prospect is confused. Sometimes the timing is wrong. Sometimes they need a human. Demo Desk reads the event before choosing whether to recover, nurture, escalate, or close.',
+   tag:'#DemandGen #IntentData',img:{pal:'blue',kind:'card',title:'Abandoned demo → recover',label:'Route 2'},likes:'431',cmts:'37',reps:'88'},
+  {who:'Demo Desk',sub:'4,127 followers',time:'2w',logo:true,
+   text:'Rule 0 is the moat: no complete event data, no outreach.\n\nDemo Desk is not a spray-and-pray system. If it cannot read the signal, it does not invent one.',
+   tag:'#LeadResponse #SystemsDesign',img:{pal:'amber',kind:'card',title:'No data → no outreach',label:'Rule 0'},likes:'968',cmts:'74',reps:'120'}
 ];
 
 var TT=[
-  {pal:'blue',title:'POV: your phone never goes to voicemail again',v:'1.2M'},
-  {pal:'green',title:'He booked 9 jobs from his roof 🪜',v:'842K'},
-  {pal:'pink',title:'Mi agente contesta en español 🇲🇽',v:'410K'},
-  {pal:'amber',title:'0 missed calls. watch this.',v:'1.6M'},
-  {pal:'violet',title:'AI vs the "how much?" objection',v:'305K'},
-  {pal:'dark',title:'7-minute setup, no joke ⏱️',v:'221K'},
-  {pal:'teal',title:'after-hours calls = booked patients 🌙',v:'533K'},
-  {pal:'slate',title:'the receptionist that never sleeps',v:'690K'}
+  {pal:'blue',title:'POV: the demo ended. now what?',v:'1.2M'},
+  {pal:'green',title:'booked call → confirm and stop',v:'842K'},
+  {pal:'pink',title:'abandoned demo is not always cold',v:'410K'},
+  {pal:'amber',title:'repeat visit = high intent signal',v:'1.6M'},
+  {pal:'violet',title:'research-only? graceful close.',v:'305K'},
+  {pal:'dark',title:'no data means no outreach',v:'221K'},
+  {pal:'teal',title:'form submit needs context',v:'533K'},
+  {pal:'slate',title:'signal in. useful action out.',v:'690K'}
 ];
 
 /* ---------- RENDER ---------- */
-document.getElementById('igAva').style.backgroundImage=avatar('#1e3a8a');
-['ytAva','liLogo','ttAva','mA'].forEach(function(id){document.getElementById(id).style.backgroundImage=avatar('#1e3a8a');});
+document.getElementById('igAva').style.backgroundImage=avatar('#4f6f62');
+['ytAva','liLogo','ttAva','mA'].forEach(function(id){document.getElementById(id).style.backgroundImage=avatar('#4f6f62');});
 document.getElementById('ytBanner').style.backgroundImage=banner();
 document.getElementById('liCover').style.backgroundImage=banner();
 
 // IG highlights
-var HL=[['Demos','blue'],['Wins','green'],['Setup','slate'],['Reviews','amber'],['Español','pink'],['Team','violet']];
+var HL=[['Signals','blue'],['Routes','green'],['Rule 0','slate'],['Handoffs','amber'],['Nurture','pink'],['Close','violet']];
 document.getElementById('igHl').innerHTML=HL.map(function(h){
-  return '<div class="h"><div class="ring"><div style="background-image:'+tile({pal:h[1],w:200,h:200,title:h[0],fs:30,cpl:9})+'"></div></div><small>'+h[0]+'</small></div>';}).join('');
+  return '<div class="h"><div class="ring"><div>'+assetHTML({pal:h[1],title:h[0]},'mini')+'</div></div><small>'+h[0]+'</small></div>';}).join('');
 
 // IG grid
 document.getElementById('igGrid').innerHTML=IG_GRID.map(function(p,i){
-  return '<div class="gtile" data-i="'+i+'" style="background-image:'+tile(p)+'">'+
+  return '<div class="gtile" data-i="'+i+'">'+assetHTML(p,'square')+
     (i<3?'<svg class="multi" width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M16 2H4a2 2 0 00-2 2v12h2V4h12zM20 6H8a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V8a2 2 0 00-2-2z"/></svg>':'')+
     '<div class="ov"><span><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/></svg> '+p.likes+'</span>'+
     '<span><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M21 11.5a8.5 8.5 0 01-12.6 7.4L3 21l2.1-5.4A8.5 8.5 0 1121 11.5z"/></svg> '+p.cmts.length+'</span></div></div>';
@@ -466,27 +535,27 @@ document.getElementById('igGrid').innerHTML=IG_GRID.map(function(p,i){
 
 // YT
 document.getElementById('ytGrid').innerHTML=YT_VIDS.map(function(v){
-  return '<div class="vid"><div class="vthumb" style="background-image:'+tile({pal:v.pal,kind:v.kind||'play',title:v.kind==='call'?v.title:'',w:480,h:270,cpl:18,fs:30})+'"><span class="dur">'+v.dur+'</span></div>'+
+  return '<div class="vid"><div class="vthumb">'+assetHTML({pal:v.pal,title:v.title,label:'Video'},'wide')+'<span class="dur">'+v.dur+'</span></div>'+
     '<h3>'+esc(v.title)+'</h3><div class="m">'+v.views+' · '+v.ago+'</div></div>';
 }).join('');
 document.getElementById('ytShorts').innerHTML=YT_SHORTS.map(function(s){
-  return '<div class="short"><div class="sthumb" style="background-image:'+tile({pal:s.pal,w:270,h:480,title:s.title,fs:28,cpl:13})+'"><span class="v">▶ '+s.v+'</span></div><p>'+esc(s.title)+'</p></div>';
+  return '<div class="short"><div class="sthumb">'+assetHTML({pal:s.pal,title:s.title,label:'Short'},'vertical')+'<span class="v">▶ '+s.v+'</span></div><p>'+esc(s.title)+'</p></div>';
 }).join('');
 
 // LI
 document.getElementById('liFeed').innerHTML=LI_POSTS.map(function(p){
-  return '<div class="card post"><div class="ph"><div class="pa" style="background-image:'+avatar('#0a66c2')+'"></div>'+
+	  return '<div class="card post"><div class="ph"><div class="pa" style="background-image:'+avatar('#4f6f62')+'"></div>'+
     '<div><div class="pn">'+esc(p.who)+' <svg class="verified" viewBox="0 0 24 24" fill="#0a66c2"><path d="M12 2l2.4 1.8 3-.2 1 2.8L21 8l-.9 2.9L21 13.8l-2.6 1.5-1 2.8-3-.2L12 19.8l-2.4-1.8-3 .2-1-2.8L3 13.8 3.9 11 3 8l2.6-1.5 1-2.8 3 .2z"/><path d="M10.4 14.2l-2-2 1.2-1.2.8.8 3-3 1.2 1.2z" fill="#fff"/></svg></div>'+
     '<div class="pm">'+p.sub+'</div><div class="pm">'+p.time+' · 🌐</div></div></div>'+
     '<div class="pt">'+esc(p.text)+'\n<span class="tag">'+esc(p.tag)+'</span></div>'+
-    '<div class="pimg" style="background-image:'+tile({pal:p.img.pal,kind:p.img.kind,title:p.img.title,label:p.img.label,w:1200,h:628,cpl:18,fs:64})+'"></div>'+
+    '<div class="pimg">'+assetHTML({pal:p.img.pal,title:p.img.title,label:p.img.label},'wide')+'</div>'+
     '<div class="react"><span class="emo"><i style="background:#0a66c2;color:#fff">👍</i><i style="background:#df704d;color:#fff">❤</i><i style="background:#f5bb5c;color:#fff">💡</i></span>&nbsp;'+p.likes+' · '+p.cmts+' comments · '+p.reps+' reposts</div>'+
     '<div class="bar"><b>👍 Like</b><b>💬 Comment</b><b>🔁 Repost</b><b>➤ Send</b></div></div>';
 }).join('');
 
 // TT
 document.getElementById('ttGrid').innerHTML=TT.map(function(t){
-  return '<div class="tt-tile" style="background-image:'+tile({pal:t.pal,w:300,h:533,title:t.title,fs:26,cpl:14})+'"><div class="cap">'+esc(t.title)+'</div><span class="v">▶ '+t.v+'</span></div>';
+  return '<div class="tt-tile">'+assetHTML({pal:t.pal,title:t.title,label:'TikTok'},'vertical')+'<div class="cap">'+esc(t.title)+'</div><span class="v">▶ '+t.v+'</span></div>';
 }).join('');
 
 /* ---------- TAB SWITCHING ---------- */
@@ -502,10 +571,11 @@ tabs.forEach(function(t){t.addEventListener('click',function(){
 var modal=document.getElementById('modal');
 document.getElementById('igGrid').addEventListener('click',function(e){
   var t=e.target.closest('.gtile');if(!t)return;var p=IG_GRID[+t.dataset.i];
-  document.getElementById('mImg').style.backgroundImage=tile(p);
+  document.getElementById('mImg').style.backgroundImage='none';
+  document.getElementById('mImg').innerHTML=assetHTML(p,'square');
   document.getElementById('mLikes').textContent=p.likes+' likes';
   document.getElementById('mTime').textContent=p.time;
-  document.getElementById('mCom').innerHTML='<div class="c"><b>askaiagents</b>'+esc(p.cap)+'</div>'+
+  document.getElementById('mCom').innerHTML='<div class="c"><b>demodesk</b>'+esc(p.cap)+'</div>'+
     p.cmts.map(function(c){return '<div class="c"><b>'+esc(c[0])+'</b>'+esc(c[1])+'</div>';}).join('');
   modal.classList.add('show');
 });

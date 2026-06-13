@@ -30,7 +30,7 @@ A prospect who returns after 3+ days resets the clock:
 
 | Visit # | Time Gap | Action |
 |---------|----------|--------|
-| 1st view | — | Concierge triage normal path |
+| 1st view | — | Demo Desk triage normal path |
 | 2nd view | 1–3 days | Increase confidence +15%; note return |
 | 3rd view | 4+ days from 1st | Escalate-human; high-intent signal |
 | 4+ view | Any gap | Direct assignment to account rep |
@@ -51,7 +51,7 @@ A prospect who returns after 3+ days resets the clock:
 
 ## Escalation-to-Human Triggers
 
-Escalate immediately (skip Concierge, go to account rep):
+Escalate immediately (skip Demo Desk, go to account rep):
 
 1. **Repeat visitor (3+ views)**
 2. **Express booking request with questions** (wants to talk, not just schedule)
