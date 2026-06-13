@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<!--
+  AI Agents — Social Proof page (illustrative mockup).
+  Self-contained: no external assets, fonts, or scripts. All imagery is generated inline SVG.
+  Engagement figures and customer names are representative sample content for demonstration,
+  not live metrics. Brand: AI Agents (askaiagents.com).
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Agents — Social</title>
+<style>
+  :root{
+    --navy:#1e3a8a; --blue:#3b82f6; --blue2:#2563eb; --amber:#fbbf24;
+    --ink:#0f172a; --muted:#64748b; --line:#e5e7eb; --bg:#f1f5f9; --card:#ffffff;
+    --ig:linear-gradient(45deg,#feda75 0%,#fa7e1e 25%,#d62976 50%,#962fbf 75%,#4f5bd5 100%);
+    --yt:#ff0000; --li:#0a66c2; --tt:#000000; --verify:#3897f0;
+    --shadow:0 1px 3px rgba(15,23,42,.08),0 8px 24px rgba(15,23,42,.06);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:980px;margin:0 auto;padding:0 16px}
+
+  /* ---------- top site nav ---------- */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--line)}
+  .nav .wrap{display:flex;align-items:center;gap:18px;height:60px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.02em;font-size:1.05rem}
+  .brand .logo{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--navy),var(--blue));display:grid;place-items:center;color:#fff;font-weight:800;font-size:.8rem}
+  .brand .vchk{width:15px;height:15px}
+  .nav .spacer{flex:1}
+  .nav a.link{color:var(--muted);font-weight:600;font-size:.92rem;padding:6px 2px;border-bottom:2px solid transparent}
+  .nav a.link.active,.nav a.link:hover{color:var(--ink);border-color:var(--blue)}
+  .nav .demo{background:var(--blue2);color:#fff;padding:9px 16px;border-radius:8px;font-weight:700;font-size:.88rem}
+  .nav .demo:hover{background:var(--navy)}
+
+  /* ---------- hero strip ---------- */
+  .hero{background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 100%);color:#fff;padding:34px 0 26px}
+  .hero h1{font-size:1.7rem;font-weight:800;letter-spacing:-.02em}
+  .hero p{opacity:.9;margin-top:6px;max-width:640px}
+
+  /* ---------- platform tabs ---------- */
+  .tabs{position:sticky;top:60px;z-index:40;background:var(--bg);padding:14px 0 6px}
+  .tabs .row{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px}
+  .tab{flex:0 0 auto;display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:#fff;color:var(--muted);padding:9px 16px;border-radius:999px;font-weight:700;font-size:.9rem;cursor:pointer;transition:.18s}
+  .tab svg{width:18px;height:18px}
+  .tab:hover{color:var(--ink);box-shadow:var(--shadow)}
+  .tab.active{color:#fff;border-color:transparent}
+  .tab.active[data-p="ig"]{background:var(--ig)}
+  .tab.active[data-p="yt"]{background:var(--yt)}
+  .tab.active[data-p="li"]{background:var(--li)}
+  .tab.active[data-p="tt"]{background:var(--tt)}
+
+  .panel{display:none;animation:fade .35s ease}
+  .panel.show{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+  .verified{display:inline-grid;place-items:center;width:16px;height:16px;vertical-align:-2px}
+
+  /* ---------- Instagram ---------- */
+  .ig-head{display:flex;gap:28px;align-items:center;padding:26px;margin:16px 0}
+  .ig-ava{flex:0 0 auto;width:120px;height:120px;border-radius:50%;padding:4px;background:var(--ig)}
+  .ig-ava>div{width:100%;height:100%;border-radius:50%;border:3px solid #fff;background-size:cover}
+  .ig-meta{flex:1;min-width:0}
+  .ig-top{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  .ig-top h2{font-size:1.3rem;font-weight:500;display:flex;align-items:center;gap:6px}
+  .btn{border:1px solid var(--line);background:#efefef;border-radius:8px;padding:7px 16px;font-weight:600;font-size:.88rem;cursor:pointer}
+  .btn.primary{background:var(--blue2);color:#fff;border-color:transparent}
+  .ig-stats{display:flex;gap:34px;margin:16px 0 10px}
+  .ig-stats b{font-weight:700}
+  .ig-bio{font-size:.94rem}
+  .ig-bio .h{font-weight:700}
+  .ig-bio a{color:#00376b;font-weight:600}
+  .ig-hl{display:flex;gap:22px;padding:6px 26px 22px;overflow-x:auto}
+  .ig-hl .h{flex:0 0 auto;text-align:center;width:74px}
+  .ig-hl .ring{width:66px;height:66px;border-radius:50%;border:1px solid var(--line);padding:3px;margin:0 auto 6px;background-size:cover}
+  .ig-hl .ring>div{width:100%;height:100%;border-radius:50%;border:2px solid #fff;background-size:cover}
+  .ig-hl small{font-size:.78rem;color:var(--ink)}
+  .ig-tabsbar{display:flex;justify-content:center;gap:60px;border-top:1px solid var(--line);margin-top:4px}
+  .ig-tabsbar span{padding:14px 0;font-size:.78rem;font-weight:700;letter-spacing:.08em;color:var(--muted);display:flex;align-items:center;gap:6px}
+  .ig-tabsbar span.on{color:var(--ink);border-top:1px solid var(--ink);margin-top:-1px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin:4px 0 30px}
+  .gtile{position:relative;aspect-ratio:1;background:#ddd;background-size:cover;cursor:pointer;overflow:hidden}
+  .gtile .ov{position:absolute;inset:0;background:rgba(0,0,0,.42);display:flex;align-items:center;justify-content:center;gap:24px;color:#fff;font-weight:800;opacity:0;transition:.2s}
+  .gtile:hover .ov{opacity:1}
+  .gtile .ov span{display:flex;align-items:center;gap:7px}
+  .gtile .multi{position:absolute;top:8px;right:8px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.5))}
+
+  /* ---------- YouTube ---------- */
+  .yt{background:#0f0f0f;color:#fff;border-radius:14px;overflow:hidden;margin:16px 0 30px}
+  .yt-banner{height:160px;background-size:cover;background-position:center}
+  .yt-head{display:flex;gap:22px;align-items:center;padding:22px}
+  .yt-ava{width:96px;height:96px;border-radius:50%;background-size:cover;flex:0 0 auto}
+  .yt-h h2{font-size:1.5rem;font-weight:700;display:flex;align-items:center;gap:7px}
+  .yt-h .sub{color:#aaa;font-size:.9rem;margin-top:4px}
+  .yt-h .desc{color:#aaa;font-size:.86rem;margin-top:6px;max-width:520px}
+  .yt-sub{margin-left:auto;background:#fff;color:#0f0f0f;border:none;border-radius:999px;padding:10px 18px;font-weight:700;cursor:pointer;flex:0 0 auto}
+  .yt-chips{display:flex;gap:9px;padding:0 22px 14px;overflow-x:auto}
+  .yt-chips span{flex:0 0 auto;background:#272727;padding:7px 13px;border-radius:8px;font-size:.84rem;font-weight:600}
+  .yt-chips span.on{background:#fff;color:#0f0f0f}
+  .yt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;padding:8px 22px 26px}
+  .vid{cursor:pointer}
+  .vthumb{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#222;background-size:cover}
+  .vthumb .dur{position:absolute;right:7px;bottom:7px;background:rgba(0,0,0,.82);font-size:.74rem;font-weight:700;padding:1px 5px;border-radius:4px}
+  .vid h3{font-size:.95rem;font-weight:600;margin:9px 0 3px;line-height:1.3}
+  .vid .m{color:#aaa;font-size:.82rem}
+  .yt-shorts-title{padding:6px 22px;font-weight:700;display:flex;align-items:center;gap:8px}
+  .shorts{display:flex;gap:14px;padding:8px 22px 26px;overflow-x:auto}
+  .short{flex:0 0 auto;width:150px;cursor:pointer}
+  .sthumb{aspect-ratio:9/16;border-radius:12px;overflow:hidden;background-size:cover;position:relative}
+  .sthumb .v{position:absolute;left:8px;bottom:8px;font-size:.78rem;font-weight:700;text-shadow:0 1px 3px rgba(0,0,0,.7)}
+  .short p{font-size:.83rem;font-weight:600;margin-top:6px;line-height:1.25;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+  /* ---------- LinkedIn ---------- */
+  .li-head{border-radius:14px;overflow:hidden;margin:16px 0 18px;background:#fff;border:1px solid var(--line)}
+  .li-cover{height:130px;background-size:cover;background-position:center}
+  .li-body{padding:0 24px 22px;position:relative}
+  .li-logo{width:104px;height:104px;border-radius:14px;border:3px solid #fff;background:#fff;margin-top:-52px;background-size:cover}
+  .li-body h2{font-size:1.45rem;font-weight:700;margin-top:10px;display:flex;align-items:center;gap:7px}
+  .li-tag{color:var(--ink);margin-top:3px}
+  .li-sub{color:var(--muted);font-size:.9rem;margin-top:4px}
+  .li-actions{display:flex;gap:10px;margin-top:14px}
+  .li-actions .f{background:var(--li);color:#fff;border:none;border-radius:999px;padding:8px 18px;font-weight:700;cursor:pointer}
+  .li-actions .v{background:#fff;color:var(--li);border:1px solid var(--li);border-radius:999px;padding:8px 18px;font-weight:700;cursor:pointer}
+  .post{margin:0 0 16px;padding:16px 18px}
+  .post .ph{display:flex;gap:12px;align-items:flex-start}
+  .post .pa{width:48px;height:48px;border-radius:50%;background-size:cover;flex:0 0 auto}
+  .post .pn{font-weight:700;font-size:.95rem;display:flex;align-items:center;gap:5px}
+  .post .pm{color:var(--muted);font-size:.8rem}
+  .post .pt{margin:12px 0;font-size:.94rem;white-space:pre-line}
+  .post .pt .tag{color:var(--li);font-weight:600}
+  .post .pimg{border-radius:10px;overflow:hidden;border:1px solid var(--line);aspect-ratio:1.91/1;background-size:cover}
+  .post .react{display:flex;align-items:center;gap:6px;color:var(--muted);font-size:.82rem;padding:10px 2px 0;margin-top:8px;border-top:1px solid var(--line)}
+  .post .react .emo{display:flex}
+  .post .react .emo i{width:18px;height:18px;border-radius:50%;display:inline-grid;place-items:center;margin-left:-4px;border:1.5px solid #fff;font-size:10px;font-style:normal}
+  .post .bar{display:flex;justify-content:space-around;padding-top:8px;margin-top:8px;border-top:1px solid var(--line)}
+  .post .bar b{display:flex;align-items:center;gap:7px;color:var(--muted);font-weight:600;font-size:.86rem;padding:7px 10px;border-radius:6px;cursor:pointer}
+  .post .bar b:hover{background:#f3f6f8}
+
+  /* ---------- TikTok ---------- */
+  .tt-head{display:flex;gap:24px;align-items:center;padding:24px;margin:16px 0;color:#fff;background:#111;border-radius:14px}
+  .tt-ava{width:110px;height:110px;border-radius:50%;background-size:cover;flex:0 0 auto}
+  .tt-h h2{font-size:1.35rem;font-weight:800;display:flex;align-items:center;gap:6px}
+  .tt-h .at{color:#aaa;margin-top:2px}
+  .tt-stats{display:flex;gap:26px;margin:12px 0}
+  .tt-stats b{font-weight:800}.tt-stats small{color:#aaa}
+  .tt-h .bio{color:#ddd;font-size:.9rem;max-width:460px}
+  .tt-follow{margin-left:auto;background:#fe2c55;color:#fff;border:none;border-radius:8px;padding:10px 26px;font-weight:700;cursor:pointer;flex:0 0 auto}
+  .tt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px;margin-bottom:30px}
+  .tt-tile{aspect-ratio:9/16;border-radius:8px;overflow:hidden;position:relative;background-size:cover;cursor:pointer}
+  .tt-tile .v{position:absolute;left:8px;bottom:8px;color:#fff;font-weight:700;font-size:.82rem;text-shadow:0 1px 3px rgba(0,0,0,.7);display:flex;align-items:center;gap:5px}
+  .tt-tile .cap{position:absolute;left:8px;right:8px;top:8px;color:#fff;font-size:.78rem;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,.8);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+  /* ---------- IG modal ---------- */
+  .modal{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
+  .modal.show{display:flex}
+  .modal .box{background:#fff;border-radius:12px;overflow:hidden;display:grid;grid-template-columns:1fr 360px;max-width:900px;width:100%;max-height:88vh}
+  .modal .mimg{background:#000;background-size:cover;background-position:center;min-height:420px}
+  .modal .mside{display:flex;flex-direction:column;max-height:88vh}
+  .modal .mhead{display:flex;align-items:center;gap:10px;padding:14px;border-bottom:1px solid var(--line);font-weight:700}
+  .modal .mhead .a{width:34px;height:34px;border-radius:50%;background-size:cover}
+  .modal .mcom{flex:1;overflow:auto;padding:14px;display:flex;flex-direction:column;gap:13px}
+  .modal .mcom .c{font-size:.9rem}.modal .mcom .c b{margin-right:6px}
+  .modal .mfoot{border-top:1px solid var(--line);padding:12px 14px}
+  .modal .mfoot .ico{display:flex;gap:16px;margin-bottom:8px}
+  .modal .mfoot .ico svg{width:24px;height:24px;cursor:pointer}
+  .modal .mfoot .likes{font-weight:700;font-size:.9rem}
+  .modal .mfoot .t{color:var(--muted);font-size:.72rem;letter-spacing:.04em;margin-top:3px}
+  .modal .x{position:absolute;top:16px;right:20px;color:#fff;font-size:2rem;cursor:pointer;line-height:1}
+
+  footer{background:#0f172a;color:#cbd5e1;text-align:center;padding:30px 16px;margin-top:20px;font-size:.86rem}
+  footer b{color:#fff}
+  .disc{color:var(--muted);font-size:.74rem;margin-top:8px}
+
+  @media(max-width:720px){
+    .ig-head{flex-direction:column;text-align:center;gap:16px}
+    .ig-stats{justify-content:center}
+    .ig-ava{width:92px;height:92px}
+    .modal .box{grid-template-columns:1fr}.modal .mimg{min-height:300px}
+    .yt-head{flex-wrap:wrap}.yt-sub{margin-left:0}
+    .hero h1{font-size:1.35rem}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ TOP NAV ============ -->
+<div class="nav"><div class="wrap">
+  <a class="brand" href="index.html"><span class="logo">AI</span> AI&nbsp;Agents
+    <svg class="vchk" viewBox="0 0 24 24" fill="#3897f0"><path d="M12 2l2.4 1.8 3-.2 1 2.8 2.6 1.5-.9 2.9.9 2.9-2.6 1.5-1 2.8-3-.2L12 22l-2.4-1.8-3 .2-1-2.8L3 16.3l.9-2.9L3 10.5 5.6 9l1-2.8 3 .2z"/><path d="M10.4 14.6l-2-2 1.2-1.2.8.8 3-3 1.2 1.2z" fill="#fff"/></svg>
+  </a>
+  <div class="spacer"></div>
+  <a class="link" href="index.html">Overview</a>
+  <a class="link active" href="social.html">Social</a>
+  <a class="demo" href="https://askaiagents.com" target="_blank" rel="noopener">Book a demo</a>
+</div></div>
+
+<!-- ============ HERO ============ -->
+<div class="hero"><div class="wrap">
+  <h1>AI Agents in the wild</h1>
+  <p>Real demos, real wins, real conversations. Here's how home-service teams are using AI Agents to answer every call and never lose a warm lead.</p>
+</div></div>
+
+<!-- ============ PLATFORM TABS ============ -->
+<div class="tabs"><div class="wrap"><div class="row" id="tabRow">
+  <button class="tab active" data-p="ig">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s0 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.9.07s-3.63 0-4.9-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.2 15.58 2.2 15.2 2.2 12s0-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.2 8.8 2.2 12 2.2zm0 3.05A6.75 6.75 0 1018.75 12 6.76 6.76 0 0012 5.25zm0 11.13A4.38 4.38 0 1116.38 12 4.38 4.38 0 0112 16.38zm6.95-11.4a1.58 1.58 0 11-1.58-1.57 1.58 1.58 0 011.58 1.57z"/></svg>
+    Instagram</button>
+  <button class="tab" data-p="yt">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.3-.42-4.88a2.53 2.53 0 00-1.78-1.79C19.22 5 12 5 12 5s-7.22 0-8.8.33a2.53 2.53 0 00-1.78 1.79C1 8.7 1 12 1 12s0 3.3.42 4.88a2.53 2.53 0 001.78 1.79C4.78 19 12 19 12 19s7.22 0 8.8-.33a2.53 2.53 0 001.78-1.79C23 15.3 23 12 23 12zM9.8 15.3V8.7l5.7 3.3z"/></svg>
+    YouTube</button>
+  <button class="tab" data-p="li">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.56V9h3.56zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+    LinkedIn</button>
+  <button class="tab" data-p="tt">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.8a4.3 4.3 0 01-1-2.8h-3v12.2a2.55 2.55 0 11-2.55-2.55c.26 0 .51.04.75.11v-3.1a5.7 5.7 0 00-.75-.05A5.65 5.65 0 1013.7 15.3V8.9a7.3 7.3 0 004.3 1.38V7.2a4.3 4.3 0 01-1.4-1.4z"/></svg>
+    TikTok</button>
+</div></div></div>
+
+<div class="wrap">
+
+<!-- ============ INSTAGRAM ============ -->
+<section class="panel show" id="p-ig">
+  <div class="card ig-head">
+    <div class="ig-ava"><div id="igAva"></div></div>
+    <div class="ig-meta">
+      <div class="ig-top">
+        <h2>askaiagents <svg class="verified" viewBox="0 0 24 24" fill="#3897f0"><path d="M12 2l2.4 1.8 3-.2 1 2.8L21 8l-.9 2.9L21 13.8l-2.6 1.5-1 2.8-3-.2L12 19.8l-2.4-1.8-3 .2-1-2.8L3 13.8 3.9 11 3 8l2.6-1.5 1-2.8 3 .2z"/><path d="M10.4 14.2l-2-2 1.2-1.2.8.8 3-3 1.2 1.2z" fill="#fff"/></svg></h2>
+        <button class="btn primary">Follow</button>
+        <button class="btn">Message</button>
+      </div>
+      <div class="ig-stats"><span><b>247</b> posts</span><span><b>38.4k</b> followers</span><span><b>312</b> following</span></div>
+      <div class="ig-bio">
+        <div class="h">AI Agents · 24/7 AI Receptionist</div>
+        AI voice agents that answer every call, book the job, and never miss a lead ☎️🤖<br>
+        Built for plumbers · HVAC · electricians · dentists<br>
+        👇 Try the 60-second live demo<br>
+        <a href="https://askaiagents.com" target="_blank" rel="noopener">askaiagents.com</a>
+      </div>
+    </div>
+  </div>
+  <div class="card ig-hl" id="igHl"></div>
+  <div class="ig-tabsbar">
+    <span class="on">▦ POSTS</span><span>⊙ REELS</span><span>♂ TAGGED</span>
+  </div>
+  <div class="grid" id="igGrid"></div>
+</section>
+
+<!-- ============ YOUTUBE ============ -->
+<section class="panel" id="p-yt">
+  <div class="yt">
+    <div class="yt-banner" id="ytBanner"></div>
+    <div class="yt-head">
+      <div class="yt-ava" id="ytAva"></div>
+      <div class="yt-h">
+        <h2>AI Agents <svg class="verified" viewBox="0 0 24 24" fill="#aaa"><circle cx="12" cy="12" r="10"/><path d="M10.4 14.2l-2-2 1.2-1.2.8.8 3-3 1.2 1.2z" fill="#0f0f0f"/></svg></h2>
+        <div class="sub">@askaiagents · 12.3K subscribers · 89 videos</div>
+        <div class="desc">Watch real AI voice agents answer calls, book jobs, and handle objections live. Setup walkthroughs, customer results, and behind-the-scenes.</div>
+      </div>
+      <button class="yt-sub">Subscribe</button>
+    </div>
+    <div class="yt-chips"><span class="on">Home</span><span>Videos</span><span>Shorts</span><span>Live</span><span>Playlists</span><span>Community</span></div>
+    <div class="yt-grid" id="ytGrid"></div>
+    <div class="yt-shorts-title">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="#ff0000"><path d="M17.8 6.4l-2.3-1.3a3.3 3.3 0 00-3-.05L5.1 8.2a3.3 3.3 0 00-.2 5.8l2.3 1.3a3.3 3.3 0 003 .05l7.4-3.2a3.3 3.3 0 00.2-5.8zM10 14.7V9.3l4.7 2.7z"/></svg>
+      Shorts
+    </div>
+    <div class="shorts" id="ytShorts"></div>
+  </div>
+</section>
+
+<!-- ============ LINKEDIN ============ -->
+<section class="panel" id="p-li">
+  <div class="li-head">
+    <div class="li-cover" id="liCover"></div>
+    <div class="li-body">
+      <div class="li-logo" id="liLogo"></div>
+      <h2>AI Agents <svg class="verified" viewBox="0 0 24 24" fill="#0a66c2"><path d="M12 2l2.4 1.8 3-.2 1 2.8L21 8l-.9 2.9L21 13.8l-2.6 1.5-1 2.8-3-.2L12 19.8l-2.4-1.8-3 .2-1-2.8L3 13.8 3.9 11 3 8l2.6-1.5 1-2.8 3 .2z"/><path d="M10.4 14.2l-2-2 1.2-1.2.8.8 3-3 1.2 1.2z" fill="#fff"/></svg></h2>
+      <div class="li-tag">AI voice agents for home-service businesses</div>
+      <div class="li-sub">Software Development · Austin, TX · 4,127 followers</div>
+      <div class="li-actions"><button class="f">+ Follow</button><button class="v">Visit website</button></div>
+    </div>
+  </div>
+  <div id="liFeed"></div>
+</section>
+
+<!-- ============ TIKTOK ============ -->
+<section class="panel" id="p-tt">
+  <div class="tt-head">
+    <div class="tt-ava" id="ttAva"></div>
+    <div class="tt-h">
+      <h2>AI Agents <svg class="verified" viewBox="0 0 24 24" fill="#20d5ec"><path d="M12 2l2.4 1.8 3-.2 1 2.8L21 8l-.9 2.9L21 13.8l-2.6 1.5-1 2.8-3-.2L12 19.8l-2.4-1.8-3 .2-1-2.8L3 13.8 3.9 11 3 8l2.6-1.5 1-2.8 3 .2z"/><path d="M10.4 14.2l-2-2 1.2-1.2.8.8 3-3 1.2 1.2z" fill="#111"/></svg></h2>
+      <div class="at">@askaiagents</div>
+      <div class="tt-stats"><span><b>289</b> <small>Following</small></span><span><b>61.2K</b> <small>Followers</small></span><span><b>918.4K</b> <small>Likes</small></span></div>
+      <div class="bio">POV: your phone never goes to voicemail again 📞 Real AI agents, real bookings. Demo in bio 🔗</div>
+    </div>
+    <button class="tt-follow">Follow</button>
+  </div>
+  <div class="tt-grid" id="ttGrid"></div>
+</section>
+
+</div><!--/wrap-->
+
+<!-- ============ MODAL ============ -->
+<div class="modal" id="modal">
+  <span class="x" id="modalX">&times;</span>
+  <div class="box">
+    <div class="mimg" id="mImg"></div>
+    <div class="mside">
+      <div class="mhead"><div class="a" id="mA"></div>askaiagents</div>
+      <div class="mcom" id="mCom"></div>
+      <div class="mfoot">
+        <div class="ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2"><path d="M21 11.5a8.5 8.5 0 01-12.6 7.4L3 21l2.1-5.4A8.5 8.5 0 1121 11.5z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>
+        </div>
+        <div class="likes" id="mLikes"></div>
+        <div class="t" id="mTime"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <b>AI Agents</b> — 24/7 AI receptionist for home-service businesses · <a href="https://askaiagents.com" target="_blank" rel="noopener" style="color:#93c5fd">askaiagents.com</a>
+  <div class="disc">Social feed shown for illustration. Sample posts and engagement are representative of the brand's presence.</div>
+</footer>
+
+<script>
+/* ---------- inline SVG asset generators (no external images) ---------- */
+function uri(svg){return "url(\"data:image/svg+xml;utf8,"+encodeURIComponent(svg)+"\")";}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+// brand logomark avatar
+function avatar(bg){bg=bg||"#1e3a8a";return uri(
+  '<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+bg+'"/><stop offset="1" stop-color="#3b82f6"/></linearGradient></defs>'+
+  '<rect width="240" height="240" fill="url(#g)"/>'+
+  '<circle cx="120" cy="98" r="34" fill="none" stroke="#fff" stroke-width="9"/>'+
+  '<rect x="112" y="128" width="16" height="34" fill="#fff"/>'+
+  '<path d="M70 178c0-28 22-44 50-44s50 16 50 44" fill="none" stroke="#fbbf24" stroke-width="9" stroke-linecap="round"/>'+
+  '<text x="120" y="214" font-family="Arial" font-size="30" font-weight="800" fill="#fff" text-anchor="middle">AI</text></svg>');}
+
+function person(seed){var c=['#0ea5e9','#6366f1','#f97316','#10b981','#ec4899','#14b8a6','#8b5cf6','#ef4444'][seed%8];
+  return uri('<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120"><rect width="120" height="120" fill="'+c+'"/>'+
+  '<circle cx="60" cy="46" r="22" fill="#fff" opacity=".95"/>'+
+  '<path d="M22 112c0-24 17-36 38-36s38 12 38 36" fill="#fff" opacity=".95"/></svg>');}
+
+var PAL={blue:['#1e3a8a','#3b82f6'],dark:['#0f172a','#1e3a8a'],amber:['#b45309','#fbbf24'],green:['#065f46','#10b981'],
+  pink:['#9d174d','#ec4899'],teal:['#0f766e','#2dd4bf'],violet:['#5b21b6','#8b5cf6'],slate:['#334155','#64748b']};
+function wrapText(t,max){var w=t.split(' '),lines=[],cur='';w.forEach(function(x){if((cur+' '+x).trim().length>max){lines.push(cur.trim());cur=x;}else cur+=' '+x;});if(cur.trim())lines.push(cur.trim());return lines;}
+
+// generic branded card image (square / wide / vertical via w,h)
+function tile(o){
+  var p=PAL[o.pal]||PAL.blue,w=o.w||600,h=o.h||600;
+  var lines=wrapText(o.title||'',o.cpl||16);
+  var fs=o.fs||(w<300?34:54), lh=fs*1.12, startY=h/2-(lines.length-1)*lh/2;
+  var motif='';
+  if(o.kind==='stars'){motif='<g transform="translate('+(w/2-70)+','+(startY-fs-44)+')">'+
+    [0,1,2,3,4].map(function(i){return star(i*30,0,13,'#fbbf24');}).join('')+'</g>';startY+=10;}
+  if(o.kind==='stat'){fs=o.fs||Math.min(w*0.5,150);lh=fs*1.05;lines=wrapText(o.title,8);startY=h/2-(lines.length-1)*lh/2;}
+  if(o.kind==='call'){motif='<g transform="translate('+(w/2)+','+(startY-fs-10)+')">'+
+    '<circle r="48" fill="rgba(255,255,255,.16)"/><path d="M-18 -20c-4 0-7 3-7 7 0 22 19 41 41 41 4 0 7-3 7-7v-9c0-3-2-5-5-6l-9-2c-2 0-4 1-5 2l-3 3c-7-4-12-9-16-16l3-3c1-1 2-3 2-5l-2-9c-1-3-3-5-6-5z" fill="#fff"/></g>';startY+=24;}
+  if(o.kind==='play'){motif='<g transform="translate('+(w/2)+','+(h/2)+')"><circle r="46" fill="rgba(0,0,0,.45)"/><path d="M-14 -22 22 0 -14 22z" fill="#fff"/></g>';}
+  var label=o.label?('<text x="36" y="'+(h-40)+'" font-family="Arial" font-size="'+(w<300?20:26)+'" font-weight="800" fill="#fff" opacity=".92">'+esc(o.label)+'</text>'):'';
+  var chip='<g transform="translate(34,40)"><rect width="'+(w<300?112:150)+'" height="'+(w<300?34:42)+'" rx="'+(w<300?17:21)+'" fill="rgba(255,255,255,.18)"/>'+
+    '<text x="'+(w<300?56:75)+'" y="'+(w<300?23:28)+'" font-family="Arial" font-size="'+(w<300?16:20)+'" font-weight="800" fill="#fff" text-anchor="middle">AI Agents</text></g>';
+  var txt=(o.kind==='play')?'':lines.map(function(l,i){return '<text x="'+(w/2)+'" y="'+(startY+i*lh)+'" font-family="Arial,Helvetica" font-size="'+fs+'" font-weight="800" fill="#fff" text-anchor="middle">'+esc(l)+'</text>';}).join('');
+  return uri('<svg xmlns="http://www.w3.org/2000/svg" width="'+w+'" height="'+h+'"><defs>'+
+    '<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+p[0]+'"/><stop offset="1" stop-color="'+p[1]+'"/></linearGradient>'+
+    '<pattern id="dot" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.4" fill="#fff" opacity=".08"/></pattern></defs>'+
+    '<rect width="'+w+'" height="'+h+'" fill="url(#bg)"/><rect width="'+w+'" height="'+h+'" fill="url(#dot)"/>'+
+    motif+txt+chip+label+'</svg>');
+}
+function star(x,y,r,c){var p=[];for(var i=0;i<10;i++){var a=Math.PI/5*i-Math.PI/2,rr=i%2?r*.45:r;p.push((x+rr*Math.cos(a)).toFixed(1)+','+(y+rr*Math.sin(a)).toFixed(1));}return '<polygon points="'+p.join(' ')+'" fill="'+c+'"/>';}
+
+function banner(){return uri('<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="200"><defs><linearGradient id="b" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0f172a"/><stop offset="1" stop-color="#1e3a8a"/></linearGradient></defs>'+
+  '<rect width="1280" height="200" fill="url(#b)"/>'+
+  '<g opacity=".5">'+[0,1,2,3,4,5,6,7].map(function(i){return '<circle cx="'+(120+i*150)+'" cy="100" r="'+(8+i*3)+'" fill="none" stroke="#3b82f6" stroke-width="2"/>';}).join('')+'</g>'+
+  '<text x="64" y="92" font-family="Arial" font-size="42" font-weight="800" fill="#fff">AI Agents</text>'+
+  '<text x="64" y="132" font-family="Arial" font-size="24" fill="#93c5fd">Answer every call. Book every job. 24/7.</text></svg>');}
+
+/* ---------- DATA ---------- */
+var IG_GRID=[
+  {pal:'dark',kind:'stat',title:'2,346',label:'cold emails → 1 reply',cap:'Cold outreach is broken. The warmest leads are the ones who already tried your demo — and nobody follows up. Swipe to see the fix. 👀',likes:'3,204',cmts:[['mike_apexplumbing','this is painfully accurate 😅'],['hvac_jenna','needed this today'],['askaiagents','the 10-minute window is everything ⏱️']],time:'2 DAYS AGO'},
+  {pal:'green',kind:'stars',title:'"9 jobs booked while I was on a roof."',label:'Apex Plumbing',cap:'⭐⭐⭐⭐⭐ Mike runs a 4-truck plumbing crew. AI Agents answered 27 calls last week and booked 9 — zero missed. #plumbinglife',likes:'1,540',cmts:[['mike_apexplumbing','still can’t believe it 🙌'],['leadgen_sara','what’s the setup time?'],['askaiagents','@leadgen_sara about 7 minutes 😉']],time:'4 DAYS AGO'},
+  {pal:'blue',kind:'call',title:'Booked in 38 seconds',label:'Live demo',cap:'Watch AI Agents answer, qualify, and book a real appointment in under a minute. Sound on 🔊',likes:'2,891',cmts:[['electricpro_dave','the voice is wild'],['dentaldesk_amy','wait it does scheduling too?'],['askaiagents','@dentaldesk_amy yep — straight into your calendar 📅']],time:'5 DAYS AGO'},
+  {pal:'amber',kind:'card',title:'The 10-minute window',label:'Why speed wins',cap:'Leads contacted within 10 minutes convert 3–5x higher. After 30 min they cool fast. AI Agents never sleeps on a lead.',likes:'1,102',cmts:[['growthmark','3-5x is no joke'],['askaiagents','speed is the whole moat 🚀']],time:'1 WEEK AGO'},
+  {pal:'pink',kind:'card',title:'Tu agente habla español',label:'Bilingual native',cap:'No translations — native Spanish from the first hello. 🇲🇽 Atiende cada llamada, agenda cada cita.',likes:'1,876',cmts:[['rosa_hvac_tx','por fin 🙌'],['askaiagents','para los negocios que lo necesitan 💙']],time:'1 WEEK AGO'},
+  {pal:'teal',kind:'stat',title:'0',label:'missed calls last month',cap:'From 31% missed → 0%. Every ring answered, day or night. That’s the difference between a booked job and a competitor’s job.',likes:'2,233',cmts:[['roofright_co','0% is the dream'],['askaiagents','it’s the new baseline ✅']],time:'2 WEEKS AGO'},
+  {pal:'violet',kind:'card',title:'Meet the humans behind the agents',label:'Team',cap:'We obsess over one thing: every call answered like your best employee on their best day. 👋',likes:'987',cmts:[['fan_account','great team!'],['askaiagents','❤️']],time:'2 WEEKS AGO'},
+  {pal:'slate',kind:'card',title:'Setup in 7 minutes',label:'Walkthrough',cap:'Connect your number, pick your voice, set your booking rules. Done. Full walkthrough on YouTube.',likes:'1,344',cmts:[['newcustomer_kev','did it in 6 😎'],['askaiagents','speedrun 🏁']],time:'3 WEEKS AGO'},
+  {pal:'green',kind:'stars',title:'"Booked 5 patients overnight."',label:'BrightSmile Dental',cap:'⭐⭐⭐⭐⭐ After-hours used to go to voicemail. Now it books. Amy’s front desk wakes up to a full schedule.',likes:'1,690',cmts:[['dentaldesk_amy','game changer'],['askaiagents','overnight bookings hit different 🌙']],time:'3 WEEKS AGO'},
+  {pal:'blue',kind:'call',title:'Objection handled, live',label:'"How much?"',cap:'It quotes, reassures, and still books the call. Watch how it handles the #1 question on every call.',likes:'1,455',cmts:[['salescoach_t','clean rebuttal'],['askaiagents','reads the signal, then books 🎯']],time:'4 WEEKS AGO'},
+  {pal:'amber',kind:'stat',title:'24/7',label:'always answering',cap:'Nights, weekends, holidays, the lunch rush. AI Agents is the employee that never calls in sick.',likes:'1,209',cmts:[['hvac_jenna','no PTO 😂'],['askaiagents','built different 💪']],time:'5 WEEKS AGO'},
+  {pal:'pink',kind:'card',title:'From missed call to booked job',label:'Before / After',cap:'Same lead. Two worlds. One has a voicemail nobody checks. The other has a confirmed appointment.',likes:'1,612',cmts:[['fieldservice_pro','the contrast 👀'],['askaiagents','this is the whole pitch 🙂']],time:'6 WEEKS AGO'}
+];
+
+var YT_VIDS=[
+  {pal:'dark',title:'I Let an AI Answer My Plumbing Calls for 30 Days (Results)',dur:'14:22',views:'48K views',ago:'2 weeks ago'},
+  {pal:'blue',kind:'call',title:'AI Agents Live Demo — Booking a Job in 38 Seconds',dur:'2:41',views:'23K views',ago:'3 weeks ago'},
+  {pal:'green',title:'How HVAC Companies Use AI to Never Miss a Call',dur:'9:08',views:'11K views',ago:'1 month ago'},
+  {pal:'slate',title:'Full Setup Walkthrough (7 Minutes, Start to Finish)',dur:'7:33',views:'8.9K views',ago:'1 month ago'},
+  {pal:'pink',title:'Spanish-Speaking AI Agent Demo — Atiende en Español',dur:'4:12',views:'14K views',ago:'1 month ago'},
+  {pal:'amber',title:'Real Customer Story: 9 Jobs Booked in One Week',dur:'6:50',views:'19K views',ago:'2 months ago'},
+  {pal:'violet',title:'Can AI Handle "How Much Does It Cost?" — Objection Test',dur:'5:27',views:'7.2K views',ago:'2 months ago'},
+  {pal:'teal',title:'After-Hours Calls: Voicemail vs. AI Agents (Side by Side)',dur:'8:15',views:'10K views',ago:'3 months ago'}
+];
+var YT_SHORTS=[
+  {pal:'blue',title:'POV: your phone never goes to voicemail 📞',v:'212K views'},
+  {pal:'green',title:'0 missed calls this month 😮',v:'140K views'},
+  {pal:'pink',title:'Tu agente contesta en español 🇲🇽',v:'98K views'},
+  {pal:'amber',title:'Booked while he was on a ladder 🪜',v:'176K views'},
+  {pal:'violet',title:'It handled the price objection 👀',v:'64K views'},
+  {pal:'dark',title:'7-minute setup speedrun ⏱️',v:'51K views'}
+];
+
+var LI_POSTS=[
+  {who:'AI Agents',sub:'4,127 followers',time:'1d',logo:true,
+   text:'We just crossed 1,000,000 calls answered. 🎉\n\nA million times, a home-service business didn’t miss a lead because a human couldn’t pick up. Nights, weekends, the lunch rush — every call got a real conversation and, when it mattered, a booked job.\n\nThank you to the plumbers, HVAC techs, electricians, and dental offices who trust us with their front desk.',
+   tag:'#AI #SmallBusiness #Milestone',img:{pal:'dark',kind:'stat',title:'1,000,000',label:'calls answered'},likes:'1,284',cmts:'96',reps:'141'},
+  {who:'AI Agents',sub:'4,127 followers',time:'4d',logo:true,
+   text:'Case study: Apex Plumbing went from 31% missed calls to 0% in two weeks.\n\nThe owner, Mike, runs four trucks and couldn’t answer the phone mid-job. AI Agents now handles overflow and after-hours — 27 calls last week, 9 booked. Full breakdown in the comments. 👇',
+   tag:'#CaseStudy #HomeServices',img:{pal:'green',kind:'stars',title:'31% missed → 0%',label:'Apex Plumbing'},likes:'742',cmts:'58',reps:'63'},
+  {who:'AI Agents',sub:'4,127 followers',time:'1w',logo:true,
+   text:'We’re hiring a Customer Success Lead (remote, US). 🚀\n\nIf you’ve worked with home-service businesses and love turning a great product into great outcomes, we want to talk. Link in comments.',
+   tag:'#Hiring #RemoteJobs #CustomerSuccess',img:{pal:'blue',kind:'card',title:'We’re hiring',label:'Customer Success Lead'},likes:'431',cmts:'37',reps:'88'},
+  {who:'AI Agents',sub:'4,127 followers',time:'2w',logo:true,
+   text:'Speed is the whole game.\n\nLeads contacted within 10 minutes convert 3–5x higher than those contacted an hour later. Most teams know this. Almost none can act on it 24/7. That’s the gap AI Agents closes.',
+   tag:'#Sales #LeadResponse',img:{pal:'amber',kind:'card',title:'The 10-minute window',label:'Why speed wins'},likes:'968',cmts:'74',reps:'120'}
+];
+
+var TT=[
+  {pal:'blue',title:'POV: your phone never goes to voicemail again',v:'1.2M'},
+  {pal:'green',title:'He booked 9 jobs from his roof 🪜',v:'842K'},
+  {pal:'pink',title:'Mi agente contesta en español 🇲🇽',v:'410K'},
+  {pal:'amber',title:'0 missed calls. watch this.',v:'1.6M'},
+  {pal:'violet',title:'AI vs the "how much?" objection',v:'305K'},
+  {pal:'dark',title:'7-minute setup, no joke ⏱️',v:'221K'},
+  {pal:'teal',title:'after-hours calls = booked patients 🌙',v:'533K'},
+  {pal:'slate',title:'the receptionist that never sleeps',v:'690K'}
+];
+
+/* ---------- RENDER ---------- */
+document.getElementById('igAva').style.backgroundImage=avatar('#1e3a8a');
+['ytAva','liLogo','ttAva','mA'].forEach(function(id){document.getElementById(id).style.backgroundImage=avatar('#1e3a8a');});
+document.getElementById('ytBanner').style.backgroundImage=banner();
+document.getElementById('liCover').style.backgroundImage=banner();
+
+// IG highlights
+var HL=[['Demos','blue'],['Wins','green'],['Setup','slate'],['Reviews','amber'],['Español','pink'],['Team','violet']];
+document.getElementById('igHl').innerHTML=HL.map(function(h){
+  return '<div class="h"><div class="ring"><div style="background-image:'+tile({pal:h[1],w:200,h:200,title:h[0],fs:30,cpl:9})+'"></div></div><small>'+h[0]+'</small></div>';}).join('');
+
+// IG grid
+document.getElementById('igGrid').innerHTML=IG_GRID.map(function(p,i){
+  return '<div class="gtile" data-i="'+i+'" style="background-image:'+tile(p)+'">'+
+    (i<3?'<svg class="multi" width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M16 2H4a2 2 0 00-2 2v12h2V4h12zM20 6H8a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V8a2 2 0 00-2-2z"/></svg>':'')+
+    '<div class="ov"><span><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 21s-7-4.5-9.5-9C1 9 2.5 5.5 6 5.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 6.5C19 16.5 12 21 12 21z"/></svg> '+p.likes+'</span>'+
+    '<span><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M21 11.5a8.5 8.5 0 01-12.6 7.4L3 21l2.1-5.4A8.5 8.5 0 1121 11.5z"/></svg> '+p.cmts.length+'</span></div></div>';
+}).join('');
+
+// YT
+document.getElementById('ytGrid').innerHTML=YT_VIDS.map(function(v){
+  return '<div class="vid"><div class="vthumb" style="background-image:'+tile({pal:v.pal,kind:v.kind||'play',title:v.kind==='call'?v.title:'',w:480,h:270,cpl:18,fs:30})+'"><span class="dur">'+v.dur+'</span></div>'+
+    '<h3>'+esc(v.title)+'</h3><div class="m">'+v.views+' · '+v.ago+'</div></div>';
+}).join('');
+document.getElementById('ytShorts').innerHTML=YT_SHORTS.map(function(s){
+  return '<div class="short"><div class="sthumb" style="background-image:'+tile({pal:s.pal,w:270,h:480,title:s.title,fs:28,cpl:13})+'"><span class="v">▶ '+s.v+'</span></div><p>'+esc(s.title)+'</p></div>';
+}).join('');
+
+// LI
+document.getElementById('liFeed').innerHTML=LI_POSTS.map(function(p){
+  return '<div class="card post"><div class="ph"><div class="pa" style="background-image:'+avatar('#0a66c2')+'"></div>'+
+    '<div><div class="pn">'+esc(p.who)+' <svg class="verified" viewBox="0 0 24 24" fill="#0a66c2"><path d="M12 2l2.4 1.8 3-.2 1 2.8L21 8l-.9 2.9L21 13.8l-2.6 1.5-1 2.8-3-.2L12 19.8l-2.4-1.8-3 .2-1-2.8L3 13.8 3.9 11 3 8l2.6-1.5 1-2.8 3 .2z"/><path d="M10.4 14.2l-2-2 1.2-1.2.8.8 3-3 1.2 1.2z" fill="#fff"/></svg></div>'+
+    '<div class="pm">'+p.sub+'</div><div class="pm">'+p.time+' · 🌐</div></div></div>'+
+    '<div class="pt">'+esc(p.text)+'\n<span class="tag">'+esc(p.tag)+'</span></div>'+
+    '<div class="pimg" style="background-image:'+tile({pal:p.img.pal,kind:p.img.kind,title:p.img.title,label:p.img.label,w:1200,h:628,cpl:18,fs:64})+'"></div>'+
+    '<div class="react"><span class="emo"><i style="background:#0a66c2;color:#fff">👍</i><i style="background:#df704d;color:#fff">❤</i><i style="background:#f5bb5c;color:#fff">💡</i></span>&nbsp;'+p.likes+' · '+p.cmts+' comments · '+p.reps+' reposts</div>'+
+    '<div class="bar"><b>👍 Like</b><b>💬 Comment</b><b>🔁 Repost</b><b>➤ Send</b></div></div>';
+}).join('');
+
+// TT
+document.getElementById('ttGrid').innerHTML=TT.map(function(t){
+  return '<div class="tt-tile" style="background-image:'+tile({pal:t.pal,w:300,h:533,title:t.title,fs:26,cpl:14})+'"><div class="cap">'+esc(t.title)+'</div><span class="v">▶ '+t.v+'</span></div>';
+}).join('');
+
+/* ---------- TAB SWITCHING ---------- */
+var tabs=document.querySelectorAll('.tab');
+tabs.forEach(function(t){t.addEventListener('click',function(){
+  tabs.forEach(function(x){x.classList.remove('active');});t.classList.add('active');
+  document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('show');});
+  document.getElementById('p-'+t.dataset.p).classList.add('show');
+  window.scrollTo({top:0,behavior:'smooth'});
+});});
+
+/* ---------- IG MODAL ---------- */
+var modal=document.getElementById('modal');
+document.getElementById('igGrid').addEventListener('click',function(e){
+  var t=e.target.closest('.gtile');if(!t)return;var p=IG_GRID[+t.dataset.i];
+  document.getElementById('mImg').style.backgroundImage=tile(p);
+  document.getElementById('mLikes').textContent=p.likes+' likes';
+  document.getElementById('mTime').textContent=p.time;
+  document.getElementById('mCom').innerHTML='<div class="c"><b>askaiagents</b>'+esc(p.cap)+'</div>'+
+    p.cmts.map(function(c){return '<div class="c"><b>'+esc(c[0])+'</b>'+esc(c[1])+'</div>';}).join('');
+  modal.classList.add('show');
+});
+document.getElementById('modalX').addEventListener('click',function(){modal.classList.remove('show');});
+modal.addEventListener('click',function(e){if(e.target===modal)modal.classList.remove('show');});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')modal.classList.remove('show');});
+</script>
+</body>
+</html>
