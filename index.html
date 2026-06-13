@@ -195,6 +195,8 @@
     .video-preview h3{font-family:var(--serif);color:var(--cream-hi);font-size:clamp(1.8rem,4vw,3rem);line-height:1.02}
     .video-preview p{margin-top:10px;color:#C7D6CC}
     .video-status{display:inline-flex;margin-top:16px;padding:7px 11px;border-radius:999px;background:rgba(251,247,238,.12);border:1px solid rgba(251,247,238,.22);color:var(--mint);font-size:.76rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    .video-link{display:inline-flex;margin-top:12px;color:var(--cream-hi);font-size:.9rem;font-weight:800;text-decoration:underline;text-underline-offset:4px}
+    .video-link:hover{color:var(--mint)}
     .video-shell.is-loaded .video-preview{display:none}
 
     .system-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
@@ -423,10 +425,11 @@
           <div class="video-shell" data-youtube-id="1fkduPugdfk" data-title="Demo Desk walkthrough">
             <div class="video-preview">
               <div class="video-preview-inner">
-                <button class="play-button" type="button" aria-label="Demo Desk walkthrough video coming soon" disabled>▶</button>
+                <button class="play-button" type="button" aria-label="Watch Demo Desk walkthrough video">▶</button>
                 <h3>Demo Desk walkthrough</h3>
                 <p>60–75 seconds: the problem, the insight, live routing, proof, and close.</p>
-                <span class="video-status">Walkthrough coming soon</span>
+                <span class="video-status">Watch walkthrough</span>
+                <a class="video-link" href="https://youtu.be/1fkduPugdfk" target="_blank" rel="noopener">Open on YouTube</a>
               </div>
             </div>
           </div>
