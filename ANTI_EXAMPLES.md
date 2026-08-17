@@ -189,7 +189,7 @@ Si no está claro, te puedo mostrar la versión de 5 minutos en una llamada. Sin
 
 ---
 
-## Why These Matter for Competition Judging
+## Why These Matter
 
 ### The Pattern
 All three anti-examples show a **lack of discipline.** The Demo Desk wins because it:
@@ -202,7 +202,7 @@ All three anti-examples show a **lack of discipline.** The Demo Desk wins becaus
 6. **Escalates with clarity** (back_to field prevents silent loops)
 
 ### Market Signal
-Prospects see entries that say "we follow up" and entries that say "we follow up WITH DISCIPLINE." The Demo Desk is the latter.
+Most follow-up systems say "we follow up." The Demo Desk follows up with discipline.
 
 Spray-and-pray looks easy until you see the cost:
 - High unsubscribe rates
